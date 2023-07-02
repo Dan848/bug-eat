@@ -87,42 +87,42 @@
                             <a class="nav-link collapsed" href="{{ route('admin.restaurants.index') }}"
                                 data-bs-toggle="collapse" data-bs-target="#collapserestaurants" aria-expanded="false"
                                 aria-controls="collapserestaurants">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
-                                Personaggi
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
+                                Ristoranti
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapserestaurants" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.restaurants.index') }}">Elenco
-                                        Personaggi</a>
-                                    <a class="nav-link" href="{{ route('admin.restaurants.create') }}">Crea PG</a>
+                                        Ristoranti</a>
+                                    <a class="nav-link" href="{{ route('admin.restaurants.create') }}">Crea Ristorante</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                 data-bs-target="#collapseType" aria-expanded="false" aria-controls="collapseType">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-hat-wizard"></i></div>
-                                Classi
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                                Prodotti
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseType" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.products.index') }}">Elenco Classi</a>
-                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Classe</a>
+                                    <a class="nav-link" href="{{ route('admin.products.index') }}">Elenco Prodotti</a>
+                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Prodotti</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                 data-bs-target="#collapseItem" aria-expanded="false" aria-controls="collapseItem">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
-                                Oggetti
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-store"></i></div>
+                                Tipi
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseItem" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Oggetti</a>
-                                    <a class="nav-link" href="{{ route('admin.types.create') }}">Crea Oggetto</a>
+                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Tipi</a>
+                                    <a class="nav-link" href="{{ route('admin.types.create') }}">Crea Tipi</a>
                                 </nav>
                             </div>
                         </div>
