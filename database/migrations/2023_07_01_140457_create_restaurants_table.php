@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
+
+            $table->string("name", 100)->unique();
+            $table->string("slug", 255)->unique();
+            $table->string("email", 255)->unique();
+            $table->string("p_iva", 11)->unique();
+            $table->string("phone_num", 20)->unique();
+            $table->text("image");
+            $table->string("address", 255);
+            //Foreign key
+            $table->unsignedBigInteger("user_id");
+            $table->foreign("user_id")->references("id")->on("users")->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
