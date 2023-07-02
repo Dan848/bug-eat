@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class RestaurantController extends Controller
 {
@@ -16,7 +18,11 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants = Restaurant::all();
+        if (!Auth::check()) {
+            return redirect()->route('/');
+        }
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->with('types')->get();
         return view('admin.restaurants.index', compact('restaurants'));
     }
 

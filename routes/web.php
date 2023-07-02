@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -21,10 +22,11 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(function ()
-{
+Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(function () {
     Route::get("/", [DashboardController::class, "index"])->name("dashboard");
     Route::resource('restaurants', RestaurantController::class)->parameters(["restaurants" => "restaurant:slug"]);
+    Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
+    Route::resource('types', TypeController::class)->parameters(["types" => "type:slug"]);
 });
 
 // Route::middleware('auth')->group(function () {
@@ -33,4 +35,4 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

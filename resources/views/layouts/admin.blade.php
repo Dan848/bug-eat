@@ -84,19 +84,19 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">File</div>
-                            <a class="nav-link collapsed" href="{{ route('admin.characters.index') }}"
-                                data-bs-toggle="collapse" data-bs-target="#collapsecharacters" aria-expanded="false"
-                                aria-controls="collapsecharacters">
+                            <a class="nav-link collapsed" href="{{ route('admin.restaurants.index') }}"
+                                data-bs-toggle="collapse" data-bs-target="#collapserestaurants" aria-expanded="false"
+                                aria-controls="collapserestaurants">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-people-group"></i></div>
                                 Personaggi
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapsecharacters" aria-labelledby="headingOne"
+                            <div class="collapse" id="collapserestaurants" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.characters.index') }}">Elenco
+                                    <a class="nav-link" href="{{ route('admin.restaurants.index') }}">Elenco
                                         Personaggi</a>
-                                    <a class="nav-link" href="{{ route('admin.characters.create') }}">Crea PG</a>
+                                    <a class="nav-link" href="{{ route('admin.restaurants.create') }}">Crea PG</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -108,8 +108,8 @@
                             <div class="collapse" id="collapseType" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Classi</a>
-                                    <a class="nav-link" href="{{ route('admin.types.create') }}">Crea Classe</a>
+                                    <a class="nav-link" href="{{ route('admin.products.index') }}">Elenco Classi</a>
+                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Classe</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -121,8 +121,8 @@
                             <div class="collapse" id="collapseItem" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.items.index') }}">Elenco Oggetti</a>
-                                    <a class="nav-link" href="{{ route('admin.items.create') }}">Crea Oggetto</a>
+                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Oggetti</a>
+                                    <a class="nav-link" href="{{ route('admin.types.create') }}">Crea Oggetto</a>
                                 </nav>
                             </div>
                         </div>
