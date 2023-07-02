@@ -3,81 +3,81 @@
 return [
     'users' => [
         [
-            'name' => 'Alice',
-            'surname' => 'Smith',
-            'email' => 'alicesmith@mail.com',
+            'name' => 'Clelia',
+            'surname' => 'Fradella',
+            'email' => 'cleliafradella@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Bob',
-            'surname' => 'Johnson',
-            'email' => 'bobjohnson@mail.com',
+            'name' => 'Adriano',
+            'surname' => 'Grimaldi',
+            'email' => 'adrianogrimaldi@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Charlie',
-            'surname' => 'Brown',
-            'email' => 'charliebrown@mail.com',
+            'name' => 'Marco',
+            'surname' => 'Acciarri',
+            'email' => 'marcoacciarri@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'David',
-            'surname' => 'Taylor',
-            'email' => 'davidtaylor@mail.com',
+            'name' => 'Bryan',
+            'surname' => 'Lucchetta',
+            'email' => 'bryanlucchetta@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Emma',
-            'surname' => 'Miller',
-            'email' => 'emmamiller@mail.com',
+            'name' => 'Samuel',
+            'surname' => 'Panicucci',
+            'email' => 'samuelpanicucci@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Frank',
-            'surname' => 'Anderson',
-            'email' => 'frankanderson@mail.com',
+            'name' => 'Gabriele',
+            'surname' => 'Magni',
+            'email' => 'gabrielemagni@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Grace',
-            'surname' => 'Thomas',
-            'email' => 'gracethomas@mail.com',
+            'name' => 'Giuliano',
+            'surname' => 'Gostifini',
+            'email' => 'giulianogostifini@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Henry',
-            'surname' => 'Clark',
-            'email' => 'henryclark@mail.com',
+            'name' => 'Giuseppe',
+            'surname' => 'Funicello',
+            'email' => 'giuseppefunicello@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Isabella',
-            'surname' => 'Walker',
-            'email' => 'isabellawalker@mail.com',
+            'name' => 'Valeria',
+            'surname' => 'Marta',
+            'email' => 'valeriamarta@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Jack',
-            'surname' => 'Hall',
-            'email' => 'jackhall@mail.com',
+            'name' => 'Marta',
+            'surname' => 'Seminara',
+            'email' => 'martaseminara@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Olivia',
-            'surname' => 'Moore',
-            'email' => 'oliviamoore@mail.com',
+            'name' => 'Margherita',
+            'surname' => 'Ghidini',
+            'email' => 'margheritaghidini@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Noah',
-            'surname' => 'Gonzalez',
-            'email' => 'noahgonzalez@mail.com',
+            'name' => 'Marilena',
+            'surname' => 'Costa',
+            'email' => 'marilenacosta@mail.com',
             'password' => 'bugmaker'
         ],
         [
-            'name' => 'Sophia',
-            'surname' => 'Lee',
-            'email' => 'sophialee@mail.com',
+            'name' => 'Filippo',
+            'surname' => 'Mangione',
+            'email' => 'filippomangione@mail.com',
             'password' => 'bugmaker'
         ],
         [
