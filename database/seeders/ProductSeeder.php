@@ -29,9 +29,7 @@ class ProductSeeder extends Seeder
                         $newProduct->name = $data[0];
                         $newProduct->slug = Str::slug($newProduct->name, '-');
                         $newProduct->price = floatval($data[1]);
-                        if(isset($data[2])){
-                            $newProduct->description = $data[2] ? $data[2] : null;
-                        }
+                        $newProduct->description = isset($data[2]) && $data[2] ? $data[2] : null;
                         $newProduct->restaurant_id = $rest_id;
                         $newProduct->visible = $newProduct->price ? true : false;
                         $newProduct->save();
