@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+
+     protected $guarded = ["id"];
+
+      public function restaurants()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
 }

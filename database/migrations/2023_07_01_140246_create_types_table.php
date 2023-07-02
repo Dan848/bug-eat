@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string("name", 100)->unique();
             $table->string("slug", 255)->unique();
-            $table->text("images");
+            $table->text("image");
 
             $table->timestamps();
         });
