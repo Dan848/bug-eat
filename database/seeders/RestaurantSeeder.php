@@ -25,13 +25,10 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->email = $restaurant['email'];
             $newRestaurant->p_iva = $restaurant['p_iva'];
             $newRestaurant->phone_num = $restaurant['phone_num'];
-            $newRestaurant->user_id = $restaurant['user_id'];
             $newRestaurant->address = $restaurant['address'];
-            $newRestaurant->type_1 = $restaurant['types'][0];
-            $newRestaurant->type_2 = $restaurant['types'][1];
             $newRestaurant->user_id = $restaurant['user_id'];
-
             $newRestaurant->save();
+            $newRestaurant->types()->attach($restaurant['types']);
         }
     }
 }

@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
 
             $table->string("name", 100)->unique();
-            $table->string("type_1");
-            $table->string("type_2");
             $table->string("slug", 255)->unique();
             $table->string("email", 255)->unique();
             $table->string("p_iva", 11)->unique();

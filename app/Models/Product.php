@@ -11,7 +11,7 @@ class Product extends Model
 
      protected $guarded = ["id"];
 
-      public function restaurants()
+      public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
     }

@@ -14,10 +14,10 @@ class UserSeeder extends Seeder
         foreach($users as $user)
         {
             $newUser  = new User();
-            $newUser-> name = $user['name'];
-            $newUser-> surname = $user['surname'];
-            $newUser-> email = $user['email'];
-            $newUser-> password = $user['password'];
+            $newUser->name = $user['name'];
+            $newUser->surname = $user['surname'];
+            $newUser->email = $user['email'];
+            $newUser->password = $user['password'];
 
             $newUser->save();
         }

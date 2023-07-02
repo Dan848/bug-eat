@@ -11,14 +11,19 @@ class Restaurant extends Model
 
     protected $guarded = ["id"];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
     public function types()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsToMany(Type::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
 }

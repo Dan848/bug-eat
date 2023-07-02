@@ -116,8 +116,7 @@ return [
             'email' => 'avagarcia@mail.com',
             'password' => 'bugmaker'
         ],
-
-        // boolean users
+        // Boolean Users
         [
             'name' => 'Chiara',
             'surname' => 'Sucato',
@@ -327,63 +326,63 @@ return [
     'types' => [
         [
             'name' => 'Americano',
-            'image' => 'americano.png',
+            'image' => '/img/types/americano.png',
         ],
         [
             'name' => 'Cinese',
-            'image' => 'cinese.png',
+            'image' => '/img/types/cinese.png',
         ],
         [
             'name' => 'Dolci',
-            'image' => 'dolci.png',
+            'image' => '/img/types/dolci.png',
         ],
         [
             'name' => 'Fritti',
-            'image' => 'fritti.png',
+            'image' => '/img/types/fritti.png',
         ],
         [
             'name' => 'Gelato',
-            'image' => 'gelato.png',
+            'image' => '/img/types/gelato.png',
         ],
         [
             'name' => 'Giapponese',
-            'image' => 'giapponese.png',
+            'image' => '/img/types/giapponese.png',
         ],
         [
             'name' => 'Hamburger',
-            'image' => 'hamburger.png',
+            'image' => '/img/types/hamburger.png',
         ],
         [
             'name' => 'Italiano',
-            'image' => 'italiano.png',
+            'image' => '/img/types/italiano.png',
         ],
         [
             'name' => 'Kebab',
-            'image' => 'kebab.png',
+            'image' => '/img/types/kebab.png',
         ],
         [
             'name' => 'Messicano',
-            'image' => 'messicano.png',
+            'image' => '/img/types/messicano.png',
         ],
         [
             'name' => 'Panini',
-            'image' => 'panini.png',
+            'image' => '/img/types/panini.png',
         ],
         [
             'name' => 'Pinsa',
-            'image' => 'pinsa.png',
+            'image' => '/img/types/pinsa.png',
         ],
         [
             'name' => 'Pizza',
-            'image' => 'pizza.png',
+            'image' => '/img/types/pizza.png',
         ],
         [
             'name' => 'Poke',
-            'image' => 'poke.png',
+            'image' => '/img/types/poke.png',
         ],
         [
             'name' => 'Pollo',
-            'image' => 'pollo.png',
+            'image' => '/img/types/pollo.png',
         ],
     ],
 

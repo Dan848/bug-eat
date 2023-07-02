@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
+use Illuminate\Support\Str;
 
 class ProductSeeder extends Seeder
 {
@@ -14,19 +16,33 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        $products = config('dataseeder.products');
-        foreach($products as $product)
-        {
-            $newProduct = new Product();
-            $newProduct->name = $product['name'];
-            $newProduct->slug = Str::slug($newProduct->name, '-');
-            $newProduct->price = $product['price'];
-            $newProduct->description = $product['description'];
-            $newProduct->image = $product['image'];
-            $newProduct->visible = $product['visible'];
-            $newProduct->restaurant_id = $restaurant['restaurant_id'];
-
-            $newProduct->save();
-        }
+        $restaurants = config('dataseeder.restaurants');
+        $rest_id = 1;
+        foreach ($restaurants as $restaurant){
+            $randomindex = random_int(0, count($restaurant['types']) - 1);
+            $menu = $restaurant['types'][$randomindex];
+            $row = 0;
+            if (($handle = fopen(public_path("seed_csv/products/$menu.csv"), 'r')) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
+                    if ($row > 0){
+                        $newProduct = new Product;
+                        $newProduct->name = $data[0];
+                        $newProduct->slug = Str::slug($newProduct->name, '-');
+                        $newProduct->price = floatval($data[1]);
+                        if(isset($data[2])){
+                            $newProduct->description = $data[2] ? $data[2] : null;
+                        }
+                        $newProduct->restaurant_id = $rest_id;
+                        $newProduct->visible = $newProduct->price ? true : false;
+                        $newProduct->save();
+                        $newProduct->slug = Str::slug($newProduct->name, '-') . "-" . $newProduct->id;
+                        $newProduct->save();
+                    }
+                    $row++;
+                }
+                fclose($handle);
+            }
+            $rest_id++;
+        };
     }
 }
