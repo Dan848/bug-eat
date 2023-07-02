@@ -30,6 +30,20 @@
                                                     </span>
                                                 @enderror
                                             </div>
+                                            <!-- Surname -->
+                                            <div class="form-floating mb-3">
+                                                <input id="surname" type="text"
+                                                    class="form-control @error('surname') is-invalid @enderror"
+                                                    name="surname" value="{{ old('surname') }}" required
+                                                    autocomplete="surname" autofocus>
+                                                <label for="inputFirstName">{{ __('Surname') }}</label>
+
+                                                @error('surname')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                             <!-- Email -->
                                             <div class="form-floating mb-3">
                                                 <input id="email" type="email"

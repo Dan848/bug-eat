@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +24,7 @@ Route::get('/', function () {
 Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(function ()
 {
     Route::get("/", [DashboardController::class, "index"])->name("dashboard");
-    Route::resource('characters', CharacterController::class)->parameters(["characters" => "character:slug"]);
-    Route::resource('items', ItemController::class)->parameters(["items" => "item:slug"]);
-    Route::resource('types',TypeController::class)->parameters(["types" => "type:slug"]);
+    Route::resource('restaurants', RestaurantController::class)->parameters(["restaurants" => "restaurant:slug"]);
 });
 
 // Route::middleware('auth')->group(function () {
