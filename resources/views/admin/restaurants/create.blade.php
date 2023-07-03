@@ -20,9 +20,10 @@
         <div class="row">
             <div class="col">
                 <form class="container form-crud" method="POST" action="{{ route('admin.restaurants.store') }}"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="create_form">
                     @csrf
                     {{-- Errors Section --}}
+                    <div class="alert alert-danger mt-2 d-none" id="message_box"></div>
                     @if ($errors->any())
                         <div class="alert alert-danger mt-2">
                             @error('name')
