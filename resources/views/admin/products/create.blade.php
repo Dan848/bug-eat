@@ -63,29 +63,33 @@
                                 <label class="mb-5" for="image">Immagine</label>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <!-- DESCRIPTIONS -->
+                    <div class="row">
+                        <!-- DESCRIPTIONS -->
+                        <div class="col-12">
                             <div class="form-floating mb-3">
                                 <textarea id="type" name="description" class="form-control" id="description" rows="5">{{ old('description') }}</textarea>
                                 <label for="description">Descrizione</label>
                             </div>
                         </div>
-                        {{-- <!-- IMAGE -->
+                    </div>
+
+                    <!-- VISIBLE -->
                     <div class="display-grid mb-3 mt-4">
                         <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                             <label class="form-check-label" for="flexSwitchCheckDefault">No/Si</label>
                         </div>
-                    </div> --}}
+                    </div>
 
 
-                        <!-- SAVE & RESET -->
-                        <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
-                            <button class="btn btn-secondary me-2" type="reset">Reset</button>
-                            <button class="btn btn-primary ms-2" type="submit">Crea</button>
-                        </div>
+                    <!-- SAVE & RESET -->
+                    <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                        <button class="btn btn-secondary me-2" type="reset">Reset</button>
+                        <button class="btn btn-primary ms-2" type="submit">Crea</button>
+                    </div>
                 </form>
             </div>
         </div>
