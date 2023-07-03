@@ -92,21 +92,42 @@ class ProductController extends Controller
      *
      * @param  \App\Http\Requests\UpdateProductRequest  $request
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+        $data["slug"] = Str::slug($request->name, "-");
+
+        if ($request->hasFile("image")){
+            if ($product->image) {
+                Storage::delete($product->image);
+            }
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $product->update($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("types")){
+                $product->types()->sync($request->types);
+            }
+            else {
+                $product->sync([]);
+            }
+        return redirect()->route("admin.products.show",$product->slug)->with("message", "$product->name è stato modificato con successo");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
-        //
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+        $product->delete();
+        return redirect()->route("admin.products.index")->with("message", "$product->name è stato eliminato con successo");
     }
 }
