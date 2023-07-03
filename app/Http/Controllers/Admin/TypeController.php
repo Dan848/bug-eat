@@ -6,6 +6,8 @@ use App\Models\Type;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Restaurant;
 
 
 class TypeController extends Controller
@@ -51,7 +53,9 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('admin.types.show', compact('type'));
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->types()->where('type_id', $type->id);
+        return view('admin.types.show', compact('type', 'restaurants'));
     }
 
     /**
