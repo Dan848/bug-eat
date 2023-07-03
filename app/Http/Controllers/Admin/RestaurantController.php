@@ -37,7 +37,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.characters.create', compact('types', 'items'));
+        return view('admin.restaurants.create', compact('types'));
     }
 
     /**
@@ -84,7 +84,8 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $types = Type::all();
+        return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -96,7 +97,26 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->validated();
+        $data["slug"] = Str::slug($request->name, "-");
+
+        if ($request->hasFile("image")){
+            if ($restaurant->image) {
+                Storage::delete($restaurant->image);
+            }
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $restaurant->update($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("type")){
+                $restaurant->types()->sync($request->types);
+            }
+            else {
+                $restaurant->sync([]);
+            }
+        return redirect()->route("admin.restaurants.show",$restaurant->slug)->with("message", "$restaurant->name è stato modificato con successo");
     }
 
     /**
