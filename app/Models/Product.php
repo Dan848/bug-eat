@@ -9,9 +9,9 @@ class Product extends Model
 {
     use HasFactory;
 
-     protected $guarded = ["id"];
+    protected $guarded = ["id"];
 
-      public function restaurant()
+    public function restaurant()
     {
         return $this->belongsTo(Restaurant::class);
     }

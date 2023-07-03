@@ -34,8 +34,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->get();
         $products = Product::all();
-        return view('admin.products.create', compact('products'));
+        return view('admin.products.create', compact('products', 'restaurants'));
     }
 
     /**
@@ -46,14 +48,14 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $user_id = Auth::id();
-        $restaurant = Restaurant::where('user_id', $user_id)->first();
-        $restaurant_id = $restaurant->id;
+        // $restaurant = Restaurant::where('user_id', $user_id)->get();
+        // $restaurant_id = $restaurant->id;
 
         $data = $request->validated();
         //Add Slug
         $data["slug"] = Str::slug($request->name, "-");
         //Add User_id
-        $data["restaurant_id"] = $restaurant_id;
+        // $data["restaurant_id"] = $request->$restaurant->id;
         //Store Image
         if ($request->hasFile("image")) {
             $img_path = Storage::put("uploads", $request->image);
@@ -62,7 +64,7 @@ class ProductController extends Controller
         $newProduct = Product::create($data);
 
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index', $newProduct->slug);
     }
 
     /**

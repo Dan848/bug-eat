@@ -31,6 +31,9 @@
                             @error('price')
                                 <p>*{{ $message }}</p>
                             @enderror
+                            @error('visible')
+                                <p>*{{ $message }}</p>
+                            @enderror
                         </div>
                     @endif
                     <!-- NAME -->
@@ -67,7 +70,7 @@
                     </div>
 
                     <div class="row">
-                        <!-- DESCRIPTIONS -->
+                        <!-- DESCRIPTION -->
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <textarea id="type" name="description" class="form-control" id="description" rows="5">{{ old('description') }}</textarea>
@@ -82,18 +85,20 @@
                             <div class="display-grid mb-3">
                                 <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">No/Si</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="visible"
+                                        name="visible" value="1" {{ 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="visible">No/Si</label>
                                 </div>
                             </div>
                         </div>
                         <!-- RESTAURANTS -->
                         <div class="col-12 col-md-6">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select name="restaurant_id" id="restaurant_id" class="form-select"
+                                aria-label="Default select example">
+                                @foreach ($restaurants as $restaurant)
+                                    <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                @endforeach
+
                             </select>
                         </div>
                     </div>
