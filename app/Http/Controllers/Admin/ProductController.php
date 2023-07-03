@@ -6,23 +6,30 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Str;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->with('products')->first();
+        $restaurant_id = $restaurants->id;
+        $products = Product::where('restaurant_id', $restaurant_id)->paginate(10);
+        return view('admin.products.index', compact('products'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+
      */
     public function create()
     {
