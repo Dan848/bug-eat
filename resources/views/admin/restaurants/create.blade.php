@@ -110,8 +110,8 @@
                         @foreach ($types as $type)
                             <div class="col-6 col-md-2">
                                 <label class="image-radio">
-                                    <input type="radio" class="" name="image" id="image-{{ $type->id }}"
-                                        autocomplete="off">
+                                    <input type="radio" value="{{ $type->image }}" class="" name="image"
+                                        id="image-{{ $type->id }}" autocomplete="off">
                                     <img src="{{ $type->image }}" alt="{{ $type->name }}">
                                 </label>
                             </div>
