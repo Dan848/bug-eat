@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col">
                 <form class="container form-crud" method="POST"
-                    action="{{ route('admin.restaurants.update', $restaurant->slug) }}" enctype="multipart/form-data">
+                    action="{{ route('admin.restaurants.update', $restaurant) }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     {{-- Errors Section --}}
@@ -32,73 +32,91 @@
                             @error('email')
                                 <p>*{{ $message }}</p>
                             @enderror
-                            @error('p_iva')
-                                <p>*{{ $message }}</p>
-                            @enderror
                             @error('phone_num')
-                                <p>*{{ $message }}</p>
-                            @enderror
-                            @error('image')
                                 <p>*{{ $message }}</p>
                             @enderror
                             @error('address')
                                 <p>*{{ $message }}</p>
                             @enderror
+                            @error('p_iva')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('types[]')
+                                <p>*{{ $message }}</p>
+                            @enderror
                         </div>
                     @endif
-                    <!-- NAME/IMAGE -->
+                    <!-- NAME -->
                     <div class="row">
                         <!-- NAME -->
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input id="name" name="name" type="text"
+                                    class="form-control @error('name') is-invalid @enderror"
+                                    value="{{ $restaurant->name }}" max="100" required autofocus>
+                                <label for="name">Nome</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- EMAIL/PHONE_NUM -->
+                    <div class="row">
+                        <!-- EMAIL -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ $restaurant->name }}" required autofocus>
-                                <label for="name">Nome</label>
+                                <input id="email" name="email" type="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ $restaurant->email }}" max="255" required>
+                                <label for="email">Email</label>
                             </div>
                         </div>
                         <!-- PHONE NUMBER -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="phone_num" type="text"
-                                    class="form-control @error('phone_num') is-invalid @enderror" name="phone_num"
-                                    value="{{ $restaurant->phone_num }}" required autofocus min="9" max="20">
+                                <input id="phone_num" name="phone_num" type="text"
+                                    class="form-control @error('phone_num') is-invalid @enderror" required
+                                    value="{{ $restaurant->phone_num }}" min="9" max="20">
                                 <label class="mb-5" for="image">Telefono</label>
                             </div>
                         </div>
                     </div>
-                    <!-- EMAIL/P.IVA -->
+                    <!--ADDRESS/P_IVA -->
                     <div class="row">
-                        <!-- EMAIL -->
+                        <!-- ADDRESS -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ $restaurant->email }}" required autofocus>
-                                <label for="email">Email</label>
+                                <input id="address" name="address" type="text"
+                                    class="form-control @error('address') is-invalid @enderror"
+                                    value="{{ $restaurant->address }}" max="255" required>
+                                <label for="address">Indirizzo</label>
                             </div>
                         </div>
                         <!-- P.IVA -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="p_iva" type="text"
-                                    class="form-control @error('p_iva') is-invalid @enderror" name="p_iva"
-                                    value="{{ $restaurant->p_iva }}" required autofocus size="11">
+                                <input id="p_iva" name="p_iva" type="text"
+                                    class="form-control @error('p_iva') is-invalid @enderror"
+                                    value="{{ $restaurant->p_iva }}" required size="11">
                                 <label class="mb-5" for="p_iva">Partita Iva</label>
                             </div>
                         </div>
                     </div>
-                    <!--ADDRESS -->
-                    <div class="row">
-                        <!-- ADDRESS -->
-                        <div class="col-12 col-md-6">
-                            <div class="form-floating mb-3">
-                                <input id="address" type="text"
-                                    class="form-control @error('address') is-invalid @enderror" name="address"
-                                    value="{{ $restaurant->address }}" required autofocus>
-                                <label for="address">Indirizzo</label>
+                    <!-- IMAGE -->
+                    <div class="display-grid mb-3 mt-4">
+                        <h6 class="g-col text-center pb-3">Seleziona un immagine:</h6>
+                    </div>
+                    <div class="row justify-content-center g-5">
+                        <!-- Upload Yours -->
+
+                        <!-- Select -->
+                        @foreach ($types as $type)
+                            <div class="col-6 col-md-2">
+                                <label class="image-radio">
+                                    <input type="radio" class="" name="image" id="image-{{ $type->id }}"
+                                        autocomplete="off">
+                                    <img src="{{ $type->image }}" alt="{{ $type->name }}">
+                                </label>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- TYPE -->
                     <div class="text-center mb-3 mt-4">

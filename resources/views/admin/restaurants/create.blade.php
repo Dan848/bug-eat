@@ -101,11 +101,7 @@
                     </div>
                     <!-- IMAGE -->
                     <div class="display-grid mb-3 mt-4">
-                        <h6 class="g-col">Seleziona un immagine o caricane una tu:</h6>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Carica</label>
-                        </div>
+                        <h6 class="g-col text-center pb-3">Seleziona un immagine:</h6>
                     </div>
                     <div class="row justify-content-center g-5">
                         <!-- Upload Yours -->
