@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Support\Str;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -45,7 +46,24 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $user_id = Auth::id();
+        $restaurant = Restaurant::where('user_id', $user_id)->first();
+        $restaurant_id = $restaurant->id;
+
+        $data = $request->validated();
+        //Add Slug
+        $data["slug"] = Str::slug($request->name, "-");
+        //Add User_id
+        $data["restaurant_id"] = $restaurant_id;
+        //Store Image
+        if ($request->hasFile("image")) {
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $newProduct = Product::create($data);
+
+
+        return redirect()->route('admin.products.index');
     }
 
     /**

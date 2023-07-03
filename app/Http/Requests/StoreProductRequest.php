@@ -26,7 +26,7 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => ['required', 'unique:restaurants,name', 'max:100'],
             'price' => ['required', 'min:0.5'],
-            'visible' => ['required']
+            // 'visible' => ['required']
         ];
     }
 
@@ -38,7 +38,7 @@ class StoreProductRequest extends FormRequest
             'name.max' => "Il campo 'nome' deve contenere al massimo :max caratteri",
             'price.required' => "Il campo 'prezzo' è obbligatorio",
             'price.min' => "Il campo 'prezzo' deve essere maggiore di :min",
-            'visible.required' => "Il campo 'visible' è obbligatorio",
+            // 'visible.required' => "Il campo 'visible' è obbligatorio",
         ];
     }
 }
