@@ -15,8 +15,11 @@
                                     </div>
                                     <div class="card-body">
                                         <!-- FORM -->
-                                        <form method="POST" action="{{ route('register') }}">
+                                        <form method="POST" action="{{ route('register') }}" id="register_form">
                                             @csrf
+                                            <div class="alert alert-danger mt-2 d-none" id="message_box">
+
+                                            </div>
                                             <!-- Name -->
                                             <div class="form-floating mb-3">
                                                 <input id="name" type="text"
@@ -84,8 +87,10 @@
                                                 </div>
                                             </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><button type="submit"
-                                                        class="btn btn-primary btn-block">{{ __('Register') }}</button>
+                                                <div class="d-grid">
+                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                        {{ __('Register') }}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </form>

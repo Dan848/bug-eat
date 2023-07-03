@@ -1,6 +1,7 @@
 import './bootstrap';
 import '~resources/scss/app.scss';
 import * as bootstrap from 'bootstrap';
+import './form-control';
 import.meta.glob([
     '../img/**'
 ])
@@ -25,8 +26,8 @@ window.addEventListener('DOMContentLoaded', event => {
 
 const deleteSubButton = document.querySelectorAll(".delete-button");
 
-deleteSubButton.forEach((button)=> {
-    button.addEventListener("click", (event) =>{
+deleteSubButton.forEach((button) => {
+    button.addEventListener("click", (event) => {
         event.preventDefault();
 
         const itemTitle = button.getAttribute("data-item-title");
@@ -47,4 +48,4 @@ deleteSubButton.forEach((button)=> {
             button.parentElement.submit()
         });
     })
-})
+});
