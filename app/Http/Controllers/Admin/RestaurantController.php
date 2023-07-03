@@ -37,7 +37,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.characters.create', compact('types', 'items'));
+        return view('admin.characters.create', compact('types'));
     }
 
     /**
