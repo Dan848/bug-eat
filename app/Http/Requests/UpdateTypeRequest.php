@@ -25,7 +25,7 @@ class UpdateTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('types')->ignore($this->type), 'max:100'],
+            'name' => ['required', Rule::unique('types')->ignore($this->restaurant), 'max:100'],
             'image' => ['required']
         ];
     }

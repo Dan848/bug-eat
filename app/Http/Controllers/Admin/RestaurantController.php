@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -16,7 +21,12 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        if (!Auth::check()) {
+            return redirect()->route('/');
+        }
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->with('types')->get();
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -26,7 +36,8 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view('admin.restaurants.create', compact('types'));
     }
 
     /**
@@ -37,7 +48,23 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $data = $request->validated();
+        //Add Slug
+        $data["slug"] = Str::slug($request->name, "-");
+        //Add User_id
+        $data["user_id"] = Auth::id();
+        //Store Image
+        if($request->hasFile("image")){
+            $img_path = Storage::put ("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $newRestaurant = Restaurant::create($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("types")){
+                $newRestaurant->types()->attach($request->types);
+            }
+        return redirect()->route('admin.restaurants.show', $newRestaurant->slug);
     }
 
     /**
@@ -48,7 +75,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -59,7 +86,8 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $types = Type::all();
+        return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -71,7 +99,26 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        $data = $request->validated();
+        $data["slug"] = Str::slug($request->name, "-");
+
+        if ($request->hasFile("image")){
+            if ($restaurant->image) {
+                Storage::delete($restaurant->image);
+            }
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $restaurant->update($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("types")){
+                $restaurant->types()->sync($request->types);
+            }
+            else {
+                $restaurant->sync([]);
+            }
+        return redirect()->route("admin.restaurants.show",$restaurant->slug)->with("message", "$restaurant->name è stato modificato con successo");
     }
 
     /**
@@ -82,6 +129,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        if ($restaurant->image) {
+            Storage::delete($restaurant->image);
+        }
+        $restaurant->delete();
+        return redirect()->route("admin.restaurant.index")->with("message", "$restaurant->name è stato eliminato con successo");
     }
 }

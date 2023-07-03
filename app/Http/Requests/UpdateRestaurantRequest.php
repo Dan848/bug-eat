@@ -25,32 +25,38 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('restaurants')->ignore($this->name), 'max:100'],
-            'email' => ['required', Rule::unique('restaurants')->ignore($this->email), 'max:255'],
-            'p_iva' => ['required', Rule::unique('restaurants')->ignore($this->p_iva), 'max:11'],
-            'phone_num' => ['required', 'unique:restaurants,phone_num', 'max:20' , 'min:10'],
-            'image' => ['required'],
+            'name' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:100'],
+            'email' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:255'],
+            'p_iva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:11'],
+            'phone_num' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:20' , 'min:9'],
+            'image' => ['nullable'],
             'address' => ['required', 'max:255'],
-            'user_id' => ['required']
         ];
     }
 
     public function messages()
     {
         return[
+            //Name
             'name.required' => "Il campo 'nome' è obbligatorio",
             'name.unique' => "Il campo 'nome' inserito è già stato utilizzato.",
             'name.max' => "Il campo 'nome' deve contenere al massimo :max caratteri",
+            //Mail
             'email.required' => "Il campo 'email' è obbligatorio",
             'email.unique' => "Il campo 'email' inserito è già stato utilizzato.",
             'email.max' => "Il campo 'email' deve contenere al massimo :max caratteri",
+            //P_Iva
             'p_iva.required' => "Il campo 'p_iva' è obbligatorio",
             'p_iva.unique' => "Il campo 'p_iva' inserito è già stato utilizzato.",
             'p_iva.max' => "Il campo 'p_iva' deve contenere al massimo :max caratteri",
-            'image.required' => "Il campo 'p_iva' è obbligatorio",
+            //Phone_Num
+            'phone_num.required' => "Il campo 'Telefono' è obbligatorio",
+            'phone_num.unique' => "Il campo 'Telefono' inserito è già stato utilizzato.",
+            'phone_num.max' => "Il campo 'Telefono' deve contenere al massimo :max caratteri",
+            'phone_num.min' => "Il campo 'Telefono' deve contenere minimo :min caratteri",
+            //Address
             'address.required' => "Il campo 'address' è obbligatorio",
             'address.max' => "Il campo 'address' deve contenere al massimo :max caratteri",
-            'user_id.required' => "Il campo 'Utente' è obbligatorio",
         ];
     }
 }
