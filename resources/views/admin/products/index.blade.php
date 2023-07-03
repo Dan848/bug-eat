@@ -18,10 +18,9 @@
                 <table class="table table-dark table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col w-50">Nome</th>
-                            <th class="d-none d-lg-table-cell w-50" scope="col">Immagine</th>
-                            <th class="d-none d-sm-table-cell w-100" scope="col">Descrizione</th>
-
+                            <th scope="col">Nome</th>
+                            <th class="d-none d-sm-table-cell" scope="col">Price</th>
+                            <th class="d-none d-lg-table-cell" scope="col">Visibile</th>
                             <th class="text-center" scope="col">Azioni</th>
                         </tr>
                     </thead>
@@ -30,25 +29,27 @@
                             <tr class="align-middle">
                                 {{-- Name --}}
                                 <th scope="row">
-                                    <a class="h5 w-75"
+                                    <a class="h5"
                                         href="{{ route('admin.products.show', $product) }}">{{ $product->name }}
                                     </a>
                                 </th>
-                                {{-- Image --}}
-                                <td class="d-none d-lg-table-cell">
-                                    <img src="{{ $product->image }}" class="d-block img-preview" alt="{{ $product->name }}"
-                                        width="100%">
+                                {{-- Price --}}
+                                <td class="d-none d-sm-table-cell">
+                                    {{ $product->price }}
                                 </td>
-                                {{-- Description --}}
-                                <td class="d-none d-sm-table-cell w-100">
-                                    {{ $product->description }}
+                                {{-- Visible --}}
+                                <td class="d-none d-lg-table-cell">
+                                    @if ($product->visible)
+                                        Si
+                                    @else
+                                        No
+                                    @endif
                                 </td>
 
                                 {{-- Action Button --}}
                                 <td>
                                     <div
                                         class="d-flex gap-2 flex-wrap justify-content-center text-center align-items-center">
-
                                         <a class="btn btn-success bg-gradient"
                                             href="{{ route('admin.products.show', $product->slug) }}">
                                             <i class="fa-solid fa-eye"></i>
