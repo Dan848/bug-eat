@@ -28,9 +28,8 @@ class StoreProductRequest extends FormRequest
             'price' => ['required', 'min:0'],
             'image' => ['nullable'],
             'description' => ['nullable'],
-            'visible' => ['required'],
+            'visible' => ['required', 'boolean'],
             'restaurant_id' => ['required', 'exists:restaurants,id'],
-
         ];
     }
 

@@ -43,7 +43,7 @@
                             <div class="form-floating mb-3">
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                    max="100" required autofocus>
+                                    maxlength="100" required autofocus>
                                 <label for="name">Nome</label>
                             </div>
                         </div>
@@ -54,8 +54,8 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input id="price" name="price" type="number"
-                                    class="form-control @error('price') is-invalid @enderror" step="0.01" max="255"
-                                    required>
+                                    class="form-control @error('price') is-invalid @enderror" step="0.01" min="0"
+                                    value="{{ old('price') }}" required>
                                 <label for="price">Prezzo</label>
                             </div>
                         </div>
@@ -81,24 +81,28 @@
                     <!-- VISIBLE/RESTAURANTS -->
                     <div class="row">
                         <!-- VISIBLE -->
-                        <div class="col-12 col-md-6">
-                            <div class="display-grid mb-3">
-                                <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="visible"
-                                        name="visible" value="1" {{ 1 ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="visible">No/Si</label>
-                                </div>
+                        <div class="col-12 col-md-6 mb-3 text-center">
+                            <h6>Visibile</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="visible" id="visible-true"
+                                    value="1">
+                                <label class="visible-true" for="inlineRadio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="visible" id="visible-false"
+                                    value="0">
+                                <label class="form-check-label" for="visible-false">No</label>
                             </div>
                         </div>
                         <!-- RESTAURANTS -->
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 mb-3 text-center">
+                            <h6>Ristorante</h6>
                             <select name="restaurant_id" id="restaurant_id" class="form-select"
                                 aria-label="Default select example">
+                                <option value="">Ristorante a cui aggiungere il prodotto</option>
                                 @foreach ($restaurants as $restaurant)
                                     <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
                                 @endforeach
-
                             </select>
                         </div>
                     </div>

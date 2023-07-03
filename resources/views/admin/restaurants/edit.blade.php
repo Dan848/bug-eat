@@ -53,7 +53,7 @@
                             <div class="form-floating mb-3">
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ $restaurant->name }}" max="100" required autofocus>
+                                    value="{{ $restaurant->name }}" maxlength="100" required autofocus>
                                 <label for="name">Nome</label>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                             <div class="form-floating mb-3">
                                 <input id="email" name="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror"
-                                    value="{{ $restaurant->email }}" max="255" required>
+                                    value="{{ $restaurant->email }}" maxlength="255" required>
                                 <label for="email">Email</label>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="form-floating mb-3">
                                 <input id="phone_num" name="phone_num" type="text"
                                     class="form-control @error('phone_num') is-invalid @enderror" required
-                                    value="{{ $restaurant->phone_num }}" min="9" max="20">
+                                    value="{{ $restaurant->phone_num }}" minlength="9" maxlength="20">
                                 <label class="mb-5" for="image">Telefono</label>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                             <div class="form-floating mb-3">
                                 <input id="address" name="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror"
-                                    value="{{ $restaurant->address }}" max="255" required>
+                                    value="{{ $restaurant->address }}" maxlength="255" required>
                                 <label for="address">Indirizzo</label>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                             <div class="form-floating mb-3">
                                 <input id="p_iva" name="p_iva" type="text"
                                     class="form-control @error('p_iva') is-invalid @enderror"
-                                    value="{{ $restaurant->p_iva }}" required size="11">
+                                    value="{{ $restaurant->p_iva }}" required minlength="11" maxlength="">
                                 <label class="mb-5" for="p_iva">Partita Iva</label>
                             </div>
                         </div>
