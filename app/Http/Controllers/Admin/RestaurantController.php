@@ -133,6 +133,6 @@ class RestaurantController extends Controller
             Storage::delete($restaurant->image);
         }
         $restaurant->delete();
-        return redirect()->route("admin.restaurant.index")->with("message", "$restaurant->name è stato eliminato con successo");
+        return redirect()->route("admin.restaurants.index")->with("message", "$restaurant->name è stato eliminato con successo");
     }
 }

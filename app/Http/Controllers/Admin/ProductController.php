@@ -41,7 +41,6 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreProductRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreProductRequest $request)
     {
@@ -52,7 +51,6 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
     {
@@ -63,11 +61,12 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
      */
     public function edit(Product $product)
     {
-        //
+        $user_id = Auth::id();
+        $restaurants = Restaurant::where('user_id', $user_id)->get();
+        return view('admin.products.edit', compact('product', 'restaurants'));
     }
 
     /**
