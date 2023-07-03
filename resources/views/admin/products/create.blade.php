@@ -74,17 +74,28 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- VISIBLE -->
-                    <div class="display-grid mb-3 mt-4">
-                        <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">No/Si</label>
+                    <!-- VISIBLE/RESTAURANTS -->
+                    <div class="row">
+                        <!-- VISIBLE -->
+                        <div class="col-12 col-md-6">
+                            <div class="display-grid mb-3">
+                                <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">No/Si</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- RESTAURANTS -->
+                        <div class="col-12 col-md-6">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </div>
                     </div>
-
-
                     <!-- SAVE & RESET -->
                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                         <button class="btn btn-secondary me-2" type="reset">Reset</button>
