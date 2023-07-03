@@ -7,8 +7,6 @@ use PhpParser\Node\Expr\BinaryOp\Equal;
 
 class StoreRestaurantRequest extends FormRequest
 {
-
-    public $user_id = Auth::id();
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -33,7 +31,6 @@ class StoreRestaurantRequest extends FormRequest
             'phone_num' => ['required', 'unique:restaurants,phone_num', 'min:9', 'max:20'],
             'image' => ['nullable'],
             'address' => ['required', 'max:255'],
-            'user_id' => ['required']
         ];
     }
 
@@ -60,8 +57,6 @@ class StoreRestaurantRequest extends FormRequest
             //Address
             'address.required' => "Il campo 'address' è obbligatorio",
             'address.max' => "Il campo 'address' deve contenere al massimo :max caratteri",
-            //User_id
-            'user_id.required' => "Il campo 'Utente' è obbligatorio",
         ];
     }
 }
