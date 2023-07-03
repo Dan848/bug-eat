@@ -21,19 +21,18 @@ class StoreProductRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-   public function rules()
+    public function rules()
     {
         return [
             'name' => ['required', 'unique:restaurants,name', 'max:100'],
             'price' => ['required', 'min:0.5'],
-            'address' => ['required', 'max:255'],
             'visible' => ['required']
         ];
     }
 
     public function messages()
     {
-        return[
+        return [
             'name.required' => "Il campo 'nome' è obbligatorio",
             'name.unique' => "Il campo 'nome' inserito è già stato utilizzato.",
             'name.max' => "Il campo 'nome' deve contenere al massimo :max caratteri",
