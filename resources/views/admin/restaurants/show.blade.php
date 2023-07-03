@@ -17,11 +17,12 @@
                 <a class="btn btn-primary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
-                <form class="m-0 p-0 d-inline-block" action="{{ route('admin.restaurants.destroy',$restaurant->slug) }}"
+                <form class="m-0 p-0 d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->slug) }}"
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-secondary delete-button" data-item-title="{{ $restaurant->name }}" type="submit">
+                    <button class="btn btn-secondary delete-button" data-item-title="{{ $restaurant->name }}"
+                        type="submit">
                         <i class="fa-solid fa-eraser"></i>
                     </button>
                 </form>
@@ -34,9 +35,9 @@
             </div>
             <div class="box-info col-12 col-lg-6">
                 {{-- INFOS --}}
-                <h3 class="text-uppercase text-secondary d-flex justify-content-center">
-                    Dati del ristorante
-                </h3>
+                <h2 class="text-secondary d-flex justify-content-center">
+                    Info
+                </h2>
                 <hr />
                 {{-- NAME --}}
                 <p class="d-flex justify-content-between">

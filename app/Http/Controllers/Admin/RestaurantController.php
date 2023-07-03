@@ -129,6 +129,10 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        //
+        if ($restaurant->image) {
+            Storage::delete($restaurant->image);
+        }
+        $restaurant->delete();
+        return redirect()->route("admin.restaurant.index")->with("message", "$restaurant->name è stato eliminato con successo");
     }
 }

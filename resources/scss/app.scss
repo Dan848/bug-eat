@@ -11,6 +11,13 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import "~bootstrap/scss/bootstrap";
 
+
+
+//Button Color
+.btn-primary{
+    color: white;
+}
+
 //FORM MODIFY
 .form-floating {
     > label {
@@ -18,6 +25,10 @@ $fa-font-path: "../fonts/webfonts" !default;
         &::after {
             background-color: transparent !important;
         }
+    }
+
+    ::placeholder{
+        color: white;
     }
 
     textarea {
@@ -38,6 +49,26 @@ $fa-font-path: "../fonts/webfonts" !default;
             // border-bottom: 0px solid $primary;
             // box-shadow: 0 0 0.8rem 0.25rem $primary;
         }
+    }
+}
+//Radio Button to IMG
+.image-radio{
+    input{
+        position: absolute;
+        clip: rect(0, 0, 0, 0);
+        pointer-events: none;
+    }
+    img {
+    transition: all 0.2s ease-in-out;
+    width: 80px;
+    cursor: pointer;
+        &:hover{
+            transform: scale(1.4);
+        }
+    }
+    input:checked + img{
+        transform: scale(1.3);
+        border: 2px solid $primary;
     }
 }
 
