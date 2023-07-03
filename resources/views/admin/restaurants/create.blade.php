@@ -106,7 +106,7 @@
                     <div class="d-flex container-fluid justify-content-start align-items-center flex-wrap">
                         @foreach ($types as $type)
                             <div class="form-check col-6 col-md-4 col-lg-3">
-                                <input type="checkbox" id="type[]" name="type[]" value="{{ $type->id }}"
+                                <input type="checkbox" id="types[]" name="types[]" value="{{ $type->id }}"
                                     class="form-check-input" {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
                                 <label for="" class="form-check-label">{{ $type->name }}</label>
                             </div>

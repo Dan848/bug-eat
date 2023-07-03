@@ -20,7 +20,7 @@ class UpdateProductRequest extends FormRequest
      public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('products')->ignore($this->name), 'max:100'],
+            'name' => ['required', Rule::unique('products')->ignore($this->restaurant), 'max:100'],
             'price' => ['required', 'min:1'],
             'address' => ['required', 'max:255'],
             'visible' => ['required']

@@ -51,18 +51,20 @@ class RestaurantController extends Controller
         $data = $request->validated();
         //Add Slug
         $data["slug"] = Str::slug($request->name, "-");
+        //Add User_id
+        $data["user_id"] = Auth::id();
         //Store Image
         if($request->hasFile("image")){
             $img_path = Storage::put ("uploads", $request->image);
             $data["image"] = asset("storage/" . $img_path);
         }
-        $newRestaurants = Restaurant::create($data);
+        $newRestaurant = Restaurant::create($data);
 
             //Attach Foreign data from another table
             if ($request->has("types")){
-                $newRestaurants->types()->attach($request->types);
+                $newRestaurant->types()->attach($request->types);
             }
-        return redirect()->route('admin.restaurants.show', $newRestaurants->slug);
+        return redirect()->route('admin.restaurants.show', $newRestaurant->slug);
     }
 
     /**
@@ -110,7 +112,7 @@ class RestaurantController extends Controller
         $restaurant->update($data);
 
             //Attach Foreign data from another table
-            if ($request->has("type")){
+            if ($request->has("types")){
                 $restaurant->types()->sync($request->types);
             }
             else {
