@@ -6,7 +6,7 @@ use App\Models\Type;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
-use Illuminate\Support\Facades\Auth;
+
 
 class TypeController extends Controller
 {
@@ -17,9 +17,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::id();
+
         $types = Type::all();
-        return view('admin.types.index', compact('types', 'user_id'));
+        return view('admin.types.index', compact('types'));
     }
 
     /**
