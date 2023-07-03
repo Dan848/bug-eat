@@ -51,8 +51,9 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input id="price" name="price" type="number"
-                                    class="form-control @error('price') is-invalid @enderror" max="255" required>
-                                <label for="email">Prezzo</label>
+                                    class="form-control @error('price') is-invalid @enderror" step="0.01" max="255"
+                                    required>
+                                <label for="price">Prezzo</label>
                             </div>
                         </div>
                         <!-- IMAGE -->
