@@ -59,9 +59,9 @@
                         <!-- PHONE NUMBER -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="phone_num" type="number"
-                                    class="form-control @error('phone_num') is-invalid @enderror"
-                                    name="phone_num" autofocus min="9" max="20">
+                                <input id="phone_num" type="text"
+                                    class="form-control @error('phone_num') is-invalid @enderror" name="phone_num" required
+                                    value="{{ old('phone_num') }}" min="9" max="20">
                                 <label class="mb-5" for="image">Telefono</label>
                             </div>
                         </div>
@@ -80,9 +80,9 @@
                         <!-- P.IVA -->
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input id="p_iva" type="number"
+                                <input id="p_iva" type="text"
                                     class="form-control @error('p_iva') is-invalid @enderror" name="p_iva"
-                                    value="{{ old('p_iva') }}" autofocus size="11">
+                                    value="{{ old('p_iva') }}" required autofocus size="11">
                                 <label class="mb-5" for="p_iva">Partita Iva</label>
                             </div>
                         </div>

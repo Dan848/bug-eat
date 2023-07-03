@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use PhpParser\Node\Expr\BinaryOp\Equal;
 
 class StoreRestaurantRequest extends FormRequest
 {
+
+    public $user_id = Auth::id();
     /**
      * Determine if the user is authorized to make this request.
      *
