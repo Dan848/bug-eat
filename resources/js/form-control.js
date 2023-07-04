@@ -34,21 +34,23 @@ function printError(errorMessage) {
 function clearError() {
     messageBox.classList.add('d-none');
     const paragraphs = document.querySelectorAll('.par-error');
-    for (let i = 0; i < paragraphs.length; i++){
+    for (let i = 0; i < paragraphs.length; i++) {
         paragraphs[i].remove();
     }
 }
 
 //funzione che controlla se il numero di telefono è
 function checkPhoneNum() {
+    console.log('sono checkphonenum')
     const numberBox = document.getElementById('phone_num');
-    const phoneParsed = parseInt(numberBox.value);
     let isValid = true;
-    if (isNaN(phoneParsed) && numberBox.value == '') {
+    if (isNaN(numberBox.value)) {
         printError('Inserisci un numero valido. Es: 3470000000');
         scrollToTop();
         isValid = false;
+        console.log('sono checkphonenum if')
     }
+
     return isValid;
 }
 
@@ -66,8 +68,8 @@ function checkTypes() {
 
 if (form) {
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
         clearError();
+        e.preventDefault();
         const isPhoneNumValid = checkPhoneNum();
         const isTypesValid = checkTypes();
         if (isPhoneNumValid && isTypesValid) {
@@ -78,6 +80,6 @@ if (form) {
 }
 
 function scrollToTop() {
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
 }
