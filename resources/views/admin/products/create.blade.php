@@ -9,11 +9,14 @@
         <h2 class="mt-5 mb-4 text-center">
             Nuovo Prodotto
         </h2>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Prodotti</a></li>
-            <li class="breadcrumb-item active">Nuovo Prodotto</li>
-        </ol>
+        <div class="d-flex justify-content-between">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Prodotti</a></li>
+                <li class="breadcrumb-item active">Nuovo Prodotto</li>
+            </ol>
+            <p class="small muteWhite">* Campi obbligatori</p>
+        </div>
     </div>
 
     <div class="container p-4 bg-dark rounded-2 mb-4">
@@ -53,7 +56,7 @@
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
                                     maxlength="100" required autofocus>
-                                <label for="name">Nome</label>
+                                <label for="name">Nome *</label>
                             </div>
                         </div>
                     </div>
@@ -65,7 +68,7 @@
                                 <input id="price" name="price" type="number"
                                     class="form-control @error('price') is-invalid @enderror" step="0.01" min="0"
                                     value="{{ old('price') }}" required>
-                                <label for="price">Prezzo</label>
+                                <label for="price">Prezzo *</label>
                             </div>
                         </div>
                         <!-- IMAGE -->
@@ -91,7 +94,7 @@
                     <div class="row">
                         <!-- VISIBLE -->
                         <div class="col-12 col-md-6 mb-3 text-center">
-                            <h6>Visibile</h6>
+                            <h6>Visibile *</h6>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="visible" id="visible-true"
                                     value="1">
@@ -105,7 +108,7 @@
                         </div>
                         <!-- RESTAURANTS -->
                         <div class="col-12 col-md-6 mb-3 text-center">
-                            <h6>Ristorante</h6>
+                            <h6>Ristorante *</h6>
                             <select name="restaurant_id" id="restaurant_id" class="form-select"
                                 aria-label="Default select example">
                                 <option value="">Ristorante a cui aggiungere il prodotto</option>

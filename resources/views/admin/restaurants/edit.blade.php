@@ -9,11 +9,14 @@
         <h2 class="mt-5 mb-4 text-center">
             Modifica {{ $restaurant->name }}
         </h2>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
-            <li class="breadcrumb-item active">Modifica {{ $restaurant->name }}</li>
-        </ol>
+        <div class="d-flex justify-content-between">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
+                <li class="breadcrumb-item active">Modifica {{ $restaurant->name }}</li>
+            </ol>
+            <p class="small muteWhite">* Campi obbligatori</p>
+        </div>
     </div>
 
     <div class="container p-4 bg-dark rounded-2 mb-4">
@@ -54,7 +57,7 @@
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror"
                                     value="{{ $restaurant->name }}" maxlength="100" required autofocus>
-                                <label for="name">Nome</label>
+                                <label for="name">Nome *</label>
                             </div>
                         </div>
                     </div>
@@ -66,7 +69,7 @@
                                 <input id="email" name="email" type="email"
                                     class="form-control @error('email') is-invalid @enderror"
                                     value="{{ $restaurant->email }}" maxlength="255" required>
-                                <label for="email">Email</label>
+                                <label for="email">Email *</label>
                             </div>
                         </div>
                         <!-- PHONE NUMBER -->
@@ -75,7 +78,7 @@
                                 <input id="phone_num" name="phone_num" type="text"
                                     class="form-control @error('phone_num') is-invalid @enderror" required
                                     value="{{ $restaurant->phone_num }}" minlength="9" maxlength="20">
-                                <label class="mb-5" for="image">Telefono</label>
+                                <label class="mb-5" for="image">Telefono *</label>
                             </div>
                         </div>
                     </div>
@@ -87,7 +90,7 @@
                                 <input id="address" name="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror"
                                     value="{{ $restaurant->address }}" maxlength="255" required>
-                                <label for="address">Indirizzo</label>
+                                <label for="address">Indirizzo *</label>
                             </div>
                         </div>
                         <!-- P.IVA -->
@@ -96,7 +99,7 @@
                                 <input id="p_iva" name="p_iva" type="text"
                                     class="form-control @error('p_iva') is-invalid @enderror"
                                     value="{{ $restaurant->p_iva }}" required minlength="11" maxlength="">
-                                <label class="mb-5" for="p_iva">Partita Iva</label>
+                                <label class="mb-5" for="p_iva">Partita Iva *</label>
                             </div>
                         </div>
                     </div>
@@ -120,7 +123,7 @@
                     </div>
                     <!-- TYPE -->
                     <div class="text-center mb-3 mt-4">
-                        Categorie:
+                        Categorie: *
                     </div>
                     <div class="d-flex container-fluid justify-content-start align-items-center flex-wrap">
                         @foreach ($types as $type)

@@ -12,23 +12,28 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import "~bootstrap/scss/bootstrap";
 
 
+//Color Bianco Opaco
+.muteWhite {
+    color: rgba($color: #ffffff, $alpha: 0.8) !important;
+}
 
 //Button Color
-.btn-primary{
+.btn-primary {
     color: white;
 }
 
 //FORM MODIFY
 .form-floating {
-    > label {
-        color: rgba($color: #ffffff, $alpha: 0.9)!important;
+    >label {
+        color: rgba($color: #ffffff, $alpha: 0.9) !important;
         top: -8px;
+
         &::after {
             background-color: transparent !important;
         }
     }
 
-    ::placeholder{
+    ::placeholder {
         color: white;
     }
 
@@ -44,6 +49,7 @@ $fa-font-path: "../fonts/webfonts" !default;
         border-bottom: 2px solid $primary;
         border-radius: 0;
         box-shadow: 0 0 0 0 $primary;
+
         &:focus {
             border: 0px solid $primary;
             box-shadow: 0 0 10px 5px $primary;
@@ -52,22 +58,26 @@ $fa-font-path: "../fonts/webfonts" !default;
         }
     }
 }
+
 //Radio Button to IMG
-.image-radio{
-    input{
+.image-radio {
+    input {
         position: absolute;
         clip: rect(0, 0, 0, 0);
         pointer-events: none;
     }
+
     img {
-    transition: all 0.2s ease-in-out;
-    width: 80px;
-    cursor: pointer;
-        &:hover{
+        transition: all 0.2s ease-in-out;
+        width: 80px;
+        cursor: pointer;
+
+        &:hover {
             transform: scale(1.4);
         }
     }
-    input:checked + img{
+
+    input:checked+img {
         transform: scale(1.3);
         border: 2px solid $primary;
     }
@@ -78,6 +88,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     div {
         color: white;
     }
+
     a {
         color: white;
     }
@@ -102,18 +113,24 @@ $fa-font-path: "../fonts/webfonts" !default;
     background-color: var(--bs-breadcrumb-bg);
     border-radius: var(--bs-breadcrumb-border-radius);
 }
-.breadcrumb-item + .breadcrumb-item {
+
+.breadcrumb-item+.breadcrumb-item {
     padding-left: var(--bs-breadcrumb-item-padding-x);
 }
-.breadcrumb-item + .breadcrumb-item::before {
+
+.breadcrumb-item+.breadcrumb-item::before {
     float: left;
     padding-right: var(--bs-breadcrumb-item-padding-x);
     color: var(--bs-breadcrumb-divider-color);
-    content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
+    content: var(--bs-breadcrumb-divider, "/")
+        /* rtl: var(--bs-breadcrumb-divider, "/") */
+    ;
 }
+
 .breadcrumb-item.active {
     color: var(--bs-breadcrumb-item-active-color);
 }
+
 .fixed-top,
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav,
 .sb-nav-fixed .sb-topnav {
@@ -123,21 +140,26 @@ $fa-font-path: "../fonts/webfonts" !default;
     left: 0;
     z-index: 1030;
 }
+
 #layoutAuthentication {
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 56px);
 }
+
 #layoutAuthentication #layoutAuthentication_content {
     min-width: 0;
     flex-grow: 1;
 }
+
 #layoutAuthentication #layoutAuthentication_footer {
     min-width: 0;
 }
+
 #layoutSidenav {
     display: flex;
 }
+
 #layoutSidenav #layoutSidenav_nav {
     flex-basis: 225px;
     flex-shrink: 0;
@@ -145,6 +167,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     z-index: 1038;
     transform: translateX(-225px);
 }
+
 #layoutSidenav #layoutSidenav_content {
     position: relative;
     display: flex;
@@ -155,9 +178,11 @@ $fa-font-path: "../fonts/webfonts" !default;
     min-height: calc(100vh - 56px);
     margin-left: -225px;
 }
+
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
     transform: translateX(0);
 }
+
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     content: "";
     display: block;
@@ -171,94 +196,118 @@ $fa-font-path: "../fonts/webfonts" !default;
     opacity: 0.5;
     transition: opacity 0.3s ease-in-out;
 }
+
 @media (min-width: 992px) {
     #layoutSidenav #layoutSidenav_nav {
         transform: translateX(0);
     }
+
     #layoutSidenav #layoutSidenav_content {
         margin-left: 0;
         transition: margin 0.15s ease-in-out;
     }
+
     .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
         transform: translateX(-225px);
     }
+
     .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
         margin-left: -225px;
     }
+
     .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
         display: none;
     }
 }
+
 .sb-nav-fixed .sb-topnav {
     z-index: 1039;
 }
+
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
     width: 225px;
     height: 100vh;
     z-index: 1038;
 }
+
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
     padding-top: 56px;
 }
+
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
     overflow-y: auto;
+
     div {
         color: white;
     }
+
     a {
         color: white;
     }
 }
+
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
     padding-left: 225px;
     top: 56px;
 }
+
 #layoutError {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+
 #layoutError #layoutError_content {
     min-width: 0;
     flex-grow: 1;
 }
+
 #layoutError #layoutError_footer {
     min-width: 0;
 }
+
 .nav .nav-link .sb-nav-link-icon,
 .sb-sidenav-menu .nav-link .sb-nav-link-icon {
     margin-right: 0.5rem;
 }
+
 .sb-topnav {
     padding-left: 0;
     height: 56px;
     z-index: 1039;
 }
+
 .sb-topnav.navbar-dark #sidebarToggle {
     color: rgba(255, 255, 255, 1);
 }
+
 .sb-topnav.navbar-light #sidebarToggle {
     color: #212529;
 }
+
 .sb-sidenav {
     display: flex;
     flex-direction: column;
     height: 100%;
     flex-wrap: nowrap;
 }
+
 .sb-sidenav .sb-sidenav-menu {
     flex-grow: 1;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav {
     flex-direction: column;
     flex-wrap: nowrap;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
     padding: 1.75rem 1rem 0.75rem;
     font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
     display: flex;
     align-items: center;
@@ -266,78 +315,101 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding-bottom: 0.75rem;
     position: relative;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
     font-size: 0.9rem;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
     display: inline-block;
     margin-left: auto;
     transition: transform 0.15s ease;
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .nav-link.collapsed .sb-sidenav-collapse-arrow {
     transform: rotate(-90deg);
 }
+
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
     margin-left: 1.5rem;
     flex-direction: column;
 }
+
 .sb-sidenav .sb-sidenav-footer {
     padding: 0.75rem;
     flex-shrink: 0;
 }
+
 .sb-sidenav-dark {
     background-color: #212529;
     color: rgba(255, 255, 255, 0.5);
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
     color: rgba(255, 255, 255, 0.25);
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
     color: rgba(255, 255, 255, 0.5);
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
     color: rgba(255, 255, 255, 0.25);
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
     color: rgba(255, 255, 255, 0.25);
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
     color: #fff;
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {
     color: #fff;
 }
+
 .sb-sidenav-dark .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
     color: #fff;
 }
+
 .sb-sidenav-dark .sb-sidenav-footer {
     background-color: #343a40;
 }
+
 .sb-sidenav-light {
     background-color: #f8f9fa;
     color: #212529;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .sb-sidenav-menu-heading {
     color: #adb5bd;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link {
     color: #212529;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link .sb-nav-link-icon {
     color: #adb5bd;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
     color: #adb5bd;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link:hover {
     color: #0d6efd;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link.active {
     color: #0d6efd;
 }
+
 .sb-sidenav-light .sb-sidenav-menu .nav-link.active .sb-nav-link-icon {
     color: #0d6efd;
 }
+
 .sb-sidenav-light .sb-sidenav-footer {
     background-color: #e9ecef;
 }

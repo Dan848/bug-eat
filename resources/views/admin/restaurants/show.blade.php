@@ -63,9 +63,15 @@
                     <span class="fw-bold"> {{ $restaurant->address }}</span>
                 </p>
                 <hr />
+                {{-- P. IVA --}}
+                <p class="d-flex justify-content-between">
+                    <span class="pixel-text"> Partita Iva:</span>
+                    <span class="fw-bold"> {{ $restaurant->p_iva }}</span>
+                </p>
+                <hr />
                 {{-- INVENTORY --}}
                 <div>
-                    <p class="text-center text-secondary">Categorie:</p>
+                    <p class="text-center text-secondary">Tipologia/e:</p>
                     @foreach ($restaurant->types as $type)
                         @if (!$loop->last)
                             <span class="fst-italic">{{ $type->name }} - </span>
@@ -78,4 +84,5 @@
             </div>
         </div>
     </div>
+    @include('partials.delete-modal')
 @endsection
