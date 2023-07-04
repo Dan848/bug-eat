@@ -3,13 +3,15 @@ const registerForm = document.getElementById('register_form');
 const form = document.querySelector('.form-crud');
 const btnSub = document.getElementById('btn-sub');
 const messageBox = document.getElementById('message_box');
+const imageSwitch = document.getElementById('imageSwitch');
 
+//Scroll to Top
 function scrollToTop() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 }
 
-//funzione per controllare che le password inserite combacino
+//Check same Password at Register
 function checkPassword() {
     const password = document.getElementById('password');
     const passwordConfirm = document.getElementById('password-confirm');
@@ -23,7 +25,7 @@ function checkPassword() {
     return isValid
 }
 
-//funzione che stampa i messaggi passandogli il messaggio che si vuole stampare
+//Print message
 function printError(errorMessage) {
     messageBox.classList.remove('d-none');
     const paragraph = document.createElement('p');
@@ -32,7 +34,7 @@ function printError(errorMessage) {
     messageBox.appendChild(paragraph);
 }
 
-
+//Clear
 function clearError() {
     messageBox.classList.add('d-none');
     const paragraphs = document.querySelectorAll('.par-error');
@@ -41,7 +43,7 @@ function clearError() {
     }
 }
 
-//funzione che controlla se il numero di telefono è
+//Check Numbers Phone and P_IVA
 function checkNum() {
     const numberBox = document.getElementById('phone_num');
     const pivaBox = document.getElementById('p_iva');
@@ -61,6 +63,7 @@ function checkNum() {
     return isValid;
 }
 
+//Check Types Checkbox
 function checkTypes() {
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     for (let i = 0; i < checkboxes.length; i++) {
@@ -73,6 +76,7 @@ function checkTypes() {
     return false;
 }
 
+//Check Radio Images
 function checkRadio() {
     const radioButtons = document.querySelectorAll('.radio-btn');
     for (let i = 0; i < radioButtons.length; i++){
@@ -85,14 +89,32 @@ function checkRadio() {
     return false;
 }
 
-//clear errors
+//SWITCH IMAGE FILE
+if (imageSwitch) {
+    console.log("sono preso")
+    imageSwitch.addEventListener("change", () =>{
+        const radioCols = document.querySelectorAll(".radio-col");
+        const uploadCol = document.querySelector(".upload-col");
+        imageSwitch.value = imageSwitch.checked ? true : false;
+        if (imageSwitch.value) {
+            uploadCol.classList.toggle("d-none");
+            for (let i = 0; i < radioCols.length; i++) {
+                radioCols[i].classList.toggle("d-none");
+                radioCols[i].classList.toggle("d-flex");
+            }
+
+        }
+    })
+}
+
+// Errors Clear
 if (btnSub) {
     btnSub.addEventListener('click', () => {
         clearError();
     })
 }
 
-// avvio della funzione checkPassword al submit del form della register
+// Errors Register
 if (registerForm) {
     registerForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -104,7 +126,7 @@ if (registerForm) {
     });
 }
 
-// errors of restaurant's create and edit
+// Errors of restaurant's create and edit
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();

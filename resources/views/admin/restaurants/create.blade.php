@@ -104,9 +104,10 @@
                         </div>
                     </div>
                     <!-- IMAGE -->
-                    <div class="d-flex mb-3 mt-4">
+                    <div class="d-flex mb-0 mt-4">
                         <div class="col-4"></div>
-                        <h6 class="col-4 text-center pb-3">Seleziona un immagine:</h6>
+                        <h6 class="col-4 text-center">Immagine *</h6>
+                        <!-- Switch -->
                         <div class="col-4 d-flex justify-content-end form-check form-switch">
                             <input name="imageSwitch" id="imageSwitch" class="form-check-input" type="checkbox"
                                 role="switch">
@@ -115,10 +116,15 @@
                     </div>
                     <div class="row justify-content-center g-5">
                         <!-- Upload File -->
-
+                        <div class="col-12 upload-col">
+                            <div class="form-floating mb-3">
+                                <input id="image" type="file"
+                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
+                            </div>
+                        </div>
                         <!-- Select Image -->
                         @foreach ($types as $type)
-                            <div class="col-6 col-md-2">
+                            <div class="d-none col-6 col-md-2 radio-col">
                                 <label class="image-radio">
                                     <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
                                         id="image-{{ $type->id }}" autocomplete="off">
