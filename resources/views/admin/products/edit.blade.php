@@ -121,7 +121,7 @@
                     <!-- SAVE & RESET -->
                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                         <button class="btn btn-secondary me-2" type="reset">Reset</button>
-                        <button class="btn btn-primary ms-2" type="submit">Crea</button>
+                        <button class="btn btn-primary ms-2" type="submit">Modifica</button>
                     </div>
                 </form>
             </div>
