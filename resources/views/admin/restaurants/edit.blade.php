@@ -28,7 +28,7 @@
                     @csrf
                     {{-- Errors Section --}}
                     @if ($errors->any())
-                        <div class="alert alert-danger mt-2">
+                        <div class="alert alert-danger mt-2" id="message_box">
                             @error('name')
                                 <p>*{{ $message }}</p>
                             @enderror
