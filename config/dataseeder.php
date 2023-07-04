@@ -391,7 +391,7 @@ return [
         'name' => 'John\'s Burger',
         'email' => 'johnsburger@mail.com',
         'p_iva' => '17861849275',
-        'phone_num' => '+393527019384',
+        'phone_num' => '3527019384',
         'user_id' => 1,
         'address' => 'Via Roma 17',
         'types' => [
@@ -403,7 +403,7 @@ return [
         'name' => 'Happy Sushi Wok',
         'email' => 'happysushiwok@mail.com',
         'p_iva' => '43928291018',
-        'phone_num' => '+393896245703',
+        'phone_num' => '3896245703',
         'user_id' => 2,
         'address' => 'Via Garibaldi 23',
         'types' => [
@@ -415,7 +415,7 @@ return [
         'name' => 'La Pizzaccia 2',
         'email' => 'lapizzaccia2@mail.com',
         'p_iva' => '72365381927',
-        'phone_num' => '+393401856972',
+        'phone_num' => '3401856972',
         'user_id' => 3,
         'address' => 'Corso Vittorio Emanuele 45',
         'types' => [
@@ -427,7 +427,7 @@ return [
         'name' => 'Los Pollos Hermanos',
         'email' => 'lospolloshermanos@mail.com',
         'p_iva' => '56201947285',
-        'phone_num' => '+393762418590',
+        'phone_num' => '3762418590',
         'user_id' => 4,
         'address' => 'Via Dante 12',
         'types' => [
@@ -439,7 +439,7 @@ return [
         'name' => 'Cioccolato Puro',
         'email' => 'cioccolatopuro@mail.com',
         'p_iva' => '91483057162',
-        'phone_num' => '+393610925347',
+        'phone_num' => '3610925347',
         'user_id' => 5,
         'address' => 'Via Verdi 9',
         'types' => [
@@ -451,7 +451,7 @@ return [
         'name' => 'Halal Kebab & Pizza',
         'email' => 'halalkebabpizza@mail.com',
         'p_iva' => '67482613908',
-        'phone_num' => '+393941586027',
+        'phone_num' => '3941586027',
         'user_id' => 6,
         'address' => 'Corso Umberto I 34',
         'types' => [
@@ -463,7 +463,7 @@ return [
         'name' => 'Carmelo Patatina',
         'email' => 'carmelopatatina@mail.com',
         'p_iva' => '30948761592',
-        'phone_num' => '+393857314609',
+        'phone_num' => '3857314609',
         'user_id' => 7,
         'address' => 'Via XX Settembre 56',
         'types' => [
@@ -475,7 +475,7 @@ return [
         'name' => 'Bar Arturo',
         'email' => 'bararturo@mail.com',
         'p_iva' => '82057391643',
-        'phone_num' => '+393120867459',
+        'phone_num' => '3120867459',
         'user_id' => 8,
         'address' => 'Via Montello 78',
         'types' => [
@@ -487,7 +487,7 @@ return [
         'name' => 'Pinseria Pasta Madre',
         'email' => 'pinseriapastamadre@mail.com',
         'p_iva' => '38576291840',
-        'phone_num' => '+393495671028',
+        'phone_num' => '3495671028',
         'user_id' => 9,
         'address' => 'Via San Francesco 3',
         'types' => [
@@ -499,7 +499,7 @@ return [
         'name' => 'Yoshi',
         'email' => 'yoshi@mail.com',
         'p_iva' => '10295738462',
-        'phone_num' => '+393618957420',
+        'phone_num' => '3618957420',
         'user_id' => 10,
         'address' => 'Via Gramsci 87',
         'types' => [
@@ -511,7 +511,7 @@ return [
         'name' => 'Daje Pizza',
         'email' => 'dajepizza@mail.com',
         'p_iva' => '74920163582',
-        'phone_num' => '+393932408576',
+        'phone_num' => '3932408576',
         'user_id' => 11,
         'address' => 'Via Marconi 25',
         'types' => [
@@ -523,7 +523,7 @@ return [
         'name' => 'La Pizza De Latina',
         'email' => 'lapizzadelatina@mail.com',
         'p_iva' => '51692748301',
-        'phone_num' => '+393740289615',
+        'phone_num' => '3740289615',
         'user_id' => 12,
         'address' => 'Via Leopardi 71',
         'types' => [
@@ -535,7 +535,7 @@ return [
         'name' => 'The King Burger',
         'email' => 'thekingburger@mail.com',
         'p_iva' => '20834971562',
-        'phone_num' => '+393569481027',
+        'phone_num' => '3569481027',
         'user_id' => 13,
         'address' => 'Via Solferino 32',
         'types' => [
@@ -547,7 +547,7 @@ return [
         'name' => 'Mister Ice',
         'email' => 'misterice@mail.com',
         'p_iva' => '93658204127',
-        'phone_num' => '+393824056917',
+        'phone_num' => '3824056917',
         'user_id' => 14,
         'address' => 'Corso Italia 54',
         'types' => [
@@ -559,7 +559,7 @@ return [
         'name' => 'Dama Sushi',
         'email' => 'damasushi@mail.com',
         'p_iva' => '67283915042',
-        'phone_num' => '+393157690428',
+        'phone_num' => '3157690428',
         'user_id' => 15,
         'address' => 'Via Manzoni 8',
         'types' => [
@@ -571,7 +571,7 @@ return [
         'name' => 'La Piazzetta',
         'email' => 'lapiazzetta@mail.com',
         'p_iva' => '52406381972',
-        'phone_num' => '+393479620513',
+        'phone_num' => '3479620513',
         'user_id' => 16,
         'address' => 'Via Veneto 66',
         'types' => [
@@ -583,7 +583,7 @@ return [
         'name' => 'Ciak Burger',
         'email' => 'ciakburger@mail.com',
         'p_iva' => '87369412058',
-        'phone_num' => '+393908764251',
+        'phone_num' => '3908764251',
         'user_id' => 17,
         'address' => 'Via dei Mille 43',
         'types' => [
@@ -595,7 +595,7 @@ return [
         'name' => 'Gli Sfiziosi',
         'email' => 'glisfiziosi@mail.com',
         'p_iva' => '30571692843',
-        'phone_num' => '+393736501849',
+        'phone_num' => '3736501849',
         'user_id' => 18,
         'address' => 'Piazza del Popolo 10',
         'types' => [
@@ -607,7 +607,7 @@ return [
         'name' => 'Pokè Time',
         'email' => 'poketime@mail.com',
         'p_iva' => '61849275301',
-        'phone_num' => '+393205768914',
+        'phone_num' => '3205768914',
         'user_id' => 19,
         'address' => 'Piazza Navona 21',
         'types' => [
@@ -619,7 +619,7 @@ return [
         'name' => 'So...Fritto!',
         'email' => 'sofritto@mail.com',
         'p_iva' => '28914563729',
-        'phone_num' => '+393647819502',
+        'phone_num' => '3647819502',
         'user_id' => 20,
         'address' => 'Piazza di Spagna 37',
         'types' => [
@@ -631,7 +631,7 @@ return [
         'name' => 'Pinsa Romana e Kebab H24',
         'email' => 'pinsakebab@mail.com',
         'p_iva' => '75192048367',
-        'phone_num' => '+393830947612',
+        'phone_num' => '3830947612',
         'user_id' => 21,
         'address' => 'Piazza San Pietro 2',
         'types' => [
@@ -643,7 +643,7 @@ return [
         'name' => 'Dolce Tex Mex',
         'email' => 'docletexmex@mail.com',
         'p_iva' => '42690183572',
-        'phone_num' => '+393502716849',
+        'phone_num' => '3502716849',
         'user_id' => 22,
         'address' => 'Largo Garibaldi 15',
         'types' => [
@@ -655,7 +655,7 @@ return [
         'name' => 'Nanà Ristorante Pizzeria',
         'email' => 'nanaristorantepizzeria@mail.com',
         'p_iva' => '68305721934',
-        'phone_num' => '+393948106527',
+        'phone_num' => '3948106527',
         'user_id' => 23,
         'address' => 'Viale delle Terme 4',
         'types' => [
@@ -667,7 +667,7 @@ return [
         'name' => 'Tonino\'s',
         'email' => 'toninos@mail.com',
         'p_iva' => '24917638570',
-        'phone_num' => '+393317894506',
+        'phone_num' => '3317894506',
         'user_id' => 24,
         'address' => 'Viale dei Giardini 7',
         'types' => [
@@ -679,7 +679,7 @@ return [
         'name' => 'Fujiyama',
         'email' => 'fujiyama@mail.com',
         'p_iva' => '17593648290',
-        'phone_num' => '+393751026948',
+        'phone_num' => '3751026948',
         'user_id' => 25,
         'address' => 'Viale Kennedy 19',
         'types' => [
@@ -691,7 +691,7 @@ return [
         'name' => 'O\' Zuppular',
         'email' => 'ozuppular@mail.com',
         'p_iva' => '63849215726',
-        'phone_num' => '+393180592764',
+        'phone_num' => '3180592764',
         'user_id' => 26,
         'address' => 'Viale Europa 27',
         'types' => [
@@ -703,7 +703,7 @@ return [
         'name' => 'Non solo pizza',
         'email' => 'nonsolopizza@mail.com',
         'p_iva' => '92147536028',
-        'phone_num' => '+393925437801',
+        'phone_num' => '3925437801',
         'user_id' => 27,
         'address' => 'Viale delle Rimembranze 36',
         'types' => [
@@ -715,7 +715,7 @@ return [
         'name' => 'Il Mago del Gelo',
         'email' => 'ilmagodelgelo@mail.com',
         'p_iva' => '36481950792',
-        'phone_num' => '+393604189572',
+        'phone_num' => '3604189572',
         'user_id' => 28,
         'address' => 'Viale XXV Aprile 50',
         'types' => [
@@ -727,7 +727,7 @@ return [
         'name' => 'Moki Sushi',
         'email' => 'mokisushi@mail.com',
         'p_iva' => '58972403615',
-        'phone_num' => '+393861570942',
+        'phone_num' => '3861570942',
         'user_id' => 29,
         'address' => 'Viale Aldo Moro 64',
         'types' => [
@@ -739,7 +739,7 @@ return [
         'name' => 'Ke-Burger',
         'email' => 'keburger@mail.com',
         'p_iva' => '20891734625',
-        'phone_num' => '+393210948657',
+        'phone_num' => '3210948657',
         'user_id' => 30,
         'address' => 'Viale dei Pini 11',
         'types' => [
@@ -751,7 +751,7 @@ return [
         'name' => 'Casa Criscuolo',
         'email' => 'casacriscuolo@mail.com',
         'p_iva' => '78362915047',
-        'phone_num' => '+393541972086',
+        'phone_num' => '3541972086',
         'user_id' => 31,
         'address' => 'Viale dei Cipressi 28',
         'types' => [
@@ -763,7 +763,7 @@ return [
         'name' => 'Ke-Bab',
         'email' => 'kebab@mail.com',
         'p_iva' => '41692837509',
-        'phone_num' => '+393708629415',
+        'phone_num' => '3708629415',
         'user_id' => 32,
         'address' => 'Viale della Libertà 76',
         'types' => [
@@ -775,7 +775,7 @@ return [
         'name' => 'Veracruz',
         'email' => 'veracruz@mail.com',
         'p_iva' => '27059681423',
-        'phone_num' => '+393458601927',
+        'phone_num' => '3458601927',
         'user_id' => 33,
         'address' => 'Viale Gramsci 88',
         'types' => [
@@ -787,7 +787,7 @@ return [
         'name' => 'Happy Food',
         'email' => 'happyfood@mail.com',
         'p_iva' => '49658102734',
-        'phone_num' => '+393806547912',
+        'phone_num' => '3806547912',
         'user_id' => 34,
         'address' => 'Viale Giuseppe Mazzini 14',
         'types' => [
@@ -799,7 +799,7 @@ return [
         'name' => 'La Pinseria',
         'email' => 'lapinseria@mail.com',
         'p_iva' => '81952037649',
-        'phone_num' => '+393639781042',
+        'phone_num' => '3639781042',
         'user_id' => 35,
         'address' => 'Viale Matteotti 33',
         'types' => [
@@ -811,7 +811,7 @@ return [
         'name' => 'Oro di Napoli',
         'email' => 'orodinapoli@mail.com',
         'p_iva' => '35097482163',
-        'phone_num' => '+393985421760',
+        'phone_num' => '3985421760',
         'user_id' => 36,
         'address' => 'Viale Giacomo Leopardi 52',
         'types' => [
@@ -823,7 +823,7 @@ return [
         'name' => 'Pokeria Tiburon',
         'email' => 'pokeriatiburon@mail.com',
         'p_iva' => '69501348721',
-        'phone_num' => '+393301928576',
+        'phone_num' => '3301928576',
         'user_id' => 37,
         'address' => 'Viale Gabriele D\'Annunzio 68',
         'types' => [
@@ -835,7 +835,7 @@ return [
         'name' => 'Il Mago dello Spiedo',
         'email' => 'ilmagodellospiedo@mail.com',
         'p_iva' => '28341679502',
-        'phone_num' => '+393764029185',
+        'phone_num' => '3764029185',
         'user_id' => 38,
         'address' => 'Viale Giuseppe Garibaldi 81',
         'types' => [
@@ -847,7 +847,7 @@ return [
         'name' => 'Make Burger Great Again',
         'email' => 'makeburger@mail.com',
         'p_iva' => '95830621745',
-        'phone_num' => '+393184907526',
+        'phone_num' => '3184907526',
         'user_id' => 39,
         'address' => 'Viale Enrico Fermi 96',
         'types' => [
@@ -859,7 +859,7 @@ return [
         'name' => 'King Kong',
         'email' => 'kingkong@mail.com',
         'p_iva' => '20745986312',
-        'phone_num' => '+393542097681',
+        'phone_num' => '3542097681',
         'user_id' => 40,
         'address' => 'Viale Leonardo da Vinci 5',
         'types' => [
@@ -871,7 +871,7 @@ return [
         'name' => 'Dolci Carie',
         'email' => 'dolcicarie@mail.com',
         'p_iva' => '46815932740',
-        'phone_num' => '+393831460972',
+        'phone_num' => '3831460972',
         'user_id' => 41,
         'address' => 'Viale Alessandro Volta 22',
         'types' => [
@@ -883,7 +883,7 @@ return [
         'name' => 'Troppo Unto',
         'email' => 'troppounto@mail.com',
         'p_iva' => '92740381569',
-        'phone_num' => '+393472860915',
+        'phone_num' => '3472860915',
         'user_id' => 42,
         'address' => 'Viale Galileo Galilei 31',
         'types' => [
@@ -895,7 +895,7 @@ return [
         'name' => 'Diabete Freddo',
         'email' => 'diabetefreddo@mail.com',
         'p_iva' => '61379485206',
-        'phone_num' => '+393609541827',
+        'phone_num' => '3609541827',
         'user_id' => 43,
         'address' => 'Viale Niccolò Machiavelli 47',
         'types' => [
@@ -907,7 +907,7 @@ return [
         'name' => 'Manga Food',
         'email' => 'mangafood@mail.com',
         'p_iva' => '80256391748',
-        'phone_num' => '+393953748210',
+        'phone_num' => '3953748210',
         'user_id' => 44,
         'address' => 'Viale Copernico 63',
         'types' => [
@@ -919,7 +919,7 @@ return [
         'name' => 'Krusty Burger',
         'email' => 'krustyburger@mail.com',
         'p_iva' => '37495128603',
-        'phone_num' => '+393175649802',
+        'phone_num' => '3175649802',
         'user_id' => 45,
         'address' => 'Viale Guglielmo Marconi 72',
         'types' => [
@@ -931,7 +931,7 @@ return [
         'name' => 'Spaghetti Mafia',
         'email' => 'spaghettimafia@mail.com',
         'p_iva' => '65924837150',
-        'phone_num' => '+393497260183',
+        'phone_num' => '3497260183',
         'user_id' => 46,
         'address' => 'Viale Archimede 83',
         'types' => [
@@ -943,7 +943,7 @@ return [
         'name' => 'Notti d\'oriente',
         'email' => 'nottidoriente@mail.com',
         'p_iva' => '52104968730',
-        'phone_num' => '+393821659047',
+        'phone_num' => '3821659047',
         'user_id' => 47,
         'address' => 'Viale dei Caduti 92',
         'types' => [
@@ -955,7 +955,7 @@ return [
         'name' => 'Speedy Gonzales',
         'email' => 'speedygonzales@mail.com',
         'p_iva' => '89635072413',
-        'phone_num' => '+393130846579',
+        'phone_num' => '3130846579',
         'user_id' => 48,
         'address' => 'Viale dei Pini 13',
         'types' => [
@@ -967,7 +967,7 @@ return [
         'name' => 'Pane e Tramezzi',
         'email' => 'panetramezzi@mail.com',
         'p_iva' => '43175628907',
-        'phone_num' => '+393579420186',
+        'phone_num' => '3579420186',
         'user_id' => 49,
         'address' => 'Viale degli Ulivi 29',
         'types' => [
@@ -979,7 +979,7 @@ return [
         'name' => 'Pinsa da Maggika',
         'email' => 'pinsamaggika@mail.com',
         'p_iva' => '78610593427',
-        'phone_num' => '+393841096257',
+        'phone_num' => '3841096257',
         'user_id' => 50,
         'address' => 'Viale dei Fiori 38',
         'types' => [
@@ -991,7 +991,7 @@ return [
         'name' => 'Er Vesuvio',
         'email' => 'ervesuvio@mail.com',
         'p_iva' => '57623019847',
-        'phone_num' => '+393602419785',
+        'phone_num' => '3602419785',
         'user_id' => 51,
         'address' => 'Viale dei Ciliegi 57',
         'types' => [
@@ -1003,7 +1003,7 @@ return [
         'name' => 'Pokemon Poke',
         'email' => 'pokemonpoke@mail.com',
         'p_iva' => '93218576034',
-        'phone_num' => '+393940718256',
+        'phone_num' => '3940718256',
         'user_id' => 52,
         'address' => 'Viale delle Rose 74',
         'types' => [
@@ -1015,7 +1015,7 @@ return [
         'name' => 'Ti Spiedo in Due',
         'email' => 'tispiedoindue@mail.com',
         'p_iva' => '24703691582',
-        'phone_num' => '+393268945071',
+        'phone_num' => '3268945071',
         'user_id' => 53,
         'address' => 'Viale degli Oleandri 99',
         'types' => [

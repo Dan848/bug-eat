@@ -70,7 +70,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+
      */
     public function show(Product $product)
     {
@@ -80,7 +80,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+
      */
     public function edit(Product $product)
     {
@@ -94,16 +94,24 @@ class ProductController extends Controller
      *
      * @param  \App\Http\Requests\UpdateProductRequest  $request
      * @param  \App\Models\Product  $product
-     *
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
         $data = $request->validated();
         $data["slug"] = Str::slug($request->name, "-");
 
+        if ($request->hasFile("image")){
+            if ($product->image) {
+                Storage::delete($product->image);
+            }
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
         $product->update($data);
 
-        return redirect()->route("admin.products.index", $product->slug)->with("message", "$product->name è stato modificato con successo");
+        
+        return redirect()->route("admin.products.show",$product->slug)->with("message", "$product->name è stato modificato con successo");
+
     }
 
     /**
