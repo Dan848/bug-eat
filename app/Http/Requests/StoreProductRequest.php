@@ -24,9 +24,12 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:restaurants,name', 'max:100'],
-            'price' => ['required', 'min:0.5'],
-            // 'visible' => ['required']
+            'name' => ['required', 'max:100'],
+            'price' => ['required', 'min:0'],
+            'image' => ['nullable'],
+            'description' => ['nullable'],
+            'visible' => ['required', 'boolean'],
+            'restaurant_id' => ['required', 'exists:restaurants,id'],
         ];
     }
 
@@ -38,7 +41,10 @@ class StoreProductRequest extends FormRequest
             'name.max' => "Il campo 'nome' deve contenere al massimo :max caratteri",
             'price.required' => "Il campo 'prezzo' è obbligatorio",
             'price.min' => "Il campo 'prezzo' deve essere maggiore di :min",
-            // 'visible.required' => "Il campo 'visible' è obbligatorio",
+            'visible.required' => "Il campo 'visible' è obbligatorio",
+            'visible.boolean' => "Il campo 'visible' deve essere un booleano",
+            'restaurant_id.required' => "Il campo 'Ristorante' è obbligatorio",
+            'restaurant_id.exists' => "Il campo 'Ristorante' deve esistere tra i ristoranti",
         ];
     }
 }

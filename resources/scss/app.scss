@@ -21,6 +21,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 //FORM MODIFY
 .form-floating {
     > label {
+        color: rgba($color: #ffffff, $alpha: 0.9)!important;
         top: -8px;
         &::after {
             background-color: transparent !important;

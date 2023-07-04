@@ -31,6 +31,18 @@
                             @error('price')
                                 <p>*{{ $message }}</p>
                             @enderror
+                            @error('visible')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('image')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('description')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('restaurant_id')
+                                <p>*{{ $message }}</p>
+                            @enderror
                         </div>
                     @endif
                     <!-- NAME -->
@@ -40,7 +52,7 @@
                             <div class="form-floating mb-3">
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                    max="100" required autofocus>
+                                    maxlength="100" required autofocus>
                                 <label for="name">Nome</label>
                             </div>
                         </div>
@@ -51,8 +63,8 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input id="price" name="price" type="number"
-                                    class="form-control @error('price') is-invalid @enderror" step="0.01" max="255"
-                                    required>
+                                    class="form-control @error('price') is-invalid @enderror" step="0.01" min="0"
+                                    value="{{ old('price') }}" required>
                                 <label for="price">Prezzo</label>
                             </div>
                         </div>
@@ -67,7 +79,7 @@
                     </div>
 
                     <div class="row">
-                        <!-- DESCRIPTIONS -->
+                        <!-- DESCRIPTION -->
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <textarea id="type" name="description" class="form-control" id="description" rows="5">{{ old('description') }}</textarea>
@@ -78,22 +90,28 @@
                     <!-- VISIBLE/RESTAURANTS -->
                     <div class="row">
                         <!-- VISIBLE -->
-                        <div class="col-12 col-md-6">
-                            <div class="display-grid mb-3">
-                                <h6 class="g-col">Imposta se il prodotto è disponibile</h6>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">No/Si</label>
-                                </div>
+                        <div class="col-12 col-md-6 mb-3 text-center">
+                            <h6>Visibile</h6>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="visible" id="visible-true"
+                                    value="1">
+                                <label class="visible-true" for="inlineRadio1">Si</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="visible" id="visible-false"
+                                    value="0">
+                                <label class="form-check-label" for="visible-false">No</label>
                             </div>
                         </div>
                         <!-- RESTAURANTS -->
-                        <div class="col-12 col-md-6">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                        <div class="col-12 col-md-6 mb-3 text-center">
+                            <h6>Ristorante</h6>
+                            <select name="restaurant_id" id="restaurant_id" class="form-select"
+                                aria-label="Default select example">
+                                <option value="">Ristorante a cui aggiungere il prodotto</option>
+                                @foreach ($restaurants as $restaurant)
+                                    <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
