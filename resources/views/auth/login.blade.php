@@ -34,7 +34,7 @@
                                             <div class="form-floating mb-3">
                                                 <input id="password" type="password"
                                                     class="form-control @error('password') is-invalid @enderror"
-                                                    name="password" required autocomplete="current-password">
+                                                    name="password" required autocomplete="current-password" minlength="8">
                                                 <label for="inputPassword">{{ __('Password') }}</label>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
