@@ -48,11 +48,11 @@
                                 {{-- Name --}}
                                 <th scope="row">
                                     <a class="h5"
-                                        href="{{ route('admin.products.show', $product) }}">{{ $product->name }}
+                                        href="{{ route('admin.products.show', $product) }}">{{ strlen($product->name) > 30 ? substr($product->name, 0, 30) . '...' : $product->name }}
                                     </a>
                                 </th>
                                 {{-- Price --}}
-                                <td class="d-none d-sm-table-cell">
+                                <td class="d-none d-sm-table-cell text-nowrap">
                                     € {{ $product->price }}
                                 </td>
                                 {{-- Visible --}}
