@@ -62,6 +62,7 @@ class ProductController extends Controller
             $data["image"] = asset("storage/" . $img_path);
         }
         $newProduct = Product::create($data);
+        $newProduct->slug = Str::slug($newProduct->name, '-') . "-" . $newProduct->id;
 
 
         return redirect()->route('admin.products.index', $newProduct->slug);
@@ -109,7 +110,7 @@ class ProductController extends Controller
         }
         $product->update($data);
 
-        
+
         return redirect()->route("admin.products.show",$product->slug)->with("message", "$product->name è stato modificato con successo");
 
     }
