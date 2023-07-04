@@ -34,6 +34,15 @@
                             @error('visible')
                                 <p>*{{ $message }}</p>
                             @enderror
+                            @error('image')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('description')
+                                <p>*{{ $message }}</p>
+                            @enderror
+                            @error('restaurant_id')
+                                <p>*{{ $message }}</p>
+                            @enderror
                         </div>
                     @endif
                     <!-- NAME -->
