@@ -120,7 +120,7 @@
                         @foreach ($types as $type)
                             <div class="col-6 col-md-2">
                                 <label class="image-radio">
-                                    <input type="radio" value="{{ $type->image }}" class="" name="image"
+                                    <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
                                         id="image-{{ $type->id }}" autocomplete="off">
                                     <img src="{{ $type->image }}" alt="{{ $type->name }}">
                                 </label>
@@ -143,7 +143,7 @@
                     <!-- SAVE & RESET -->
                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                         <button class="btn btn-secondary me-2" type="reset">Reset</button>
-                        <button class="btn btn-primary ms-2" type="submit">Crea</button>
+                        <button id="btn-sub" class="btn btn-primary ms-2" type="submit">Crea</button>
                     </div>
                 </form>
             </div>

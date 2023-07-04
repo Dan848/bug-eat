@@ -1,25 +1,27 @@
 
 const registerForm = document.getElementById('register_form');
 const form = document.querySelector('.form-crud');
-
-
-//funzione per controllare che le password inserite combacino
-function checkPassword(e) {
-    e.preventDefault();
-    const password = document.getElementById('password');
-    const passwordConfirm = document.getElementById('password-confirm');
-    if (password !== passwordConfirm) {
-        printError('Le password inserite non coincidono');
-    }
-}
-
-//avvio della funzione checkPassword al submit del form della register
-if (registerForm) {
-    registerForm.addEventListener('submit', checkPassword);
-}
-
+const btnSub = document.getElementById('btn-sub');
 const messageBox = document.getElementById('message_box');
 
+function scrollToTop() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+}
+
+//funzione per controllare che le password inserite combacino
+function checkPassword() {
+    const password = document.getElementById('password');
+    const passwordConfirm = document.getElementById('password-confirm');
+    let isValid = true;
+
+    if (password.value !== passwordConfirm.value) {
+        printError('Le password inserite non coincidono');
+        isValid = false;
+    }
+
+    return isValid
+}
 
 //funzione che stampa i messaggi passandogli il messaggio che si vuole stampare
 function printError(errorMessage) {
@@ -40,15 +42,20 @@ function clearError() {
 }
 
 //funzione che controlla se il numero di telefono è
-function checkPhoneNum() {
-    console.log('sono checkphonenum')
+function checkNum() {
     const numberBox = document.getElementById('phone_num');
+    const pivaBox = document.getElementById('p_iva');
     let isValid = true;
     if (isNaN(numberBox.value)) {
         printError('Inserisci un numero valido. Es: 3470000000');
         scrollToTop();
         isValid = false;
-        console.log('sono checkphonenum if')
+    }
+
+    if (isNaN(pivaBox.value)) {
+        printError('Inserisci una partita iva valida. Es: 12345678901');
+        scrollToTop();
+        isValid = false;
     }
 
     return isValid;
@@ -66,20 +73,51 @@ function checkTypes() {
     return false;
 }
 
+function checkRadio() {
+    const radioButtons = document.querySelectorAll('.radio-btn');
+    for (let i = 0; i < radioButtons.length; i++){
+        if (radioButtons[i].checked) {
+            return true;
+        }
+    }
+    printError('Seleziona un\'immagine');
+    scrollToTop();
+    return false;
+}
+
+//clear errors
+if (btnSub) {
+    btnSub.addEventListener('click', () => {
+        clearError();
+    })
+}
+
+// avvio della funzione checkPassword al submit del form della register
+if (registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const isPasswordValid = checkPassword();
+
+        if (isPasswordValid) {
+            registerForm.submit();
+        }
+    });
+}
+
+// errors of restaurant's create and edit
 if (form) {
     form.addEventListener('submit', (e) => {
-        clearError();
         e.preventDefault();
-        const isPhoneNumValid = checkPhoneNum();
+        const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
-        if (isPhoneNumValid && isTypesValid) {
+        const isRadioValid = checkRadio();
+        if (isPhoneNumValid && isTypesValid && isRadioValid) {
             form.submit();
             console.log('submit');
         }
     });
 }
 
-function scrollToTop() {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-}
+
+
+
