@@ -27,22 +27,22 @@
                     @if ($errors->any())
                         <div class="alert alert-danger mt-2">
                             @error('name')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                             @error('email')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                             @error('phone_num')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                             @error('address')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                             @error('p_iva')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                             @error('types[]')
-                                <p>*{{ $message }}</p>
+                                <p>{{ $message }}</p>
                             @enderror
                         </div>
                     @endif
@@ -73,7 +73,7 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input id="phone_num" name="phone_num" type="text"
-                                    class="form-control @error('phone_num') is-invalid @enderror" required
+                                    class="form-control @error('phone_num') is-invalid @enderror"
                                     value="{{ old('phone_num') }}" min="9" max="20">
                                 <label class="mb-5" for="image">Telefono</label>
                             </div>
