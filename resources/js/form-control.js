@@ -73,6 +73,18 @@ function checkTypes() {
     return false;
 }
 
+function checkRadio() {
+    const radioButtons = document.querySelectorAll('.radio-btn');
+    for (let i = 0; i < radioButtons.length; i++){
+        if (radioButtons[i].checked) {
+            return true;
+        }
+    }
+    printError('Seleziona un\'immagine');
+    scrollToTop();
+    return false;
+}
+
 //clear errors
 if (btnSub) {
     btnSub.addEventListener('click', () => {
@@ -98,7 +110,8 @@ if (form) {
         e.preventDefault();
         const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
-        if (isPhoneNumValid && isTypesValid) {
+        const isRadioValid = checkRadio();
+        if (isPhoneNumValid && isTypesValid && isRadioValid) {
             form.submit();
             console.log('submit');
         }
