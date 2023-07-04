@@ -1,6 +1,7 @@
 
 const registerForm = document.getElementById('register_form');
 const form = document.querySelector('.form-crud');
+const btnSub = document.getElementById('btn-sub')
 
 
 //funzione per controllare che le password inserite combacino
@@ -71,9 +72,15 @@ function checkTypes() {
     return false;
 }
 
+if (btnSub) {
+    btnSub.addEventListener('click', () => {
+        clearError();
+    })
+}
+
+
 if (form) {
     form.addEventListener('submit', (e) => {
-        clearError();
         e.preventDefault();
         const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
