@@ -40,15 +40,20 @@ function clearError() {
 }
 
 //funzione che controlla se il numero di telefono è
-function checkPhoneNum() {
-    console.log('sono checkphonenum')
+function checkNum() {
     const numberBox = document.getElementById('phone_num');
+    const pivaBox = document.getElementById('p_iva');
     let isValid = true;
     if (isNaN(numberBox.value)) {
         printError('Inserisci un numero valido. Es: 3470000000');
         scrollToTop();
         isValid = false;
-        console.log('sono checkphonenum if')
+    }
+
+    if (isNaN(pivaBox.value)) {
+        printError('Inserisci una partita iva valida. Es: 12345678901');
+        scrollToTop();
+        isValid = false;
     }
 
     return isValid;
@@ -70,7 +75,7 @@ if (form) {
     form.addEventListener('submit', (e) => {
         clearError();
         e.preventDefault();
-        const isPhoneNumValid = checkPhoneNum();
+        const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
         if (isPhoneNumValid && isTypesValid) {
             form.submit();
