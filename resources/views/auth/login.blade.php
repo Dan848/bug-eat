@@ -22,7 +22,7 @@
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                                     value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                                <label for="inputEmail">{{ __('E-Mail Address') }}</label>
+                                                <label for="inputEmail">{{ __('E-Mail Address') }}*</label>
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                                                 <input id="password" type="password"
                                                     class="form-control @error('password') is-invalid @enderror"
                                                     name="password" required autocomplete="current-password" minlength="8">
-                                                <label for="inputPassword">{{ __('Password') }}</label>
+                                                <label for="inputPassword">{{ __('Password') }}*</label>
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -59,7 +59,11 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <div class="card-footer text-center py-3">
+                                    <div class="card-footer text-center py-3 d-flex justify-content-between">
+                                        <div>
+                                            <p>* I campi sono obbligatori</p>
+                                        </div>
+
                                         <a class="small text-secondary"
                                             href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </div>

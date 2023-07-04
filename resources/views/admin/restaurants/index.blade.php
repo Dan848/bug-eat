@@ -9,7 +9,7 @@
         </ol>
         <div class="card text-bg-dark mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <div><i class="fa-solid fa-people-group me-1"></i>Ristoranti</div>
+                <div><i class="fa-solid fa-utensils me-2"></i>Ristoranti</div>
                 <a class="btn btn-primary fw-medium d-flex align-items-center"
                     href="{{ route('admin.restaurants.create') }}">
                     <i class="fa-regular fa-plus me-1 text-secondary fs-5 vertical-center fw-bolder"></i>Aggiungi

@@ -22,7 +22,7 @@
     <div class="container p-4 bg-dark rounded-2 mb-4">
         <div class="row">
             <div class="col">
-                <form class="container form-crud" method="POST" action="{{ route('admin.products.store') }}"
+                <form class="container" method="POST" action="{{ route('admin.products.store') }}"
                     enctype="multipart/form-data">
                     @csrf
                     {{-- Errors Section --}}
@@ -98,12 +98,12 @@
                             <h6>Visibile *</h6>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="visible" id="visible-true"
-                                    value="1">
+                                    value="1" required>
                                 <label class="visible-true" for="inlineRadio1">Si</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="visible" id="visible-false"
-                                    value="0">
+                                    value="0" required>
                                 <label class="form-check-label" for="visible-false">No</label>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                         <div class="col-12 col-md-6 mb-3 text-center">
                             <h6>Ristorante *</h6>
                             <select name="restaurant_id" id="restaurant_id" class="form-select"
-                                aria-label="Default select example">
+                                aria-label="Default select example" required>
                                 <option value="">Ristorante a cui aggiungere il prodotto</option>
                                 @foreach ($restaurants as $restaurant)
                                     <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
