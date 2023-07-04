@@ -27,8 +27,8 @@
             <!-- Left Side Navbar-->
             <div>
                 <!-- Navbar Brand-->
-                <a class="navbar-brand ps-3 fw-medium hover-scale" href="{{ url('/') }}">Bug-Eat
-                    <span><img src="/img/logo-inverted.png" alt="logo" width="25px" height="25px"></span>
+                <a class="navbar-brand ps-3 fw-medium hover-scale" href="{{ url('/') }}">
+                    <span><img src="/img/general/logo-white.png" alt="logo" width="80px"></span>
                 </a>
                 <!-- Sidebar Toggle-->
                 <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 hover-scale fs-5" id="sidebarToggle"
@@ -96,7 +96,8 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.restaurants.index') }}">Elenco
                                         Ristoranti</a>
-                                    <a class="nav-link" href="{{ route('admin.restaurants.create') }}">Crea Ristorante</a>
+                                    <a class="nav-link" href="{{ route('admin.restaurants.create') }}">Crea
+                                        Ristorante</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"

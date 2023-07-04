@@ -21,7 +21,7 @@
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary justify-content-between">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3 fw-medium hover-scale" href="{{ url('/') }}">Bug-Eat
-                <span><img src="/img/logo-inverted.png" alt="logo" width="25px" height="25px"></span>
+                <span><img src="/img/general/logo-white.png" alt="logo" width="80px"></span>
             </a>
             <!-- RIGHT SIDE NAVBAR -->
             <div>
