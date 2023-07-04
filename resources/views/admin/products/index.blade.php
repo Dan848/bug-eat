@@ -7,9 +7,27 @@
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
             <li class="breadcrumb-item active">Prodotti</li>
         </ol>
+        {{-- SELECT RESTAURANT  --}}
+
+
+
+
+
         <div class="card text-bg-dark mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <div><i class="fa-solid fa-people-group me-1"></i>Prodotti</div>
+                <div class="d-flex ">
+                    <div class="d-flex align-items-center text-nowrap me-3">
+                        <i class="fa-solid fa-people-group me-2"></i>Prodotti di:
+                    </div>
+                    <select name="restaurant_id" id="restaurant_id" class="form-select d-inline"
+                        aria-label="Default select example">
+                        <option value="">I tuoi ristoranti</option>
+                        {{-- @foreach ($restaurants as $restaurant)
+                            <option value="{{ $restaurant->id }}">{{ $restaurant->name }}</option>
+                        @endforeach --}}
+                    </select>
+                </div>
+
                 <a class="btn btn-primary fw-medium d-flex align-items-center" href="{{ route('admin.products.create') }}">
                     <i class="fa-regular fa-plus me-1 text-secondary fs-5 vertical-center fw-bolder"></i>Aggiungi
                 </a>
