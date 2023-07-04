@@ -104,13 +104,19 @@
                         </div>
                     </div>
                     <!-- IMAGE -->
-                    <div class="display-grid mb-3 mt-4">
-                        <h6 class="g-col text-center pb-3">Seleziona un immagine:</h6>
+                    <div class="d-flex mb-3 mt-4">
+                        <div class="col-4"></div>
+                        <h6 class="col-4 text-center pb-3">Seleziona un immagine:</h6>
+                        <div class="col-4 d-flex justify-content-end form-check form-switch">
+                            <input name="imageSwitch" id="imageSwitch" class="form-check-input" type="checkbox"
+                                role="switch">
+                            <label class="form-check-label" for="imageSwitch">Carica / Seleziona</label>
+                        </div>
                     </div>
                     <div class="row justify-content-center g-5">
-                        <!-- Upload Yours -->
+                        <!-- Upload File -->
 
-                        <!-- Select -->
+                        <!-- Select Image -->
                         @foreach ($types as $type)
                             <div class="col-6 col-md-2">
                                 <label class="image-radio">
