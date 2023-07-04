@@ -63,7 +63,7 @@ class ProductController extends Controller
         }
         $newProduct = Product::create($data);
         $newProduct->slug = Str::slug($newProduct->name, '-') . "-" . $newProduct->id;
-
+        $newProduct->save();
 
         return redirect()->route('admin.products.index', $newProduct->slug);
     }
