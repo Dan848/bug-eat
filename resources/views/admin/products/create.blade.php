@@ -26,8 +26,9 @@
                     enctype="multipart/form-data">
                     @csrf
                     {{-- Errors Section --}}
+                    <div class="alert alert-danger mt-2 d-none" id="message_box"></div>
                     @if ($errors->any())
-                        <div class="alert alert-danger mt-2" id="message_box">
+                        <div class="alert alert-danger mt-2">
                             @error('name')
                                 <p>*{{ $message }}</p>
                             @enderror
