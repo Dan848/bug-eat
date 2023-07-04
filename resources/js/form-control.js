@@ -1,26 +1,27 @@
 
 const registerForm = document.getElementById('register_form');
 const form = document.querySelector('.form-crud');
-const btnSub = document.getElementById('btn-sub')
-
-
-//funzione per controllare che le password inserite combacino
-function checkPassword(e) {
-    e.preventDefault();
-    const password = document.getElementById('password');
-    const passwordConfirm = document.getElementById('password-confirm');
-    if (password !== passwordConfirm) {
-        printError('Le password inserite non coincidono');
-    }
-}
-
-//avvio della funzione checkPassword al submit del form della register
-if (registerForm) {
-    registerForm.addEventListener('submit', checkPassword);
-}
-
+const btnSub = document.getElementById('btn-sub');
 const messageBox = document.getElementById('message_box');
 
+function scrollToTop() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+}
+
+//funzione per controllare che le password inserite combacino
+function checkPassword() {
+    const password = document.getElementById('password');
+    const passwordConfirm = document.getElementById('password-confirm');
+    let isValid = true;
+
+    if (password.value !== passwordConfirm.value) {
+        printError('Le password inserite non coincidono');
+        isValid = false;
+    }
+
+    return isValid
+}
 
 //funzione che stampa i messaggi passandogli il messaggio che si vuole stampare
 function printError(errorMessage) {
@@ -72,13 +73,26 @@ function checkTypes() {
     return false;
 }
 
+//clear errors
 if (btnSub) {
     btnSub.addEventListener('click', () => {
         clearError();
     })
 }
 
+// avvio della funzione checkPassword al submit del form della register
+if (registerForm) {
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const isPasswordValid = checkPassword();
 
+        if (isPasswordValid) {
+            registerForm.submit();
+        }
+    });
+}
+
+// errors of restaurant's create and edit
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -91,7 +105,6 @@ if (form) {
     });
 }
 
-function scrollToTop() {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-}
+
+
+

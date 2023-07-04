@@ -88,7 +88,7 @@
                                             </div>
                                             <div class="mt-4 mb-0">
                                                 <div class="d-grid">
-                                                    <button type="submit" class="btn btn-primary btn-block">
+                                                    <button id="btn-sub" type="submit" class="btn btn-primary btn-block">
                                                         {{ __('Register') }}
                                                     </button>
                                                 </div>
