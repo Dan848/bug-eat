@@ -35,7 +35,7 @@
                                 </th>
                                 {{-- Price --}}
                                 <td class="d-none d-sm-table-cell">
-                                    {{ $product->price }}
+                                    € {{ $product->price }}
                                 </td>
                                 {{-- Visible --}}
                                 <td class="d-none d-lg-table-cell">

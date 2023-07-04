@@ -24,13 +24,13 @@
                 <tbody>
                     <tr class="align-middle">
                         <th>
-                            {{ $product['name'] }}
+                            {{ $product->name }}
                         </th>
                         <td>
-                            {{ $product['price'] }}
+                            € {{ $product->price }}
                         </td>
                         <td>
-                            {{ $product['description'] }}
+                            {{ $product->description }}
                         </td>
                         <td>
 

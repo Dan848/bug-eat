@@ -99,9 +99,9 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $data = $request->validated();
-        $data["slug"] = Str::slug($request->name, "-");
+        $data["slug"] = Str::slug($request->name, "-") . "-" . $product->id;
 
-        if ($request->hasFile("image")){
+        if ($request->hasFile("image")) {
             if ($product->image) {
                 Storage::delete($product->image);
             }
@@ -111,8 +111,7 @@ class ProductController extends Controller
         $product->update($data);
 
 
-        return redirect()->route("admin.products.show",$product->slug)->with("message", "$product->name è stato modificato con successo");
-
+        return redirect()->route("admin.products.show", $product->slug)->with("message", "$product->name è stato modificato con successo");
     }
 
     /**
