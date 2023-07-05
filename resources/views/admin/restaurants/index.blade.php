@@ -34,7 +34,7 @@
                                 {{-- Name --}}
                                 <th scope="row">
                                     <a class="h5"
-                                        href="{{ route('admin.restaurants.show', $restaurant) }}">{{ $restaurant->name }}
+                                        href="{{ route('admin.restaurants.show', $restaurant) }}">{{ strCutter ($restaurant->name , 30) }}
                                     </a>
                                 </th>
                                 {{-- Image --}}
@@ -44,7 +44,7 @@
                                 </td>
                                 {{-- Address --}}
                                 <td class="d-none d-sm-table-cell">
-                                    {{ $restaurant->address }}
+                                    {{ strCutter ($restaurant->address , 30) }}
                                 </td>
                                 {{-- P. IVA --}}
                                 <td class="d-none d-md-table-cell">
@@ -52,7 +52,7 @@
                                 </td>
                                 {{-- Email --}}
                                 <td class="d-none d-lg-table-cell">
-                                    {{ $restaurant->email }}
+                                     {{ strCutter ($restaurant->email , 30) }}
                                 </td>
                                 {{-- Phone number --}}
                                 <td class="d-none d-sm-table-cell">

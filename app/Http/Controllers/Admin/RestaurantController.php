@@ -21,9 +21,6 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        if (!Auth::check()) {
-            return redirect()->route('/');
-        }
         $user_id = Auth::id();
         $restaurants = Restaurant::where('user_id', $user_id)->with('types')->get();
         return view('admin.restaurants.index', compact('restaurants'));
@@ -75,6 +72,11 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
+        if($restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
+
         return view('admin.restaurants.show', compact('restaurant'));
     }
 
@@ -86,6 +88,10 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
+        if($restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
         $types = Type::all();
         return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
@@ -129,9 +135,14 @@ class RestaurantController extends Controller
      */
     public function destroy(Restaurant $restaurant)
     {
-        if ($restaurant->image) {
+        if($restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
+        if ($restaurant->image)
+            {
             Storage::delete($restaurant->image);
-        }
+            }
         $restaurant->delete();
         return redirect()->route("admin.restaurants.index")->with("message", "$restaurant->name è stato eliminato con successo");
     }

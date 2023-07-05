@@ -16,7 +16,6 @@
                     </div>
                     <select name="restaurant_id" id="restaurant_id" class="form-select d-inline"
                         aria-label="Default select example">
-                        <option value="">I tuoi ristoranti</option>
                         @foreach ($restaurants as $restaurant)
                             <option {{ $loop->first ? 'selected' : '' }} value="{{ $restaurant->id }}">
                                 {{ $restaurant->name }}</option>
@@ -44,7 +43,7 @@
                                 {{-- Name --}}
                                 <th scope="row">
                                     <a class="h5"
-                                        href="{{ route('admin.products.show', $product) }}">{{ strlen($product->name) > 30 ? substr($product->name, 0, 30) . '...' : $product->name }}
+                                        href="{{ route('admin.products.show', $product->slug) }}">{{ strCutter ($product->name , 30) }}
                                     </a>
                                 </th>
                                 {{-- Price --}}
