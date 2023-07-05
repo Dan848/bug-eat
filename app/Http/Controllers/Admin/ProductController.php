@@ -75,6 +75,10 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        if($product->restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
         return view('admin.products.show', compact('product'));
     }
 
@@ -85,6 +89,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        if($product->restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
         $user_id = Auth::id();
         $restaurants = Restaurant::where('user_id', $user_id)->get();
         return view('admin.products.edit', compact('product', 'restaurants'));
@@ -121,6 +129,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if($product->restaurant->user_id != Auth::id())
+            {
+                abort(code:403);
+            }
+
         if ($product->image) {
             Storage::delete($product->image);
         }
