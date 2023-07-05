@@ -74,9 +74,9 @@
                     <p class="text-center text-secondary">Tipologia/e:</p>
                     @foreach ($restaurant->types as $type)
                         @if (!$loop->last)
-                            <span class="fst-italic">{{ $type->name }} - </span>
+                            <a href="{{route('admin.types.show' , $type->slug)}}" class="fst-italic">{{ $type->name }} - </a>
                         @else
-                            <span class="fst-italic">{{ $type->name }}</span>
+                             <a href="{{route('admin.types.show' , $type->slug)}}" class="fst-italic">{{ $type->name }} </a>
                         @endif
                     @endforeach
                 </div>
