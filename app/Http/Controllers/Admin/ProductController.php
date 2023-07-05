@@ -21,10 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $restaurants = Restaurant::where('user_id', $user_id)->with('products')->first();
-        $restaurant_id = $restaurants->id;
-        $products = Product::where('restaurant_id', $restaurant_id)->paginate(10);
-        return view('admin.products.index', compact('products'));
+        $restaurants = Restaurant::where('user_id', $user_id)->get();
+        $restaurant_ids = $restaurants->pluck('id')->toArray();
+        $products = Product::whereIn('restaurant_id', $restaurant_ids)->paginate(10);
+        return view('admin.products.index', compact('products' , 'restaurants'));
     }
 
     /**
