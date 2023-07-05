@@ -25,7 +25,7 @@
                                                 <input id="name" type="text"
                                                     class="form-control @error('name') is-invalid @enderror" name="name"
                                                     value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                                <label for="inputFirstName">{{ __('Name') }}*</label>
+                                                <label for="inputFirstName">{{ __('Name') }} *</label>
 
                                                 @error('name')
                                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                                                     class="form-control @error('surname') is-invalid @enderror"
                                                     name="surname" value="{{ old('surname') }}" required
                                                     autocomplete="surname" autofocus>
-                                                <label for="inputFirstName">{{ __('Surname') }}*</label>
+                                                <label for="inputFirstName">{{ __('Surname') }} *</label>
 
                                                 @error('surname')
                                                     <span class="invalid-feedback" role="alert">
@@ -52,7 +52,7 @@
                                                 <input id="email" type="email"
                                                     class="form-control @error('email') is-invalid @enderror" name="email"
                                                     value="{{ old('email') }}" required autocomplete="email">
-                                                <label for="inputEmail">{{ __('E-Mail Address') }}*</label>
+                                                <label for="inputEmail">{{ __('E-Mail Address') }} *</label>
 
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                                                         <input id="password" type="password"
                                                             class="form-control @error('password') is-invalid @enderror"
                                                             name="password" required autocomplete="new-password">
-                                                        <label for="inputPassword">{{ __('Password') }}*</label>
+                                                        <label for="inputPassword">{{ __('Password') }} *</label>
 
                                                         @error('password')
                                                             <span class="invalid-feedback" role="alert">
@@ -81,8 +81,8 @@
                                                         <input id="password-confirm" type="password" class="form-control"
                                                             name="password_confirmation" required
                                                             autocomplete="new-password">
-                                                        <label
-                                                            for="inputPasswordConfirm">{{ __('Confirm Password') }}*</label>
+                                                        <label for="inputPasswordConfirm">{{ __('Confirm Password') }}
+                                                            *</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="card-footer text-center py-3 d-flex justify-content-between">
                                         <div>
-                                            <p>* I campi sono obbligatori</p>
+                                            <p class="small muteWhite">* I campi sono obbligatori</p>
                                         </div>
                                         <div class="small"><a class="text-secondary" href="{{ route('login') }}">Have an
                                                 account? Go to login</a></div>
