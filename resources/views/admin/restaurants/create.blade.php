@@ -119,8 +119,7 @@
                         <div class="col-12 upload-col">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
-                                    class="form-control d-none @error('image') is-invalid @enderror" name="image" required
-                                    autofocus>
+                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
                             </div>
                         </div>
                         <!-- Select Image -->
