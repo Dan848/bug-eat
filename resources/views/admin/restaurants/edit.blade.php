@@ -105,17 +105,29 @@
                         </div>
                     </div>
                     <!-- IMAGE -->
-                    <div class="display-grid mb-3 mt-4">
-                        <h6 class="g-col text-center pb-3">Seleziona un immagine:</h6>
+                    <div class="d-flex mb-0 mt-4">
+                        <div class="col-4"></div>
+                        <h6 class="col-4 text-center">Immagine *</h6>
+                        <!-- Switch -->
+                        <div class="col-4 d-flex justify-content-end form-check form-switch">
+                            <input name="imageSwitch" id="imageSwitch" class="form-check-input" type="checkbox"
+                                role="switch">
+                            <label class="form-check-label" for="imageSwitch">Carica / Seleziona</label>
+                        </div>
                     </div>
                     <div class="row justify-content-center g-5">
-                        <!-- Upload Yours -->
-
-                        <!-- Select -->
+                        <!-- Upload File -->
+                        <div class="col-12 upload-col">
+                            <div class="form-floating mb-3">
+                                <input id="image" type="file"
+                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
+                            </div>
+                        </div>
+                        <!-- Select Image -->
                         @foreach ($types as $type)
-                            <div class="col-6 col-md-2">
-                                <label class="image-radio">
-                                    <input type="radio" value="{{ $type->image }}" class="" name="image"
+                            <div class="mt-5 d-none col-6 col-md-2 radio-col">
+                                <label class="image-radio mt-5">
+                                    <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
                                         id="image-{{ $type->id }}" autocomplete="off">
                                     <img src="{{ $type->image }}" alt="{{ $type->name }}">
                                 </label>
