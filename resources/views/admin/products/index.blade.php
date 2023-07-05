@@ -8,11 +8,6 @@
             <li class="breadcrumb-item active">Prodotti</li>
         </ol>
         {{-- SELECT RESTAURANT  --}}
-
-
-
-
-
         <div class="card text-bg-dark mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="d-flex ">
@@ -57,11 +52,7 @@
                                 </td>
                                 {{-- Visible --}}
                                 <td class="d-none d-lg-table-cell">
-                                    @if ($product->visible)
-                                        Si
-                                    @else
-                                        No
-                                    @endif
+                                    {{ $product->visible ? 'Si' : 'No' }}
                                 </td>
 
                                 {{-- Action Button --}}

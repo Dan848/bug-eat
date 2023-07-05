@@ -89,22 +89,32 @@ function checkRadio() {
     return false;
 }
 
-//SWITCH IMAGE FILE
+// Switch Function
+function switchImage(){
+    const radioCols = document.querySelectorAll(".radio-col");
+    const uploadCol = document.querySelector(".upload-col");
+    imageSwitch.value = imageSwitch.checked ? true : false;
+    if (imageSwitch.value) {
+        uploadCol.classList.toggle("d-none");
+        for (let i = 0; i < radioCols.length; i++) {
+            radioCols[i].classList.toggle("d-none");
+            radioCols[i].classList.toggle("d-flex");
+        }
+    }
+    return imageSwitch.value
+}
+
+// CheckImage
+// function checkImage(){
+//  const imageFile = document.getElementById("image");
+//  console.log(imageFile.value);
+// }
+
+
+// Switch toggle
 if (imageSwitch) {
     console.log("sono preso")
-    imageSwitch.addEventListener("change", () =>{
-        const radioCols = document.querySelectorAll(".radio-col");
-        const uploadCol = document.querySelector(".upload-col");
-        imageSwitch.value = imageSwitch.checked ? true : false;
-        if (imageSwitch.value) {
-            uploadCol.classList.toggle("d-none");
-            for (let i = 0; i < radioCols.length; i++) {
-                radioCols[i].classList.toggle("d-none");
-                radioCols[i].classList.toggle("d-flex");
-            }
-
-        }
-    })
+    imageSwitch.addEventListener("change", switchImage)
 }
 
 // Errors Clear
@@ -132,8 +142,8 @@ if (form) {
         e.preventDefault();
         const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
-        const isRadioValid = checkRadio();
-        if (isPhoneNumValid && isTypesValid && isRadioValid) {
+        const isImageValid = switchImage() ? checkRadio() : true
+        if (isPhoneNumValid && isTypesValid && isImageValid) {
             form.submit();
             console.log('submit');
         }

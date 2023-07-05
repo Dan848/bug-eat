@@ -78,7 +78,7 @@
                             <div class="form-floating mb-3">
                                 <input id="phone_num" name="phone_num" type="text"
                                     class="form-control @error('phone_num') is-invalid @enderror" required
-                                    value="{{ $restaurant->phone_num }}" minlength="9" maxlength="20">
+                                    value="{{ $restaurant->phone_num }}" minlength="9" maxlength="16">
                                 <label class="mb-5" for="image">Telefono *</label>
                             </div>
                         </div>

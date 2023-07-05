@@ -56,7 +56,7 @@
                             <div class="form-floating mb-3">
                                 <input id="name" name="name" type="text"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                    maxlength="100" required autofocus>
+                                    maxlength="100" required>
                                 <label for="name">Nome *</label>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                             <div class="form-floating mb-3">
                                 <input id="phone_num" name="phone_num" type="text"
                                     class="form-control @error('phone_num') is-invalid @enderror" required
-                                    value="{{ old('phone_num') }}" minlength="9" maxlength="20">
+                                    value="{{ old('phone_num') }}" minlength="9" maxlength="16">
                                 <label class="mb-5" for="image">Telefono *</label>
                             </div>
                         </div>
@@ -119,13 +119,14 @@
                         <div class="col-12 upload-col">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
-                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
+                                    class="form-control d-none @error('image') is-invalid @enderror" name="image" required
+                                    autofocus>
                             </div>
                         </div>
                         <!-- Select Image -->
                         @foreach ($types as $type)
-                            <div class="d-none col-6 col-md-2 radio-col">
-                                <label class="image-radio">
+                            <div class="mt-5 d-none col-6 col-md-2 radio-col">
+                                <label class="image-radio mt-5">
                                     <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
                                         id="image-{{ $type->id }}" autocomplete="off">
                                     <img src="{{ $type->image }}" alt="{{ $type->name }}">
