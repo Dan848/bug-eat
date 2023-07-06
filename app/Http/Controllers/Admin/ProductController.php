@@ -10,21 +10,19 @@ use Illuminate\Support\Str;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use \Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-
      */
-    public function index()
+    public function index(Restaurant $restaurant)
     {
-        $user_id = Auth::id();
-        $restaurants = Restaurant::where('user_id', $user_id)->get();
-        $restaurant_ids = $restaurants->pluck('id')->toArray();
-        $products = Product::whereIn('restaurant_id', $restaurant_ids)->paginate(10);
-        return view('admin.products.index', compact('products' , 'restaurants'));
+        $restaurants = Restaurant::where("user_id", Auth::id())->get();
+        $products = Product::where('restaurant_id', $restaurant->id)->paginate(10);
+        return view('admin.products.index', compact('products', 'restaurant', 'restaurants'));
     }
 
     /**
@@ -60,7 +58,7 @@ class ProductController extends Controller
         $newProduct->slug = Str::slug($newProduct->name, '-') . "-" . $newProduct->id;
         $newProduct->save();
 
-        return redirect()->route('admin.products.index', $newProduct->slug);
+        return redirect()->route('admin.products.show', $newProduct->slug);
     }
 
     /**
@@ -133,6 +131,6 @@ class ProductController extends Controller
             Storage::delete($product->image);
         }
         $product->delete();
-        return redirect()->route("admin.products.index")->with("message", "$product->name è stato eliminato con successo");
+        return redirect()->route("admin.menu.index", $product->restaurant)->with("message", "$product->name è stato eliminato con successo");
     }
 }

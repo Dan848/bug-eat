@@ -11,8 +11,9 @@
         </h2>
         <div class="d-flex justify-content-between">
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.products.index') }}">Prodotti</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.menu.index', $product->restaurant) }}">Prodotti</a>
+                </li>
                 <li class="breadcrumb-item active"> Modifica {{ $product->name }}</li>
             </ol>
             <p class="small muteWhite">* Campi obbligatori</p>

@@ -19,7 +19,6 @@ class TypeController extends Controller
      */
     public function index()
     {
-
         $types = Type::all();
         return view('admin.types.index', compact('types'));
     }
@@ -53,8 +52,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        $user_id = Auth::id();
-        $restaurants = Restaurant::where('user_id', $user_id)->types()->where('type_id', $type->id);
+        $restaurants = $type->restaurants->where("user_id", Auth::id());
         return view('admin.types.show', compact('type', 'restaurants'));
     }
 

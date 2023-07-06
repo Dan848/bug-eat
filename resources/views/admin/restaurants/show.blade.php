@@ -6,18 +6,21 @@
 
 @section('content')
     <div class="container text-white mt-5">
-        <h1 class="text-center">{{ $restaurant->name }}</h1>
-        <div class="d-flex justify-content-between">
-            <ol class="breadcrumb mb-4">
+        <h1 class="text-center text-break">{{ $restaurant->name }}</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <ol class="breadcrumb mt-2 mb-0">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
-                <li class="breadcrumb-item active">{{ $restaurant->name }}</li>
+                <li class="breadcrumb-item active">{{ strCutter($restaurant->name, 40) }}</li>
             </ol>
             <div>
+                <a class="btn btn-light" href="{{ route('admin.menu.index', $restaurant) }}">
+                    Menu <i class="ms-1 fa-solid fa-book-open"></i></i>
+                </a>
                 <a class="btn btn-primary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">
                     <i class="fa-solid fa-pencil"></i>
                 </a>
-                <form class="m-0 p-0 d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->slug) }}"
+                <form class="mt-2 p-0 d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->slug) }}"
                     method="POST">
                     @method('DELETE')
                     @csrf
@@ -40,43 +43,45 @@
                 </h2>
                 <hr />
                 {{-- NAME --}}
-                <p class="d-flex justify-content-between">
-                    <span class="pixel-text">Nome:</span>
-                    <span class="fw-bold"> {{ $restaurant->name }}</span>
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text">Nome:</div>
+                    <div class="text-end text-break fw-bold">{{ strCutter($restaurant->name, 60) }}</div>
+                </div>
                 <hr />
                 {{-- EMAIL --}}
-                <p class="d-flex justify-content-between">
-                    <span class="pixel-text"> Email:</span>
-                    <span class="fw-bold"> {{ $restaurant->email }}</span>
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text"> Email:</div>
+                    <div class="text-end text-break fw-bold"> {{ $restaurant->email }}</div>
+                </div>
                 <hr />
                 {{-- PHONE NUMBER --}}
-                <p class="d-flex justify-content-between">
-                    <span class="pixel-text">Telefono:</span>
-                    <span class="fw-bold"> {{ $restaurant->phone_num }}</span>
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text">Telefono:</div>
+                    <div class="text-end text-break fw-bold"> {{ $restaurant->phone_num }}</div>
+                </div>
                 <hr />
                 {{-- ADDRESS --}}
-                <p class="d-flex justify-content-between">
-                    <span class="pixel-text"> Indirizzo:</span>
-                    <span class="fw-bold"> {{ $restaurant->address }}</span>
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text"> Indirizzo:</div>
+                    <div class="text-end text-break fw-bold"> {{ $restaurant->address }}</div>
+                </div>
                 <hr />
                 {{-- P. IVA --}}
-                <p class="d-flex justify-content-between">
-                    <span class="pixel-text"> Partita Iva:</span>
-                    <span class="fw-bold"> {{ $restaurant->p_iva }}</span>
-                </p>
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text"> Partita Iva:</div>
+                    <div class="text-end text-break fw-bold"> {{ $restaurant->p_iva }}</div>
+                </div>
                 <hr />
                 {{-- INVENTORY --}}
                 <div>
                     <p class="text-center text-secondary">Tipologia/e:</p>
                     @foreach ($restaurant->types as $type)
                         @if (!$loop->last)
-                            <a href="{{route('admin.types.show' , $type->slug)}}" class="fst-italic">{{ $type->name }} - </a>
+                            <a href="{{ route('admin.types.show', $type->slug) }}" class="fst-italic">{{ $type->name }}
+                                - </a>
                         @else
-                             <a href="{{route('admin.types.show' , $type->slug)}}" class="fst-italic">{{ $type->name }} </a>
+                            <a href="{{ route('admin.types.show', $type->slug) }}" class="fst-italic">{{ $type->name }}
+                            </a>
                         @endif
                     @endforeach
                 </div>

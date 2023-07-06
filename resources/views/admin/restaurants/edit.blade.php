@@ -6,14 +6,14 @@
 
 @section('content')
     <div class="container mb-5">
-        <h2 class="mt-5 mb-4 text-center">
+        <h2 class="mt-5 mb-4 text-center text-break">
             Modifica {{ $restaurant->name }}
         </h2>
         <div class="d-flex justify-content-between">
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
-                <li class="breadcrumb-item active">Modifica {{ $restaurant->name }}</li>
+                <li class="breadcrumb-item active">Modifica {{ strCutter($restaurant->name, 40) }}</li>
             </ol>
             <p class="small muteWhite">* Campi obbligatori</p>
         </div>

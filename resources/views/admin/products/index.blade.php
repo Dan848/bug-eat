@@ -2,33 +2,46 @@
 
 @section('content')
     <div class="container-fluid px-4">
-        <h1 class="mt-4 text-center">I tuoi Prodotti</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active">Prodotti</li>
-        </ol>
-        {{-- SELECT RESTAURANT  --}}
+        <h1 class="mt-4 text-center">Prodotti</h1>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
+                <li class="breadcrumb-item"><a
+                        href="{{ route('admin.restaurants.show', $restaurant) }}">{{ strCutter($restaurant->name, 30) }}</a>
+                </li>
+                <li class="breadcrumb-item active">Prodotti</li>
+            </ol>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Scegli Ristorante
+                </button>
+                <ul class="dropdown-menu">
+                    @foreach ($restaurants as $restaurant)
+                        <li><a class="dropdown-item"
+                                href="{{ route('admin.menu.index', $restaurant) }}">{{ strCutter($restaurant->name, 30) }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        {{--  Product Card  --}}
         <div class="card text-bg-dark mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <div class="d-flex ">
                     <div class="d-flex align-items-center text-nowrap me-3">
                         <i class="fa-solid fa-drumstick-bite me-2"></i></i>Prodotti di:
+                        {{ strCutter($restaurant->name, 30) }}
                     </div>
-                    <select name="restaurant_id" id="restaurant_id" class="form-select d-inline"
-                        aria-label="Default select example">
-                        @foreach ($restaurants as $restaurant)
-                            <option {{ $loop->first ? 'selected' : '' }} value="{{ $restaurant->id }}">
-                                {{ $restaurant->name }}</option>
-                        @endforeach
-                    </select>
                 </div>
-
                 <a class="btn btn-primary fw-medium d-flex align-items-center" href="{{ route('admin.products.create') }}">
                     <i class="fa-regular fa-plus me-1 text-secondary fs-5 vertical-center fw-bolder"></i>Aggiungi
                 </a>
             </div>
             <div class="card-body">
+                {{-- Table --}}
                 <table class="table table-dark table-striped table-hover">
+                    {{-- T Head --}}
                     <thead>
                         <tr>
                             <th scope="col">Nome</th>
@@ -38,6 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{-- T Body --}}
                         @foreach ($products as $product)
                             <tr class="align-middle">
                                 {{-- Name --}}
@@ -60,7 +74,7 @@
                                     <div
                                         class="d-flex gap-2 flex-wrap justify-content-center text-center align-items-center">
                                         <a class="btn btn-success bg-gradient"
-                                            href="{{ route('admin.products.show', $product->slug) }}">
+                                            href="{{ route('admin.products.show', $product) }}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
                                         <a class="btn btn-primary"

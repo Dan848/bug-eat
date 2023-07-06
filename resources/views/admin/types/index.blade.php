@@ -15,22 +15,23 @@
                 <table class="table table-dark table-striped table-hover">
                     <thead>
                         <tr>
-                            <th class="d-none d-lg-table-cell" scope="col">Immagine</th>
-                            <th class="col text-end">Nome</th>
-                            <th class="col text-end">N° Ristoranti associati</th>
+                            <th class="d-none d-sm-table-cell" scope="col">Immagine</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">N° Ristoranti associati</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($types as $type)
-                            <tr class="align-middle text-end">
+                            <tr class="align-middle text-start">
                                 {{-- Image --}}
-                                <td class="d-none d-lg-table-cell">
+                                <td class="d-none d-sm-table-cell">
                                     <img src="{{ $type->image }}" class="d-block img-preview" alt="{{ $type->name }}"
                                         width="30">
                                 </td>
                                 {{-- Name --}}
-                                <td scope="row text-end">
-                                    {{ $type->name }}
+                                <td scope="row">
+                                    <a class="text-white h6"
+                                        href="{{ route('admin.types.show', $type->slug) }}">{{ $type->name }}</a>
                                 </td>
                                 {{-- Numero ristoranti --}}
                                 <td scope="row">

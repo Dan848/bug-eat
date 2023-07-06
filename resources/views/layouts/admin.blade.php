@@ -109,8 +109,9 @@
                             <div class="collapse" id="collapseType" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.products.index') }}">Elenco Prodotti</a>
-                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Prodotti</a>
+                                    {{-- <a class="nav-link" href="{{ route('admin.products.index', $restaurant) }}">Elenco
+                                        Prodotti</a> --}}
+                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Prodotto</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
