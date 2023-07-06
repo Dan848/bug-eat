@@ -14,7 +14,8 @@
                         <div class="card-body">
                             @foreach ($restaurants as $restaurant)
                                 <div>
-                                    <a href="">{{ $restaurant->name }}</a>
+                                    <a
+                                        href="{{ route('admin.restaurants.show', $restaurant->slug) }}">{{ $restaurant->name }}</a>
                                 </div>
                             @endforeach
                         </div>
