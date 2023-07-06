@@ -129,17 +129,16 @@
                 </div>
             </div>
         </div>
-    @endif
-
-    <div class="container mb-5">
-        <h1 class="mt-5 mb-4 text-center">
-            Ooops!
-        </h1>
-        <div class="d-flex flex-column align-items-center justify-content-between">
-            <h4>Pare che tu non abbia ancora un ristorante</h4>
-            <a href="{{ route('admin.restaurants.create') }}" class="btn btn-primary"><i
-                    class="fa-solid fa-plus me-2"></i>Crea il tuo ristorante</a>
+    @else
+        <div class="container mb-5">
+            <h1 class="mt-5 mb-4 text-center">
+                Ooops!
+            </h1>
+            <div class="d-flex flex-column align-items-center justify-content-between">
+                <h4>Pare che tu non abbia ancora un ristorante</h4>
+                <a href="{{ route('admin.restaurants.create') }}" class="btn btn-primary"><i
+                        class="fa-solid fa-plus me-2"></i>Crea il tuo ristorante</a>
+            </div>
         </div>
-    </div>
-
+    @endif
 @endsection
