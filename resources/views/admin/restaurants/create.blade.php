@@ -104,16 +104,19 @@
                         </div>
                     </div>
                     <!-- IMAGE -->
-                    <div class="d-flex mb-0 mt-4">
-                        <div class="col-4"></div>
-                        <h6 class="col-4 text-center">Immagine *</h6>
+                    <div class="row mb-0 mt-4 justify-content-between">
+                        <div class="col-4 d-none d-sm-block"></div>
+                        <h6 class="col-4 text-center text-nowrap">Immagine *</h6>
                         <!-- Switch -->
-                        <div class="col-4 d-flex justify-content-end form-check form-switch">
-                            <input name="imageSwitch" id="imageSwitch" class="form-check-input" type="checkbox"
+                        <div class="col-4 d-flex flex-wrap justify-content-end form-check form-switch">
+                            <label class=" text-nowrap ms-2" for="imageSwitch">Carica /
+                                Seleziona</label>
+                            <input name="imageSwitch" id="imageSwitch" class="form-check-input ms-1" type="checkbox"
                                 role="switch">
-                            <label class="form-check-label" for="imageSwitch">Carica / Seleziona</label>
+
                         </div>
                     </div>
+                    <!-- UPLOAD/SELECT -->
                     <div class="row justify-content-center g-5">
                         <!-- Upload File -->
                         <div class="col-12 upload-col">

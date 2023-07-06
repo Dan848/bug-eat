@@ -27,8 +27,8 @@
         </div>
         {{--  Product Card  --}}
         <div class="card text-bg-dark mb-4">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <div class="d-flex ">
+            <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
+                <div class="d-flex">
                     <div class="d-flex align-items-center text-nowrap me-3">
                         <i class="fa-solid fa-drumstick-bite me-2"></i></i>Prodotti di:
                         {{ strCutter($restaurant->name, 30) }}
