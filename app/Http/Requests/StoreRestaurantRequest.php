@@ -25,10 +25,10 @@ class StoreRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'unique:restaurants,name', 'max:100'],
-            'email' => ['required', 'unique:restaurants,email', 'max:255'],
+            'name' => ['required', 'max:100'],
+            'email' => ['required', 'unique:restaurants,email', 'min:4', 'max:255'],
             'p_iva' => ['required', 'unique:restaurants,p_iva', 'size:11'],
-            'phone_num' => ['required', 'unique:restaurants,phone_num', 'min:9', 'max:20'],
+            'phone_num' => ['required', 'unique:restaurants,phone_num', 'min:9', 'max:16'],
             'image' => ['nullable'],
             'address' => ['required', 'max:255'],
         ];
@@ -45,6 +45,7 @@ class StoreRestaurantRequest extends FormRequest
             'email.required' => "Il campo 'email' è obbligatorio",
             'email.unique' => "Il campo 'email' inserito è già stato utilizzato.",
             'email.max' => "Il campo 'email' deve contenere al massimo :max caratteri",
+            'email.min' => "Il campo 'email' deve contenere almeno :min caratteri",
             //P_Iva
             'p_iva.required' => "Il campo 'Partita Iva' è obbligatorio",
             'p_iva.unique' => "Il campo 'Partita Iva' inserito è già stato utilizzato.",

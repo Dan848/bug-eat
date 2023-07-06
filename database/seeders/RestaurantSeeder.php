@@ -28,6 +28,8 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->address = $restaurant['address'];
             $newRestaurant->user_id = $restaurant['user_id'];
             $newRestaurant->save();
+            $newRestaurant->slug = Str::slug($newRestaurant->name, '-') . "-" . $newRestaurant->id;
+            $newRestaurant->save();
             $newRestaurant->types()->attach($restaurant['types']);
         }
     }

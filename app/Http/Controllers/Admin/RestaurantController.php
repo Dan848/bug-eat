@@ -56,7 +56,8 @@ class RestaurantController extends Controller
             $data["image"] = asset("storage/" . $img_path);
         }
         $newRestaurant = Restaurant::create($data);
-
+        $newRestaurant->slug = Str::slug($newRestaurant->name, '-') . "-" . $newRestaurant->id;
+        $newRestaurant->save();
             //Attach Foreign data from another table
             if ($request->has("types")){
                 $newRestaurant->types()->attach($request->types);
@@ -76,7 +77,6 @@ class RestaurantController extends Controller
             {
                 abort(code:403);
             }
-
         return view('admin.restaurants.show', compact('restaurant'));
     }
 
@@ -106,14 +106,13 @@ class RestaurantController extends Controller
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         $data = $request->validated();
-        $data["slug"] = Str::slug($request->name, "-");
-
-        if ($request->hasFile("image")){
-            if ($restaurant->image) {
-                Storage::delete($restaurant->image);
+        $data["slug"] = Str::slug($request->name, "-") . "-" . $restaurant->id;
+        if ($request->hasFile("image") || $request->image){
+            Storage::delete($restaurant->image);
+            if($request->hasFile("image")){
+                $img_path = Storage::put("uploads", $request->image);
+                $data["image"] = asset("storage/" . $img_path);
             }
-            $img_path = Storage::put("uploads", $request->image);
-            $data["image"] = asset("storage/" . $img_path);
         }
         $restaurant->update($data);
 

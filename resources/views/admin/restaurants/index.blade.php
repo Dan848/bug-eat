@@ -34,17 +34,17 @@
                                 {{-- Name --}}
                                 <th scope="row">
                                     <a class="h5"
-                                        href="{{ route('admin.restaurants.show', $restaurant) }}">{{ strCutter ($restaurant->name , 30) }}
+                                        href="{{ route('admin.restaurants.show', $restaurant) }}">{{ strCutter($restaurant->name, 30) }}
                                     </a>
                                 </th>
                                 {{-- Image --}}
                                 <td class="d-none d-lg-table-cell">
                                     <img src="{{ $restaurant->image ? $restaurant->image : $restaurant->types[0]->image }}"
-                                        class="d-block img-preview" alt="{{ $restaurant->name }}" width="30">
+                                        class="d-block img-preview" alt="{{ $restaurant->name }}" width="50">
                                 </td>
                                 {{-- Address --}}
                                 <td class="d-none d-sm-table-cell">
-                                    {{ strCutter ($restaurant->address , 30) }}
+                                    {{ strCutter($restaurant->address, 30) }}
                                 </td>
                                 {{-- P. IVA --}}
                                 <td class="d-none d-md-table-cell">
@@ -52,7 +52,7 @@
                                 </td>
                                 {{-- Email --}}
                                 <td class="d-none d-lg-table-cell">
-                                     {{ strCutter ($restaurant->email , 30) }}
+                                    {{ strCutter($restaurant->email, 30) }}
                                 </td>
                                 {{-- Phone number --}}
                                 <td class="d-none d-sm-table-cell">

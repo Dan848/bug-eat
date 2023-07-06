@@ -43,7 +43,7 @@
                                 {{-- Name --}}
                                 <th scope="row">
                                     <a class="h5"
-                                        href="{{ route('admin.products.show', $product->slug) }}">{{ strCutter ($product->name , 30) }}
+                                        href="{{ route('admin.products.show', $product->slug) }}">{{ strCutter($product->name, 30) }}
                                     </a>
                                 </th>
                                 {{-- Price --}}
@@ -86,6 +86,6 @@
             </div>
         </div>
     </div>
-
+    @include('partials.select-restaurants-modal')
     @include('partials.delete-modal')
 @endsection

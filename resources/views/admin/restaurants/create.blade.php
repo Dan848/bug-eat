@@ -119,7 +119,7 @@
                         <div class="col-12 upload-col">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
-                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
+                                    class="form-control @error('image') is-invalid @enderror" name="image" required>
                             </div>
                         </div>
                         <!-- Select Image -->
@@ -127,7 +127,7 @@
                             <div class="mt-5 d-none col-6 col-md-2 radio-col">
                                 <label class="image-radio mt-5">
                                     <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
-                                        id="image-{{ $type->id }}" autocomplete="off">
+                                        id="image-{{ $type->id }}">
                                     <img src="{{ $type->image }}" alt="{{ $type->name }}">
                                 </label>
                             </div>

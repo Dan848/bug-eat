@@ -91,17 +91,27 @@ function checkRadio() {
 
 // Switch Function
 function switchImage(){
+    //Get col and input inside
     const radioCols = document.querySelectorAll(".radio-col");
     const uploadCol = document.querySelector(".upload-col");
-    imageSwitch.value = imageSwitch.checked ? true : false;
-    if (imageSwitch.value) {
-        uploadCol.classList.toggle("d-none");
-        for (let i = 0; i < radioCols.length; i++) {
-            radioCols[i].classList.toggle("d-none");
-            radioCols[i].classList.toggle("d-flex");
+    const uploadInput = document.getElementById("image");
+    const radioButtons = document.querySelectorAll('.radio-btn');
+    //Toggle visibility
+    uploadCol.classList.toggle("d-none");
+    for (let i = 0; i < radioCols.length; i++) {
+        radioCols[i].classList.toggle("d-none");
+        radioCols[i].classList.toggle("d-flex");
+    }
+
+    if (imageSwitch.checked) {
+        uploadInput.removeAttribute('required');
+    }
+    else {
+        uploadInput.setAttribute('required', 'required');
+        for (let i = 0; i < radioButtons.length; i++){
+            radioButtons[i].checked= false;
         }
     }
-    return imageSwitch.value
 }
 
 // CheckImage
@@ -113,15 +123,12 @@ function switchImage(){
 
 // Switch toggle
 if (imageSwitch) {
-    console.log("sono preso")
     imageSwitch.addEventListener("change", switchImage)
 }
 
 // Errors Clear
 if (btnSub) {
-    btnSub.addEventListener('click', () => {
-        clearError();
-    })
+    btnSub.addEventListener('click', clearError)
 }
 
 // Errors Register
@@ -140,9 +147,13 @@ if (registerForm) {
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        console.log(imageSwitch.checked)
         const isPhoneNumValid = checkNum();
         const isTypesValid = checkTypes();
-        const isImageValid = switchImage() ? checkRadio() : true
+        let isImageValid = true;
+        if (imageSwitch.checked) {
+            isImageValid = checkRadio();
+        }
         if (isPhoneNumValid && isTypesValid && isImageValid) {
             form.submit();
             console.log('submit');

@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col">
                 <form class="container form-crud" method="POST"
-                    action="{{ route('admin.restaurants.update', $restaurant) }}" enctype="multipart/form-data">
+                    action="{{ route('admin.restaurants.update', $restaurant->slug) }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     {{-- Errors Section --}}
@@ -120,7 +120,8 @@
                         <div class="col-12 upload-col">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
-                                    class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
+                                    class="form-control @error('image') is-invalid @enderror" name="image"
+                                    accept="image/*" size="1" autofocus>
                             </div>
                         </div>
                         <!-- Select Image -->

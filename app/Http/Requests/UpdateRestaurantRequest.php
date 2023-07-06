@@ -25,10 +25,10 @@ class UpdateRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:100'],
-            'email' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:255'],
+            'name' => ['required', 'max:100'],
+            'email' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'min:4', 'max:255'],
             'p_iva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:11'],
-            'phone_num' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:20' , 'min:9'],
+            'phone_num' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:16' , 'min:9'],
             'image' => ['nullable'],
             'address' => ['required', 'max:255'],
         ];
