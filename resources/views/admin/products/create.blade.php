@@ -130,15 +130,19 @@
             </div>
         </div>
     @else
-        <div class="container mb-5">
-            <h1 class="mt-5 mb-4 text-center">
-                Ooops!
-            </h1>
-            <div class="d-flex flex-column align-items-center justify-content-between">
-                <h4>Pare che tu non abbia ancora un ristorante</h4>
-                <a href="{{ route('admin.restaurants.create') }}" class="btn btn-primary"><i
-                        class="fa-solid fa-plus me-2"></i>Crea il tuo ristorante</a>
-            </div>
+        <div class="container">
+            <h2 class="mt-5 mb-4 text-center">
+                Nuovo Prodotto
+            </h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.restaurants.index') }}">Ristoranti</a></li>
+                <li class="breadcrumb-item active">Nuovo Prodotto</li>
+            </ol>
         </div>
+        <div class="container">
+            <hr>
+        </div>
+        @include('partials.no-restaurants')
     @endif
 @endsection

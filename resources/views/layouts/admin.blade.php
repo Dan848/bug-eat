@@ -31,7 +31,7 @@
                     <span><img src="/img/general/logo-white.png" alt="logo" width="80px"></span>
                 </a>
                 <!-- Sidebar Toggle-->
-                <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 hover-scale fs-5" id="sidebarToggle"
+                <button class="btn btn-link btn-sm order-1 order-lg-0 me-0 me-lg-0 hover-scale fs-5" id="sidebarToggle"
                     href="#!"><i class="fa-solid fa-bars-staggered"></i></button>
             </div>
             <!-- Right Side Navbar-->
