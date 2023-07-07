@@ -19,8 +19,9 @@ class ProductSeeder extends Seeder
         $restaurants = config('dataseeder.restaurants');
         $rest_id = 1;
         foreach ($restaurants as $restaurant){
-            $randomindex = random_int(0, count($restaurant['types']) - 1);
-            $menu = $restaurant['types'][$randomindex];
+            // $randomindex = random_int(0, count($restaurant['types']) - 1);
+            // $menu = $restaurant['types'][$randomindex];
+            $menu = $restaurant['types'][0];
             $row = 0;
             if (($handle = fopen(public_path("seed_csv/products/$menu.csv"), 'r')) !== FALSE) {
                 while (($data = fgetcsv($handle, 1000, ',')) !== FALSE) {
