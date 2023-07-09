@@ -14,8 +14,8 @@
                         id="deleteModalItemTitle"></span>?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Back</button>
-                <button type="button" class="btn btn-primary delete-modal-button">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                <button type="button" class="btn btn-danger delete-modal-button">Delete</button>
             </div>
         </div>
     </div>

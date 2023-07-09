@@ -14,7 +14,7 @@
                 <li class="breadcrumb-item active">{{ strCutter($restaurant->name, 40) }}</li>
             </ol>
             <div>
-                <a class="btn btn-light" href="{{ route('admin.menu.index', $restaurant) }}">
+                <a class="btn fw-medium btn-secondary" href="{{ route('admin.menu.index', $restaurant) }}">
                     Menu <i class="ms-1 fa-solid fa-book-open"></i></i>
                 </a>
                 <a class="btn btn-primary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">
@@ -24,8 +24,7 @@
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-secondary delete-button" data-item-title="{{ $restaurant->name }}"
-                        type="submit">
+                    <button class="btn btn-danger delete-button" data-item-title="{{ $restaurant->name }}" type="submit">
                         <i class="fa-solid fa-eraser"></i>
                     </button>
                 </form>

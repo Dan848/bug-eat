@@ -21,7 +21,7 @@
                     method="POST">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-secondary delete-button" data-item-title="{{ $product->name }}" type="submit">
+                    <button class="btn btn-danger delete-button" data-item-title="{{ $product->name }}" type="submit">
                         <i class="fa-solid fa-eraser"></i>
                     </button>
                 </form>

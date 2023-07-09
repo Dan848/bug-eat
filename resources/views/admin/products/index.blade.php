@@ -73,7 +73,7 @@
                                 <td>
                                     <div
                                         class="d-flex gap-2 flex-wrap justify-content-center text-center align-items-center">
-                                        <a class="btn btn-success bg-gradient"
+                                        <a class="btn btn-secondary bg-gradient"
                                             href="{{ route('admin.products.show', $product) }}">
                                             <i class="fa-solid fa-eye"></i>
                                         </a>
@@ -85,7 +85,7 @@
                                             action="{{ route('admin.products.destroy', $product->slug) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button class="btn btn-secondary delete-button"
+                                            <button class="btn btn-danger delete-button"
                                                 data-item-title="{{ $product->name }}" type="submit">
                                                 <i class="fa-solid fa-eraser"></i>
                                             </button>
