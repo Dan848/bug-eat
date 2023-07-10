@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string("name", 100);
             $table->string("slug", 255)->unique();
-            $table->decimal("price", 10,2);
+            $table->decimal("price", 10, 2);
             $table->text("description")->nullable();
             $table->text("image")->nullable();
             $table->boolean("visible")->default(true);
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger("restaurant_id");
             $table->foreign("restaurant_id")->references("id")->on("restaurants")->cascadeOnDelete();
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }
