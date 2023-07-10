@@ -18,8 +18,9 @@ class ProductController extends Controller
      * Display a listing of the resource.
      *
      */
-    public function index(Restaurant $restaurant)
+    public function index($slug)
     {
+        $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
         $restaurants = Restaurant::where("user_id", Auth::id())->get();
         $products = Product::where('restaurant_id', $restaurant->id)->paginate(10);
         return view('admin.products.index', compact('products', 'restaurant', 'restaurants'));
@@ -68,10 +69,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        if($product->restaurant->user_id != Auth::id())
-            {
-                abort(code:403);
-            }
+        if ($product->restaurant->user_id != Auth::id()) {
+            abort(code: 403);
+        }
         return view('admin.products.show', compact('product'));
     }
 
@@ -82,10 +82,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        if($product->restaurant->user_id != Auth::id())
-            {
-                abort(code:403);
-            }
+        if ($product->restaurant->user_id != Auth::id()) {
+            abort(code: 403);
+        }
         $user_id = Auth::id();
         $restaurants = Restaurant::where('user_id', $user_id)->get();
         return view('admin.products.edit', compact('product', 'restaurants'));
@@ -122,10 +121,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if($product->restaurant->user_id != Auth::id())
-            {
-                abort(code:403);
-            }
+        if ($product->restaurant->user_id != Auth::id()) {
+            abort(code: 403);
+        }
 
         if ($product->image) {
             Storage::delete($product->image);

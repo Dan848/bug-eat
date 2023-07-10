@@ -28,7 +28,7 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
     Route::resource('restaurants', RestaurantController::class)->parameters(["restaurants" => "restaurant:slug"]);
     Route::resource('types', TypeController::class)->parameters(["types" => "type:slug"]);
     //Index
-    Route::get('/menu/{restaurant}', [ProductController::class, "index"])->name("menu.index");
+    Route::get('/menu/{restaurant:slug}', [ProductController::class, "index"])->name("menu.index");
     Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
 
 
