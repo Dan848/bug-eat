@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/types', [TypeController::class, 'index']);
 Route::get('/types/{slug}', [TypeController::class, 'show']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
