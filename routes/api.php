@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Types
 Route::get('/types', [TypeController::class, 'index']);
 Route::get('/types/{slug}', [TypeController::class, 'show']);
+//Restaurants
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
+//Orders
 Route::get('/orders/generate', [OrderController::class, 'generate']);
 Route::post('/orders/make/payment', [OrderController::class, 'makePayment']);
