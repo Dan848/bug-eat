@@ -20,7 +20,11 @@ class ProductController extends Controller
      */
     public function index($slug)
     {
+
         $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
+        if ($restaurant->user_id != Auth::id()) {
+            abort(code: 403);
+        }
         $restaurants = Restaurant::where("user_id", Auth::id())->get();
         $products = Product::where('restaurant_id', $restaurant->id)->paginate(10);
         return view('admin.products.index', compact('products', 'restaurant', 'restaurants'));
