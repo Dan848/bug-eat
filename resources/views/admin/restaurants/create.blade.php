@@ -126,12 +126,12 @@
                             </div>
                         </div>
                         <!-- Select Image -->
-                        @foreach ($types as $type)
+                        @foreach ($images as $image)
                             <div class="mt-5 d-none col-6 col-md-2 radio-col">
                                 <label class="image-radio mt-5">
-                                    <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
-                                        id="image-{{ $type->id }}">
-                                    <img src="{{ $type->image }}" alt="{{ $type->name }}">
+                                    <input type="radio" value="{{ $image['rest_image'] }}" class="radio-btn"
+                                        name="image" id="image-{{ $image['name'] }}">
+                                    <img src="{{ $image['rest_image'] }}" alt="{{ $image['name'] }}">
                                 </label>
                             </div>
                         @endforeach
