@@ -24,5 +24,6 @@ Route::get('/types/{slug}', [TypeController::class, 'show']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 //Orders
+Route::post('/orders', [OrderController::class, 'store']);
 Route::get('/orders/generate', [OrderController::class, 'generate']);
 Route::post('/orders/make-payment', [OrderController::class, 'makePayment']);

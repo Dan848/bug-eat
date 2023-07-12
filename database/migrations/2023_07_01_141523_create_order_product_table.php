@@ -22,7 +22,7 @@ return new class extends Migration
             // Products
             $table->unsignedBigInteger("product_id");
             $table->foreign("product_id")->references("id")->on("products")->cascadeOnDelete();
-
+            $table->integer("quantity");
             $table->timestamps();
         });
     }

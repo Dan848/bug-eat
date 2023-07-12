@@ -24,7 +24,10 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_email' => ['required','min:3', 'max:255'],
+            'shipment_address' => ['required', 'min:4', 'max:150'],
+            'total_price' => ['required', 'numeric', 'min:1'],
+            'date_time' => ['required', 'date'],
         ];
     }
 }

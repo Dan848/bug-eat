@@ -4,12 +4,27 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\OrderRequest;
+use App\Http\Requests\StoreOrderRequest;
 use App\Models\Order;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
+    public function store(StoreOrderRequest $request)
+    {
+        $data = $request->validated();
+
+        $newOrder = Order::create($data);
+        $newOrder->save();
+        $newOrder->products()->attach($data->products);
+        return response()->json([ //success to stop axios
+            'success' => true,
+            "data" => $data
+        ]);
+    }
+
     public function generate(Request $request, Gateway $gateway){
         $token = $gateway->clientToken()->generate();
         $data = [
