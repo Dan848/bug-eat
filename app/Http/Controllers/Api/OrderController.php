@@ -14,14 +14,18 @@ class OrderController extends Controller
 {
     public function store(StoreOrderRequest $request)
     {
-        $data = $request->validated();
-
+        $data = $request->all();
         $newOrder = Order::create($data);
         $newOrder->save();
-        $newOrder->products()->attach($data->products);
+
+        $collection = collect($request->products)->mapWithKeys(function ($product) {
+            return [$product['id'] => ['quantity' => $product['quantity']]];
+        });
+        $newOrder->products()->sync($collection); //Funziona
+
         return response()->json([ //success to stop axios
             'success' => true,
-            "data" => $data
+            "data" => $data,
         ]);
     }
 
