@@ -13,7 +13,7 @@ new Chart(orders, {
             borderWidth: 1
         },
         {
-            label: 'Cazzi',
+            label: 'Ordini2',
             data: [100, 10, 15, 5, 7, 8, 10, 32, 45, 23, 78, 18],
             borderWidth: 1
         },]
@@ -29,7 +29,7 @@ new Chart(orders, {
 new Chart(restaurants, {
     type: 'doughnut',
     data: {
-        labels: ['Il mio ristorante', 'Il mio secondo ristorante', 'Peppino'],
+        labels: ['Il mio ristorante', 'Il mio secondo ristorante', 'il mio terzo ristorante'],
         datasets: [{
             label: 'Numero ordini',
             data: [15, 30, 4],
