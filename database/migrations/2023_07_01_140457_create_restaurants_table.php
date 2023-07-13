@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("email", 255)->unique();
             $table->string("p_iva", 11)->unique();
             $table->string("phone_num", 20)->unique();
-            $table->text("image")->nullable();
+            $table->text("image");
             $table->string("address", 255);
             //Foreign key
             $table->unsignedBigInteger("user_id");

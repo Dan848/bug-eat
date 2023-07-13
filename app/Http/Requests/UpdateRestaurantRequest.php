@@ -29,7 +29,7 @@ class UpdateRestaurantRequest extends FormRequest
             'email' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'min:4', 'max:255'],
             'p_iva' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:11'],
             'phone_num' => ['required', Rule::unique('restaurants')->ignore($this->restaurant), 'max:16' , 'min:9'],
-            'image' => ['nullable'],
+            'image' => ['required'],
             'address' => ['required', 'max:255'],
         ];
     }
@@ -54,6 +54,8 @@ class UpdateRestaurantRequest extends FormRequest
             'phone_num.unique' => "Il campo 'Telefono' inserito è già stato utilizzato.",
             'phone_num.max' => "Il campo 'Telefono' deve contenere al massimo :max caratteri",
             'phone_num.min' => "Il campo 'Telefono' deve contenere minimo :min caratteri",
+            //Image
+            'image.required' => "Il campo 'Immagine' è obbligatorio",
             //Address
             'address.required' => "Il campo 'address' è obbligatorio",
             'address.max' => "Il campo 'address' deve contenere al massimo :max caratteri",

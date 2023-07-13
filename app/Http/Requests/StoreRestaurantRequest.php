@@ -29,7 +29,7 @@ class StoreRestaurantRequest extends FormRequest
             'email' => ['required', 'unique:restaurants,email', 'min:4', 'max:255'],
             'p_iva' => ['required', 'unique:restaurants,p_iva', 'size:11'],
             'phone_num' => ['required', 'unique:restaurants,phone_num', 'min:9', 'max:16'],
-            'image' => ['nullable'],
+            'image' => ['required'],
             'address' => ['required', 'max:255'],
         ];
     }
@@ -38,9 +38,9 @@ class StoreRestaurantRequest extends FormRequest
     {
         return[
             //Name
-            'name.required' => "Il campo 'nome' è obbligatorio",
-            'name.unique' => "Il campo 'nome' inserito è già stato utilizzato.",
-            'name.max' => "Il campo 'nome' deve contenere al massimo :max caratteri",
+            'name.required' => "Il campo 'Nome' è obbligatorio",
+            'name.unique' => "Il campo 'Nome' inserito è già stato utilizzato.",
+            'name.max' => "Il campo 'Nome' deve contenere al massimo :max caratteri",
             //Email
             'email.required' => "Il campo 'email' è obbligatorio",
             'email.unique' => "Il campo 'email' inserito è già stato utilizzato.",
@@ -55,8 +55,10 @@ class StoreRestaurantRequest extends FormRequest
             'phone_num.unique' => "Il campo 'Telefono' inserito è già stato utilizzato.",
             'phone_num.max' => "Il campo 'Telefono' deve contenere al massimo :max caratteri",
             'phone_num.min' => "Il campo 'Telefono' deve contenere minimo :min caratteri",
+            //Image
+            'image.required' => "Il campo 'Immagine' è obbligatorio",
             //Address
-            'address.required' => "Il campo 'address' è obbligatorio",
+            'address.required' => "Il campo 'Indirizzo' è obbligatorio",
             'address.max' => "Il campo 'address' deve contenere al massimo :max caratteri",
         ];
     }

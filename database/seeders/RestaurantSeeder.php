@@ -16,6 +16,7 @@ class RestaurantSeeder extends Seeder
      */
     public function run()
     {
+        $types = config('dataseeder.types');
         $restaurants = config('dataseeder.restaurants');
         foreach($restaurants as $restaurant)
         {
@@ -27,6 +28,7 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->phone_num = $restaurant['phone_num'];
             $newRestaurant->address = $restaurant['address'];
             $newRestaurant->user_id = $restaurant['user_id'];
+            $newRestaurant->image = $types[$restaurant['types'][0] - 1]["rest_image"];
             $newRestaurant->save();
             $newRestaurant->slug = Str::slug($newRestaurant->name, '-') . "-" . $newRestaurant->id;
             $newRestaurant->save();
