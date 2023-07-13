@@ -10,7 +10,6 @@
 
     <title>@yield('title', 'Bug Makers')</title>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -124,6 +123,25 @@
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Tipi</a>
+                                </nav>
+                            </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOrder" aria-expanded="false" aria-controls="collapseOrder">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-file-lines"></i></div>
+                                Ordini
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseOrder" aria-labelledby="headingOne"
+                                data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Ordini</a>
+                                </nav>
+                            </div>
+                            <div class="collapse" id="collapseOrder" aria-labelledby="headingOne"
+                                data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Stastiche ordini</a>
                                 </nav>
                             </div>
                         </div>
