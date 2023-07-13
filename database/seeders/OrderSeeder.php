@@ -52,25 +52,27 @@ class OrderSeeder extends Seeder
                             $k++;
                         };
                     }
+                    //Nuovo ordine
                     $newOrder = new Order;
                     $newOrder->user_email = 'test@mail.it';
                     $newOrder->shipment_address = 'Via Bu Leana 101';
                     $newOrder->total_price = $total_price;
-                    $newOrder->date_time = '2022-07-01 10:17:41';
+                    $newOrder->date_time = $date_time;
                     $newOrder->save();
-                    // $order = [
-                    //     'user_email' => 'test@mail.it',
-                    //     'shipment_address' => 'Via Bu Leana 101',
-                    //     'total_price' => $total_price,
-                    //     'date_time' => '2022-07-01 10:17:41',
-                    //     'products' => $products,
-                    // ];
-                    // $collection = collect($order["products"])->mapWithKeys(function ($product) {
-                    //     return [$product['id'] => ['quantity' => $product['quantity']]];
-                    // });
-                    // $newOrder->products()->sync($collection);
+                    //Array dell'order per seeddare la tabella ponte
+                    $order = [
+                        'user_email' => 'test@mail.it',
+                        'shipment_address' => 'Via Bu Leana 101',
+                        'total_price' => $total_price,
+                        'date_time' => '2022-07-01 10:17:41',
+                        'products' => $products,
+                    ];
+
+                    $collection = collect($order["products"])->mapWithKeys(function ($product) {
+                        return [$product['id'] => ['quantity' => $product['quantity']]];
+                    });
+                    $newOrder->products()->sync($collection);
                 }
-                //Ordine Seeddato
             }
 
         }
