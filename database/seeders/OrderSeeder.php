@@ -18,7 +18,6 @@ class OrderSeeder extends Seeder
     {
         $arrayMonth = ["2022-07-", "2022-08-", "2022-09-", "2022-10-", "2022-11-", "2022-12-", "2023-01-", "2023-02-", "2023-03-", "2023-04-", "2023-05-", "2023-06-"];
         $restaurants = Restaurant::all();
-        dd($restaurants);
         //Entra in Ristorante (Tonino, Daje Pizza, ecc.)
         foreach($restaurants as $restaurant){
             //Calcola indice massimo in base al menù (num dei prodotti)
@@ -46,26 +45,30 @@ class OrderSeeder extends Seeder
                     while($k < $differentProducts){
                         $randomIndex = rand(0, $productIndexMax);
                         $product = $restaurant->products[$randomIndex];
-                        if(!in_array($product, $products)){
+                        if(!in_array($product, $products) && $product["visible"] == 1){
                             $product["quantity"] = rand(1, 3);
                             array_push($products, $product);
                             $total_price = $total_price + ($product["price"] * $product["quantity"]);
                             $k++;
                         };
                     }
-                    $order = [
-                        'user_email' => 'test@mail.it',
-                        'shipment_address' => 'Via Bu Leana 101',
-                        'date_time' => '2022-07-01 10:17:41',
-                        'total_price' => $total_price,
-                        'products' => $products,
-                    ];
-                    $newOrder = Order::create($order);
+                    $newOrder = new Order;
+                    $newOrder->user_email = 'test@mail.it';
+                    $newOrder->shipment_address = 'Via Bu Leana 101';
+                    $newOrder->total_price = $total_price;
+                    $newOrder->date_time = '2022-07-01 10:17:41';
                     $newOrder->save();
-                    $collection = collect($order["products"])->mapWithKeys(function ($product) {
-                        return [$product['id'] => ['quantity' => $product['quantity']]];
-                    });
-                    $newOrder->products()->sync($collection);
+                    // $order = [
+                    //     'user_email' => 'test@mail.it',
+                    //     'shipment_address' => 'Via Bu Leana 101',
+                    //     'total_price' => $total_price,
+                    //     'date_time' => '2022-07-01 10:17:41',
+                    //     'products' => $products,
+                    // ];
+                    // $collection = collect($order["products"])->mapWithKeys(function ($product) {
+                    //     return [$product['id'] => ['quantity' => $product['quantity']]];
+                    // });
+                    // $newOrder->products()->sync($collection);
                 }
                 //Ordine Seeddato
             }
