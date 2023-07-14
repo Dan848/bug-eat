@@ -10,13 +10,13 @@
             </ol>
             <div class="card text-bg-dark mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <div><i class="fa-solid fa-utensils me-2"></i>Ordini</div>
+                    <div><i class="fa-solid fa-file-lines me-2"></i>Ordini</div>
                 </div>
                 <div class="card-body">
                     <table class="table table-dark table-striped table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">N°</th>
+                                <th scope="col">N° Ordine</th>
                                 <th class="d-none d-md-table-cell" scope="col">Email Utente</th>
                                 <th class="d-none d-lg-table-cell" scope="col">Indirizzo Utente</th>
                                 <th class="d-none d-sm-table-cell" scope="col">Prezzo Totale</th>
