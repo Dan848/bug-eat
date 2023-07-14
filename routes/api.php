@@ -3,8 +3,10 @@
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\RestaurantController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Order;
 
 /*
 |--------------------------------------------------------------------------

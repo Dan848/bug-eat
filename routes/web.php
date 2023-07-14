@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,8 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
     Route::get('/menu/{restaurant:slug}', [ProductController::class, "index"])->name("menu.index");
     Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
 
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+    Route::get('/orders/{order:id}', [OrderController::class, 'show'])->name('orders.show');
 
     //PRODUCTS ROUTE
 

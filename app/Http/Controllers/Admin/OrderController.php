@@ -6,17 +6,37 @@ use App\Models\Order;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
-        //
+        // $orders_nello = Order::join('products', 'orders.id_product', '=', 'products.id_product')
+        //     ->join('restaurants', 'restaurants.restaurant_id', '=', 'products.restaurant_id')
+        //     ->join('users', 'users.user_id', '=', 'restaurants.user_id')
+        //     ->where('users.user_id', auth()->id())
+        //     ->get();
+
+        // $user = Auth::user();
+
+        // $orders = Order::whereHas('products.restaurant.user', function ($query) use ($user) {
+        //     $query->where('id', $user->id);
+        // })->with('products')->get();
+
+        $orders = Order::with('products.restaurant.user')
+            ->whereHas('products.restaurant.user', function ($query) {
+                $query->where('id', auth()->id());
+            })->paginate(15);
+
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -44,11 +64,14 @@ class OrderController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
+     *
      */
     public function show(Order $order)
     {
-        //
+        // if ($order->products->isNotEmpty() && $order->products->first()->restaurant->user_id != Auth::id()) {
+        //     abort(403);
+        // }
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
