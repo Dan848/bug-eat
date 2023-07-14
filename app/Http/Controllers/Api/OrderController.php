@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
-    public function store(StoreOrderRequest $request)
-    {
+    public function store(StoreOrderRequest $request){
         $data = $request->all();
         $newOrder = Order::create($data);
         $newOrder->save();
@@ -39,10 +38,10 @@ class OrderController extends Controller
 
     public function makePayment(OrderRequest $request, Gateway $gateway){
 
-        $order = Order::find($request->order);
+        $data = $request->all();
 
         $result = $gateway->transaction()->sale([
-            "amount" => $order->total_price,
+            "amount" => $data["amount"],
             "paymentMethodNonce" => $request->token,
             "options" => [
                 "submitForSettlement" => true
@@ -54,6 +53,7 @@ class OrderController extends Controller
                 'success' => true,
                 'message' => "La transazione è andata a buon fine!"
             ];
+
             return response()->json($data,200);
         } else {
             $data = [
