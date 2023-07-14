@@ -10,22 +10,29 @@ use App\Models\Type;
 class RestaurantController extends Controller
 {
     public function index(Request $request)
-    {
-        // dd($request->query());
-        if (!empty($request->query('types'))){
-            $types_ids = $request->query('types');
-            $restaurants = Restaurant::with('types')
+{
+    if (!empty($request->query('types'))) {
+        $types_ids = $request->query('types');
+        $restaurants = Restaurant::with('types')
             ->whereHas('types', function ($query) use ($types_ids) {
                 $query->whereIn('types.id', $types_ids);
-            }, '=', count($types_ids))->paginate(12);
-        } else {
-            $restaurants = Restaurant::with('types')->paginate(12);
-        }
-        return response()->json([
-            'success' => true,
-            'results' => $restaurants,
-        ]);
+            }, '=', count($types_ids))
+            ->when($request->has('search'), function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->query('search') . '%');
+            })->paginate(12);
+    } else {
+        $restaurants = Restaurant::with('types')
+           ->when($request->has('search'), function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->query('search') . '%');
+            })->paginate(12);
     }
+
+    return response()->json([
+        'success' => true,
+        'results' => $restaurants,
+    ]);
+}
+
     public function show($slug)
     {
         $restaurant = Restaurant::with(['types', 'products' => function ($subquery) {
