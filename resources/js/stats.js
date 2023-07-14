@@ -1,34 +1,42 @@
 import Chart from 'chart.js/auto';
-const orders = document.getElementById('myOrders');
-const restaurants = document.getElementById('myRestaurants');
-const earns = document.getElementById('myEarns');
+import { forEach } from 'lodash';
+const chartOrders = document.getElementById('myOrders');
+const chartRestaurants = document.getElementById('myRestaurants');
+const chartEarns = document.getElementById('myEarns');
+
+const orders = document.querySelectorAll('.ordini');
+orders.forEach((order) => {
+    const dataOrders = order.getAttribute('data-item-date');
+    const countOrders = order.getAttribute('data-item-count');
+    const priceOrders = order.getAttribute('data-item-price');
+    console.log(dataOrders);
+})
 
 
-
-if (orders) {
-
-
-    new Chart(orders, {
-        type: 'bar',
-        data: {
-            labels: ['2022-07', '2022-08', '2022-09', '2022-10', '2022-11', '2022-12', '2023-01', '2023-02', '2023-03', '2023-04', '2023-05', '2023-06'],
+if (chartOrders) {
+        // Utilizza i dati ottenuti come valori per il grafico
+        new Chart(chartOrders, {
+          type: 'bar',
+          data: {
+            labels: [],
             datasets: [{
-                label: 'Ordini',
-                data: [],
-                borderWidth: 1
+              label: 'Ordini',
+              data: [1,2,3,2],
+              borderWidth: 1
             }]
-        },
-        options: {
+          },
+          options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+              y: {
+                beginAtZero: true
+              }
             }
-        }
-    });
+          }
+        });
 }
-if (restaurants) {
-    new Chart(restaurants, {
+
+if (chartRestaurants) {
+    new Chart(chartRestaurants, {
         type: 'doughnut',
         data: {
             labels: ['Il mio ristorante', 'Il mio secondo ristorante', 'il mio terzo ristorante'],
@@ -41,8 +49,8 @@ if (restaurants) {
 
     });
 }
-if (earns) {
-    new Chart(earns, {
+if (chartEarns) {
+    new Chart(chartEarns, {
         type: 'line',
         data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],

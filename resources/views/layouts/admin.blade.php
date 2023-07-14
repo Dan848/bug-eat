@@ -141,8 +141,7 @@
                             <div class="collapse" id="collapseOrder" aria-labelledby="headingOne"
                                 data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.orders') }}">Statistiche
-                                        ordini</a>
+                                    <a class="nav-link" href="{{ route('admin.orders.statistics') }}">Statistiche</a>
                                 </nav>
                             </div>
                         </div>

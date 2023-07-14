@@ -33,8 +33,8 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
     Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+    Route::get('/orders/statistics', [OrderController::class, 'getChartData'])->name('orders.statistics');
     Route::get('/orders/{order:id}', [OrderController::class, 'show'])->name('orders.show');
-
     //PRODUCTS ROUTE
 
 

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -19,18 +20,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-        // $orders_nello = Order::join('products', 'orders.id_product', '=', 'products.id_product')
-        //     ->join('restaurants', 'restaurants.restaurant_id', '=', 'products.restaurant_id')
-        //     ->join('users', 'users.user_id', '=', 'restaurants.user_id')
-        //     ->where('users.user_id', auth()->id())
-        //     ->get();
-
-        // $user = Auth::user();
-
-        // $orders = Order::whereHas('products.restaurant.user', function ($query) use ($user) {
-        //     $query->where('id', $user->id);
-        // })->with('products')->get();
-
         $orders = Order::with('products.restaurant.user')
             ->whereHas('products.restaurant.user', function ($query) {
                 $query->where('id', auth()->id());
@@ -39,10 +28,22 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
+    public function getChartData()
+    {
+        $startMonth = Carbon::now()->subMonths(12)->startOfMonth();
+        $endMonth = Carbon::now()->subMonths(1)->endOfMonth();
+        $orders = Order::select(DB::raw('DATE_FORMAT(date_time, "%Y-%m") AS month'), DB::raw('COUNT(*) AS total'), DB::raw('SUM(total_price) AS price'))
+            ->where('date_time', '>=', $startMonth)
+            ->where('date_time', '<=', $endMonth)
+            ->whereHas('products.restaurant.user', function ($query) {
+                $query->where('id', auth()->id());
+            })
+            ->groupBy('month')
+            ->get();
+        return view('admin.orders.statistics', compact('orders'));
+    }
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -51,9 +52,7 @@ class OrderController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  \App\Http\Requests\StoreOrderRequest  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(StoreOrderRequest $request)
     {
@@ -76,9 +75,7 @@ class OrderController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function edit(Order $order)
     {
@@ -87,10 +84,8 @@ class OrderController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  \App\Http\Requests\UpdateOrderRequest  $request
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
@@ -99,9 +94,7 @@ class OrderController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Order $order)
     {
