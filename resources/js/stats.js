@@ -1,5 +1,4 @@
 import Chart from 'chart.js/auto';
-import { forEach } from 'lodash';
 const chartOrders = document.getElementById('myOrders');
 const chartRestaurants = document.getElementById('myRestaurants');
 const chartEarns = document.getElementById('myEarns');
@@ -7,6 +6,7 @@ const chartEarns = document.getElementById('myEarns');
 const arrayData = [];
 const arrayCount = [];
 const arrayPrice = [];
+let totalOrders = 0;
 
 const orders = document.querySelectorAll('.ordini');
 orders.forEach((order) => {
@@ -14,6 +14,10 @@ orders.forEach((order) => {
     arrayCount.push(order.getAttribute('data-item-count'));
     arrayPrice.push(order.getAttribute('data-item-price'));
 });
+
+for (let i = 0; i < arrayCount; i++){
+    totalOrders = totalOrders + arrayCount[i];
+}
 
 if (chartOrders) {
         // Utilizza i dati ottenuti come valori per il grafico
@@ -63,10 +67,10 @@ if (chartRestaurants) {
     new Chart(chartRestaurants, {
         type: 'doughnut',
         data: {
-            labels: ['Il mio ristorante', 'Il mio secondo ristorante', 'il mio terzo ristorante'],
+            labels: ['Il mio ristorante'],
             datasets: [{
                 label: 'Numero ordini',
-                data: [15, 30, 4],
+                data: totalOrders,
                 borderWidth: 1
             }]
         },
