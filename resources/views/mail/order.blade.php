@@ -57,7 +57,7 @@
 <body>
     <div class="container">
         <h1>Ricevuta di conferma dell'ordine - Conferma Ordine N#{{ $order['number'] }}</h1>
-        <p>Gentile Cliente,</p>
+        <p>Gentile Cliente {{ $user['name'] }},</p>
         <p>Grazie per aver scelto Deliveroo! Siamo lieti di confermare la ricezione del tuo ordine. Di seguito troverai
             i dettagli dell'ordine effettuato:</p>
 
