@@ -95,9 +95,13 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        // if ($order->products->isNotEmpty() && $order->products->first()->restaurant->user_id != Auth::id()) {
-        //     abort(403);
-        // }
+        $canAccessOrder = $order->products->contains(function ($product){
+            return $product->restaurant->user->id === Auth::id();
+        });
+        if (!$canAccessOrder)
+            {
+            abort(code: 403);
+            }
         return view('admin.orders.show', compact('order'));
     }
 
