@@ -8,5 +8,5 @@
     @endforeach
 </div>
 <div>
-    <strong>Totale: <span>{{ $order['total_price'] }}</span></strong>
+    <strong>Totale: <span>{{ number_format(floatval($order['total_price']), 2) }}€</span></strong>
 </div>
