@@ -24,6 +24,7 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
+            'restaurant_email' => ['required'],
             'user_email' => ['required','min:3', 'max:255'],
             'shipment_address' => ['required', 'min:4', 'max:150'],
             'total_price' => ['required', 'numeric', 'min:1'],
