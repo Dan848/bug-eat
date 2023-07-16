@@ -119,7 +119,7 @@
                     <!-- UPLOAD/SELECT -->
                     <div class="row row-cols-3 row-cols-md-5 justify-content-center ">
                         <!-- Upload File -->
-                        <div class="col-12 upload-col">
+                        <div class="col-12 upload-col w-100">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
                                     class="form-control @error('image') is-invalid @enderror" name="image" required>
