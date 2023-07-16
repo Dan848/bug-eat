@@ -17,7 +17,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">N° Ordine</th>
-                                <th class="d-none d-md-table-cell" scope="col">Email Utente</th>
+                                <th class="d-none d-md-table-cell" scope="col">Ristorante</th>
                                 <th class="d-none d-lg-table-cell" scope="col">Indirizzo Utente</th>
                                 <th class="d-none d-sm-table-cell" scope="col">Prezzo Totale</th>
                                 <th scope="col">Data Ordine</th>
@@ -34,7 +34,7 @@
                                     </th>
                                     {{-- User Email --}}
                                     <td class="d-none d-md-table-cell">
-                                        {{ $order->user_email }}
+                                        {{ $order->products->first()->restaurant->name }}
                                     </td>
                                     {{-- Address User --}}
                                     <td class="d-none d-lg-table-cell">
