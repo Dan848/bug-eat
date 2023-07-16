@@ -48,7 +48,7 @@
                 {{-- DATE ORDER --}}
                 <div class="d-flex justify-content-between">
                     <div class="pixel-text"> Data:</div>
-                    <div class="text-end text-break fw-bold"> {{ $order->date_time }} €</div>
+                    <div class="text-end text-break fw-bold"> {{ $order->date_time }}</div>
                 </div>
                 <hr />
                 <div class="text-center">
