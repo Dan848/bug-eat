@@ -13,7 +13,10 @@ class RestaurantController extends Controller
     {
         if (!empty($request->query('types'))) {
             $types_ids = $request->query('types');
-            $restaurants = Restaurant::with('types', 'products')
+            $restaurants = Restaurant::with(['types',
+            'products' => function ($subquery) {
+                $subquery->where('visible', 1);
+            }])
                 ->whereHas('types', function ($query) use ($types_ids) {
                     $query->whereIn('types.id', $types_ids);
                 }, '=', count($types_ids))
@@ -21,7 +24,9 @@ class RestaurantController extends Controller
                     $query->where('name', 'like', '%' . $request->query('search') . '%');
                 })->paginate(12);
         } else {
-            $restaurants = Restaurant::with('types', 'products')
+            $restaurants = Restaurant::with(['types', 'products' => function ($subquery) {
+                $subquery->where('visible', 1);
+            }])
                 ->when($request->has('search'), function ($query) use ($request) {
                     $query->where('name', 'like', '%' . $request->query('search') . '%');
                 })->paginate(12);
