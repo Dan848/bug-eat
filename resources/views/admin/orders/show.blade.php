@@ -27,6 +27,12 @@
                     <div class="text-end text-break fw-bold">{{ $order->id }}</div>
                 </div>
                 <hr />
+                {{-- RESTAURANT NAME --}}
+                <div class="d-flex justify-content-between">
+                    <div class="pixel-text">Ristorante:</div>
+                    <div class="text-end text-break fw-bold">{{ $order->products->first()->restaurant->name }}</div>
+                </div>
+                <hr />
                 {{-- USER EMAIL --}}
                 <div class="d-flex justify-content-between">
                     <div class="pixel-text"> Email Utente:</div>
