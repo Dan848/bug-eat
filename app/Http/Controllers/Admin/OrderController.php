@@ -50,25 +50,7 @@ class OrderController extends Controller
             ->groupBy('restaurant_id', 'restaurant_name', 'month')
             ->get();
 
-        //Riusciamo a prendere i nomi dei ristoranti
-        $restaurants = Restaurant::where('user_id', auth()->id())->with('products.orders')->get();
-
-        // $results = DB::table('restaurants')
-        //     ->select(
-        //         'restaurants.name as restaurant_name',
-        //         DB::raw('YEAR(orders.date_time) as year'),
-        //         DB::raw('MONTH(orders.date_time) as month'),
-        //         DB::raw('COUNT(DISTINCT orders.id) as order_count'),
-        //         DB::raw('SUM(orders.total_price) as total_price')
-        //     )
-        //     ->join('products', 'products.restaurant_id', '=', 'restaurant.id')
-        //     ->join('order_product', 'products.id', '=', 'order_product.product_id')
-        //     ->join('orders', 'order_product.order_id', '=', 'orders.id')
-        //     ->groupBy('restaurants.id')
-        //     ->orderBy('restaurants.name')
-        //     ->get();
-
-        return view('admin.orders.statistics', compact('orders', 'restaurants'));
+        return view('admin.orders.statistics', compact('orders'));
     }
     /**
      * Show the form for creating a new resource.

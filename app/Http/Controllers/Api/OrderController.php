@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\OrderRequest;
 use App\Http\Requests\StoreOrderRequest;
+use App\Mail\NewOrder;
 use App\Models\Order;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
@@ -21,6 +22,15 @@ class OrderController extends Controller
             return [$product['id'] => ['quantity' => $product['quantity']]];
         });
         $newOrder->products()->sync($collection); //Funziona
+
+        $order=[
+            'number' => $newOrder->id,
+            'shipment_address'=> $request->shipment_address,
+            'products' => $request->products,
+            'total_price' => $newOrder->total_price,
+        ];
+
+        Mail::to('info@projectD.com')->send(new NewOrder($order)); //send Mail
 
         return response()->json([ //success to stop axios
             'success' => true,
