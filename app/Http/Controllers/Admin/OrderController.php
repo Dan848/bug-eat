@@ -30,8 +30,8 @@ class OrderController extends Controller
 
     public function getChartData()
     {
-        $startMonth = Carbon::now()->subMonths(12)->startOfMonth();
-        $endMonth = Carbon::now()->subMonths(1)->endOfMonth();
+        $startMonth = Carbon::now()->subMonths(11)->startOfMonth();
+        $endMonth = Carbon::now();
         $orders = Order::select(
             DB::raw('DATE_FORMAT(date_time, "%Y-%m") AS month'),
             DB::raw('COUNT(*) AS total'),
