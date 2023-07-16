@@ -20,7 +20,7 @@ class OrderConfirm extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($_lead)
     {
         $this->lead = $_lead;
     }
@@ -34,7 +34,6 @@ class OrderConfirm extends Mailable
     {
         return new Envelope(
             subject: 'Ordine confermato!',
-            replyTo: $this->lead->address,
         );
     }
 
@@ -46,7 +45,7 @@ class OrderConfirm extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.order-confirm',
+            view: 'mails.order-confirm',
         );
     }
 

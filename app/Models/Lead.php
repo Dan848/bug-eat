@@ -9,5 +9,9 @@ class Lead extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        "order_num",
+        "products",
+        "total"
+    ];
 }

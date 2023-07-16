@@ -10,6 +10,7 @@ use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderConfirm;
+use App\Models\Lead;
 
 class OrderController extends Controller
 {
@@ -24,16 +25,15 @@ class OrderController extends Controller
     $collection = collect($request->products)->mapWithKeys(function ($product) {
         return [$product['id'] => ['quantity' => $product['quantity']]];
     });
-    $newOrder->products()->sync($collection);
+    $newOrder->products->sync($collection);
 
-    $new_lead = new Lead();
-    $new_lead->$order_num = $newOrder->id;
-    $new_lead->$products = $data->products;
-    $new_lead->$total = $newOrder->total_price;
-    $new_lead->save();
+    // $new_lead = new Lead();
+    // $new_lead->order_num = $newOrder->id;
+    // $new_lead->products = $data['products']; // Assuming 'products' is an array in $data
+    // $new_lead->total = $newOrder->total_price;
 
-    Mail::to($restaurantmail)->send(new OrderConfirm($new_lead));
-    Mail::to($useremail)->send(new OrderConfirm($new_lead));
+    // Mail::to($restaurant_email)->send(new OrderConfirm($new_lead));
+    // Mail::to($user_email)->send(new OrderConfirm($new_lead));
 
     // Return the response to stop axios (if necessary) before sending emails
     return response()->json([
