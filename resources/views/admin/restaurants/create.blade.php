@@ -131,7 +131,7 @@
                                 <label class="image-radio mt-5">
                                     <input type="radio" value="{{ $image['rest_image'] }}" class="radio-btn"
                                         name="image" id="image-{{ $image['name'] }}">
-                                    <img src="{{ $image['rest_image'] }}" alt="{{ $image['name'] }}">
+                                    <img src="{{ $image['thumbnail'] }}" alt="{{ $image['name'] }}">
                                 </label>
                             </div>
                         @endforeach

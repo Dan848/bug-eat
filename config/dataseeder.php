@@ -327,77 +327,92 @@ return [
         [
             'name' => 'Americano',
             'image' => '/img/types/americano.png',
-            'rest_image' => '/img/thumbnail/americano.jpg'
+            'rest_image' => '/img/restaurants/americano.jpg',
+            'thumbnail' => '/img/thumbnail/americano.jpg'
         ],
         [
             'name' => 'Cinese',
             'image' => '/img/types/cinese.png',
-            'rest_image' => '/img/thumbnail/cinese.jpg'
+            'rest_image' => '/img/restaurants/cinese.jpg',
+            'thumbnail' => '/img/thumbnail/cinese.jpg'
         ],
         [
             'name' => 'Dolci',
             'image' => '/img/types/dolci.png',
-            'rest_image' => '/img/thumbnail/dolci.jpg'
+            'rest_image' => '/img/restaurants/dolci.jpg',
+            'thumbnail' => '/img/thumbnail/dolci.jpg'
         ],
         [
             'name' => 'Fritti',
             'image' => '/img/types/fritti.png',
-            'rest_image' => '/img/thumbnail/fritti.jpg'
+            'rest_image' => '/img/restaurants/fritti.jpg',
+            'thumbnail' => '/img/thumbnail/fritti.jpg'
         ],
         [
             'name' => 'Gelato',
             'image' => '/img/types/gelato.png',
-            'rest_image' => '/img/thumbnail/gelato.jpg'
+            'rest_image' => '/img/restaurants/gelato.jpg',
+            'thumbnail' => '/img/thumbnail/gelato.jpg'
         ],
         [
             'name' => 'Giapponese',
             'image' => '/img/types/giapponese.png',
-            'rest_image' => '/img/thumbnail/giapponese.jpg'
+            'rest_image' => '/img/restaurants/giapponese.jpg',
+            'thumbnail' => '/img/thumbnail/giapponese.jpg'
         ],
         [
             'name' => 'Hamburger',
             'image' => '/img/types/hamburger.png',
-            'rest_image' => '/img/thumbnail/hamburger.jpg'
+            'rest_image' => '/img/restaurants/hamburger.jpg',
+            'thumbnail' => '/img/thumbnail/hamburger.jpg'
         ],
         [
             'name' => 'Italiano',
             'image' => '/img/types/italiano.png',
-            'rest_image' => '/img/thumbnail/italiano.jpg'
+            'rest_image' => '/img/restaurants/italiano.jpg',
+            'thumbnail' => '/img/thumbnail/italiano.jpg'
         ],
         [
             'name' => 'Kebab',
             'image' => '/img/types/kebab.png',
-            'rest_image' => '/img/thumbnail/kebab.jpg'
+            'rest_image' => '/img/restaurants/kebab.jpg',
+            'thumbnail' => '/img/thumbnail/kebab.jpg'
         ],
         [
             'name' => 'Messicano',
             'image' => '/img/types/messicano.png',
-            'rest_image' => '/img/thumbnail/messicano.jpg'
+            'rest_image' => '/img/restaurants/messicano.jpg',
+            'thumbnail' => '/img/thumbnail/messicano.jpg'
         ],
         [
             'name' => 'Panini',
             'image' => '/img/types/panini.png',
-            'rest_image' => '/img/thumbnail/panini.jpg'
+            'rest_image' => '/img/restaurants/panini.jpg',
+            'thumbnail' => '/img/thumbnail/panini.jpg'
         ],
         [
             'name' => 'Pinsa',
             'image' => '/img/types/pinsa.png',
-            'rest_image' => '/img/thumbnail/pinsa.jpg'
+            'rest_image' => '/img/restaurants/pinsa.jpg',
+            'thumbnail' => '/img/thumbnail/pinsa.jpg'
         ],
         [
             'name' => 'Pizza',
             'image' => '/img/types/pizza.png',
-            'rest_image' => '/img/thumbnail/pizza.jpg'
+            'rest_image' => '/img/restaurants/pizza.jpg',
+            'thumbnail' => '/img/thumbnail/pizza.jpg'
         ],
         [
             'name' => 'Poke',
             'image' => '/img/types/poke.png',
-            'rest_image' => '/img/thumbnail/poke.jpg'
+            'rest_image' => '/img/restaurants/poke.jpg',
+            'thumbnail' => '/img/thumbnail/poke.jpg'
         ],
         [
             'name' => 'Pollo',
             'image' => '/img/types/pollo.png',
-            'rest_image' => '/img/thumbnail/pollo.jpg'
+            'rest_image' => '/img/restaurants/pollo.jpg',
+            'thumbnail' => '/img/thumbnail/pollo.jpg'
         ],
     ],
 
