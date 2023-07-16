@@ -19,7 +19,7 @@
     </div>
     @foreach ($orders as $order)
         <div class="ordini" data-item-date="{{ $order->month }}" data-item-count="{{ $order->total }}"
-            data-item-price="{{ $order->price }}">
+            data-item-price="{{ $order->price }}" data-item-restaurant="{{ $order->restaurant_name }}">
 
         </div>
     @endforeach

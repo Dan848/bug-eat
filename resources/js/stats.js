@@ -1,31 +1,50 @@
 import Chart from 'chart.js/auto';
-import { forEach } from 'lodash';
 const chartOrders = document.getElementById('myOrders');
 const chartRestaurants = document.getElementById('myRestaurants');
 const chartEarns = document.getElementById('myEarns');
 
 const arrayData = [];
-const arrayCount = [];
-const arrayPrice = [];
 
 const orders = document.querySelectorAll('.ordini');
+
+
+let restaurants = [];
+let index = 0;
 orders.forEach((order) => {
-    arrayData.push(order.getAttribute('data-item-date'));
-    arrayCount.push(order.getAttribute('data-item-count'));
-    arrayPrice.push(order.getAttribute('data-item-price'));
+    const rest_name = order.getAttribute('data-item-restaurant');
+    if (!restaurants.some(restaurant => restaurant.name == rest_name)) {
+        let newRestaurant = {
+            name: '',
+            ordersCount: [],
+            totalPrice: []
+        }
+        newRestaurant.name = rest_name;
+        newRestaurant.ordersCount.push(parseInt(order.getAttribute('data-item-count'), 10));
+        newRestaurant.totalPrice.push(parseFloat(order.getAttribute('data-item-price')));
+        restaurants.push(newRestaurant);
+        index++;
+    } else {
+        restaurants[index-1].ordersCount.push(parseInt(order.getAttribute('data-item-count'), 10));
+        restaurants[index-1].totalPrice.push(parseFloat(order.getAttribute('data-item-price')));
+    }
 });
 
+
+
 if (chartOrders) {
-        // Utilizza i dati ottenuti come valori per il grafico
+    for (let i = 0; i < 12; i++){
+        arrayData.push(orders[i].getAttribute('data-item-date'))
+    }
+    // Utilizza i dati ottenuti come valori per il grafico
     new Chart(chartOrders, {
         type: 'bar',
         data: {
             labels: arrayData,
-            datasets: [{
-              label: 'Ordini',
-              data: arrayCount,
-              borderWidth: 1
-            }]
+            datasets: restaurants.map((restaurant) => ({
+                label: restaurant.name,
+                data: restaurant.ordersCount,
+                borderWidth: 1
+            })),
           },
           options: {
             scales: {
@@ -43,11 +62,11 @@ if (chartEarns) {
         type: 'line',
         data: {
             labels: arrayData,
-            datasets: [{
-                label: 'Ristorante 1',
-                data: arrayPrice,
+            datasets: restaurants.map((restaurant) => ({
+                label: restaurant.name,
+                data: restaurant.totalPrice,
                 borderWidth: 1
-            },]
+            })),
         },
         options: {
             scales: {
@@ -59,18 +78,29 @@ if (chartEarns) {
     });
 }
 
+const totalOrdersCount = [];
+const restaurantNames = [];
+
+for (let i = 0; i < restaurants.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < restaurants[i].ordersCount.length; j++) {
+        sum += restaurants[i].ordersCount[j];
+    }
+    totalOrdersCount.push(sum);
+    restaurantNames.push(restaurants[i].name);
+}
+
 if (chartRestaurants) {
     new Chart(chartRestaurants, {
         type: 'doughnut',
         data: {
-            labels: ['Il mio ristorante', 'Il mio secondo ristorante', 'il mio terzo ristorante'],
+            labels: restaurantNames,
             datasets: [{
                 label: 'Numero ordini',
-                data: [15, 30, 4],
+                data: totalOrdersCount,
                 borderWidth: 1
             }]
         },
-
     });
 }
 

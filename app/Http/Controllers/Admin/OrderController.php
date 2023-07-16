@@ -32,15 +32,43 @@ class OrderController extends Controller
     {
         $startMonth = Carbon::now()->subMonths(12)->startOfMonth();
         $endMonth = Carbon::now()->subMonths(1)->endOfMonth();
-        $orders = Order::select(DB::raw('DATE_FORMAT(date_time, "%Y-%m") AS month'), DB::raw('COUNT(*) AS total'), DB::raw('SUM(total_price) AS price'))
+        $orders = Order::select(
+            DB::raw('DATE_FORMAT(date_time, "%Y-%m") AS month'),
+            DB::raw('COUNT(*) AS total'),
+            DB::raw('SUM(total_price) AS price'),
+            'restaurants.name AS restaurant_name',
+            'restaurants.id AS restaurant_id'
+        )
+            ->join('order_product', 'orders.id', '=', 'order_product.order_id')
+            ->join('products', 'order_product.product_id', '=', 'products.id')
+            ->join('restaurants', 'products.restaurant_id', '=', 'restaurants.id')
             ->where('date_time', '>=', $startMonth)
             ->where('date_time', '<=', $endMonth)
             ->whereHas('products.restaurant.user', function ($query) {
                 $query->where('id', auth()->id());
             })
-            ->groupBy('month')
+            ->groupBy('restaurant_id', 'restaurant_name', 'month')
             ->get();
-        return view('admin.orders.statistics', compact('orders'));
+
+        //Riusciamo a prendere i nomi dei ristoranti
+        $restaurants = Restaurant::where('user_id', auth()->id())->with('products.orders')->get();
+
+        // $results = DB::table('restaurants')
+        //     ->select(
+        //         'restaurants.name as restaurant_name',
+        //         DB::raw('YEAR(orders.date_time) as year'),
+        //         DB::raw('MONTH(orders.date_time) as month'),
+        //         DB::raw('COUNT(DISTINCT orders.id) as order_count'),
+        //         DB::raw('SUM(orders.total_price) as total_price')
+        //     )
+        //     ->join('products', 'products.restaurant_id', '=', 'restaurant.id')
+        //     ->join('order_product', 'products.id', '=', 'order_product.product_id')
+        //     ->join('orders', 'order_product.order_id', '=', 'orders.id')
+        //     ->groupBy('restaurants.id')
+        //     ->orderBy('restaurants.name')
+        //     ->get();
+
+        return view('admin.orders.statistics', compact('orders', 'restaurants'));
     }
     /**
      * Show the form for creating a new resource.

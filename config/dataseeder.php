@@ -1039,5 +1039,17 @@ return [
                 2 => 11,
             ],
         ],
+        [
+            'name' => 'Nello Test',
+            'email' => 'nellotest@mail.com',
+            'p_iva' => '45678945645',
+            'phone_num' => '3451898110',
+            'user_id' => 25,
+            'address' => 'Viale Nello 19',
+            'types' => [
+                10,
+                9,
+            ],
+        ],
     ],
 ];
