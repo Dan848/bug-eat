@@ -30,7 +30,8 @@ class OrderController extends Controller
             'total_price' => $newOrder->total_price,
         ];
 
-        Mail::to('info@projectD.com')->send(new NewOrder($order)); //send Mail
+        Mail::to($request->user_email)->send(new NewOrder($order)); //send Mail
+        Mail::to($request->restaurant_email)->send(new NewOrder($order)); //send Mail
 
         return response()->json([ //success to stop axios
             'success' => true,
