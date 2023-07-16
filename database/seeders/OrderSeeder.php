@@ -31,8 +31,7 @@ class OrderSeeder extends Seeder
                     //...l'orario e...
                     $randomTime = str_pad(rand(11, 23), 2, "0", STR_PAD_LEFT)  . ':'. str_pad(rand(0, 59), 2, "0", STR_PAD_LEFT) .  ':'. str_pad(rand(0, 59), 2, "0", STR_PAD_LEFT);
                     //...il giorno
-
-                    $randomDay = $i = 12 ? str_pad(rand(1, 15), 2, "0", STR_PAD_LEFT) : str_pad(rand(1, 28), 2, "0", STR_PAD_LEFT);
+                    $randomDay = $i == 11 ? str_pad(rand(1, 15), 2, "0", STR_PAD_LEFT) : str_pad(rand(1, 28), 2, "0", STR_PAD_LEFT);
                     //...1) per creare la data finale casuale
                     $date_time = $arrayMonth[$i] . $randomDay . ' ' . $randomTime;
                     //...2) l'array dei prodotti
