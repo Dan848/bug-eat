@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav class="d-flex justify-items-center justify-content-between">
-        <div class="d-flex justify-content-between flex-fill d-sm-none">
+        <div class="d-flex justify-content-between flex-fill d-md-none">
             <ul class="pagination">
                 {{-- Previous Page Link --}}
                 @if ($paginator->onFirstPage())
@@ -8,7 +8,7 @@
                         <span class="page-link">@lang('pagination.previous')</span>
                     </li>
                 @else
-                    <li class="page-item">
+                    <li class="page-item ">
                         <a class="page-link" href="{{ $paginator->previousPageUrl() }}"
                             rel="prev">@lang('pagination.previous')</a>
                     </li>
@@ -27,8 +27,8 @@
             </ul>
         </div>
 
-        <div class="d-none flex-sm-fill d-sm-flex align-items-sm-center justify-content-sm-between">
-            <div class="d-none d-md-flex">
+        <div class="d-none flex-md-fill d-md-flex align-items-md-center justify-content-md-between">
+            <div class="">
                 <p class="small text-muted">
                     {!! __('Showing') !!}
                     <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
@@ -41,7 +41,7 @@
             </div>
 
             <div>
-                <ul class="pagination pagination-sm ">
+                <ul class="pagination">
                     {{-- Previous Page Link --}}
                     @if ($paginator->onFirstPage())
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')">
