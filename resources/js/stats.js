@@ -6,9 +6,7 @@ const chartEarns = document.getElementById('myEarns');
 const arrayData = [];
 
 const orders = document.querySelectorAll('.ordini');
-for (let i = 0; i < 12; i++){
-    arrayData.push(orders[i].getAttribute('data-item-date'))
-}
+
 
 let restaurants = [];
 let index = 0;
@@ -34,6 +32,9 @@ orders.forEach((order) => {
 
 
 if (chartOrders) {
+    for (let i = 0; i < 12; i++){
+        arrayData.push(orders[i].getAttribute('data-item-date'))
+    }
     // Utilizza i dati ottenuti come valori per il grafico
     new Chart(chartOrders, {
         type: 'bar',
