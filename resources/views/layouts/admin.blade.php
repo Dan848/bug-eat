@@ -99,20 +99,12 @@
                                         Ristorante</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#collapseType" aria-expanded="false" aria-controls="collapseType">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
-                                Prodotti
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+
+                            <a class="nav-link text-white hover-scale" href="{{ route('admin.products.create') }}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-drumstick-bite"></i></i></div>
+                                Crea Prodotto
                             </a>
-                            <div class="collapse" id="collapseType" aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    {{-- <a class="nav-link" href="{{ route('admin.products.index', $restaurant) }}">Elenco
-                                        Prodotti</a> --}}
-                                    <a class="nav-link" href="{{ route('admin.products.create') }}">Crea Prodotto</a>
-                                </nav>
-                            </div>
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                 data-bs-target="#collapseItem" aria-expanded="false" aria-controls="collapseItem">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-store"></i></div>
