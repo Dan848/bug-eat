@@ -9,24 +9,41 @@ use App\Models\Order;
 use Braintree\Gateway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderConfirm;
 
 class OrderController extends Controller
 {
-    public function store(StoreOrderRequest $request){
-        $data = $request->all();
-        $newOrder = Order::create($data);
-        $newOrder->save();
+    public function store(StoreOrderRequest $request)
+{
+    $restaurant_email = $request->restaurant_email;
+    $user_email = $request->user_email;
+    $data = $request->all();
+    $newOrder = Order::create($data);
+    $newOrder->save();
 
-        $collection = collect($request->products)->mapWithKeys(function ($product) {
-            return [$product['id'] => ['quantity' => $product['quantity']]];
-        });
-        $newOrder->products()->sync($collection); //Funziona
+    $collection = collect($request->products)->mapWithKeys(function ($product) {
+        return [$product['id'] => ['quantity' => $product['quantity']]];
+    });
+    $newOrder->products()->sync($collection);
 
-        return response()->json([ //success to stop axios
-            'success' => true,
-            "data" => $data,
-        ]);
-    }
+    $new_lead = new Lead();
+    $new_lead->$order_num = $newOrder->id;
+    $new_lead->$products = $data->products;
+    $new_lead->$total = $newOrder->total_price;
+    $new_lead->save();
+
+    Mail::to($restaurantmail)->send(new OrderConfirm($new_lead));
+    Mail::to($useremail)->send(new OrderConfirm($new_lead));
+
+    // Return the response to stop axios (if necessary) before sending emails
+    return response()->json([
+        'success' => true,
+        "data" => $data,
+    ]);
+
+    // The following code will not execute as it comes after the return statement
+
+}
 
     public function generate(Request $request, Gateway $gateway){
         $token = $gateway->clientToken()->generate();
