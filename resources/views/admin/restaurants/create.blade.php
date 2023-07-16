@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <!-- UPLOAD/SELECT -->
-                    <div class="row justify-content-center g-5">
+                    <div class="row row-cols-3 row-cols-md-5 justify-content-center ">
                         <!-- Upload File -->
                         <div class="col-12 upload-col">
                             <div class="form-floating mb-3">
@@ -127,7 +127,7 @@
                         </div>
                         <!-- Select Image -->
                         @foreach ($images as $image)
-                            <div class="mt-5 d-none col-6 col-md-2 radio-col">
+                            <div class="mt-5 d-none col p-1 radio-col">
                                 <label class="image-radio mt-5">
                                     <input type="radio" value="{{ $image['rest_image'] }}" class="radio-btn"
                                         name="image" id="image-{{ $image['name'] }}">
@@ -140,9 +140,9 @@
                     <div class="text-center mb-3 mt-4">
                         <h6>Tipologia: *</h6>
                     </div>
-                    <div class="row container-fluid justify-content-start align-items-center flex-wrap">
+                    <div class="row row-cols-3 row-cols-md-5 justify-content-start align-items-center flex-wrap">
                         @foreach ($types as $type)
-                            <div class="form-check col-6 col-md-4 col-lg-3">
+                            <div class="form-check col">
                                 <input type="checkbox" id="types[]" name="types[]" value="{{ $type->id }}"
                                     class="form-check-input" {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
                                 <label for="" class="form-check-label">{{ $type->name }}</label>
