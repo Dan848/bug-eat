@@ -16,7 +16,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        $arrayMonth = ["2022-07-", "2022-08-", "2022-09-", "2022-10-", "2022-11-", "2022-12-", "2023-01-", "2023-02-", "2023-03-", "2023-04-", "2023-05-", "2023-06-"];
+        $arrayMonth = ["2022-08-", "2022-09-", "2022-10-", "2022-11-", "2022-12-", "2023-01-", "2023-02-", "2023-03-", "2023-04-", "2023-05-", "2023-06-", "2023-07-",];
         $restaurants = Restaurant::all();
         //Entra in Ristorante (Tonino, Daje Pizza, ecc.)
         foreach($restaurants as $restaurant){
@@ -31,7 +31,8 @@ class OrderSeeder extends Seeder
                     //...l'orario e...
                     $randomTime = str_pad(rand(11, 23), 2, "0", STR_PAD_LEFT)  . ':'. str_pad(rand(0, 59), 2, "0", STR_PAD_LEFT) .  ':'. str_pad(rand(0, 59), 2, "0", STR_PAD_LEFT);
                     //...il giorno
-                    $randomDay =  str_pad(rand(1, 28), 2, "0", STR_PAD_LEFT);
+
+                    $randomDay = $i = 12 ? str_pad(rand(1, 15), 2, "0", STR_PAD_LEFT) : str_pad(rand(1, 28), 2, "0", STR_PAD_LEFT);
                     //...1) per creare la data finale casuale
                     $date_time = $arrayMonth[$i] . $randomDay . ' ' . $randomTime;
                     //...2) l'array dei prodotti
