@@ -9,7 +9,8 @@
         <div class="d-flex justify-content-between align-items-center">
             <ol class="breadcrumb mt-2 mb-0">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('admin.orders', $order) }}">Ordini</a></li>
+                <li class="breadcrumb-item"><a
+                        href="{{ route('admin.orders.index', $order->products->first()->restaurant) }}">Ordini</a></li>
                 <li class="breadcrumb-item active">N° {{ $order->id }}</li>
             </ol>
         </div>

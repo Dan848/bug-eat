@@ -36,8 +36,9 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
     //Orders
 
     Route::get('/orders/statistics', [OrderController::class, 'getChartData'])->name('orders.statistics');
-    Route::get('/orders/{restaurant:slug}', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order:id}', [OrderController::class, 'show'])->name('orders.show');
+    Route::get('/orders/{restaurant:slug}', [OrderController::class, 'index'])->name('orders.index');
+
     //PRODUCTS ROUTE
 
 
