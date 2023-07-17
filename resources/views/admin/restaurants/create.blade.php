@@ -140,7 +140,8 @@
                     <div class="text-center mb-3 mt-4">
                         <h6>Tipologia: *</h6>
                     </div>
-                    <div class="row row-cols-3 row-cols-md-5 justify-content-start align-items-center flex-wrap">
+                    <div
+                        class="row row-cols-2 row-cols-sm-3 row-cols-md-5 justify-content-start align-items-center flex-wrap">
                         @foreach ($types as $type)
                             <div class="form-check col">
                                 <input type="checkbox" id="types[]" name="types[]" value="{{ $type->id }}"

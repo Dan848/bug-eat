@@ -2,12 +2,15 @@ import Chart from 'chart.js/auto';
 const chartOrders = document.getElementById('myOrders');
 const chartRestaurants = document.getElementById('myRestaurants');
 const chartEarns = document.getElementById('myEarns');
+const orders = document.querySelectorAll('.orders');
+console.log(orders);
+// Get data from php
+// Get Data to Pie Chart
+const totalOrdersCount = [];
+const restaurantNames = [];
 
-const arrayData = [];
 
-const orders = document.querySelectorAll('.ordini');
-
-
+//Array of Object
 let restaurants = [];
 let index = 0;
 orders.forEach((order) => {
@@ -16,30 +19,38 @@ orders.forEach((order) => {
         let newRestaurant = {
             name: '',
             ordersCount: [],
-            totalPrice: []
+            totalPrice: [],
+            arrayMonth:[]
         }
         newRestaurant.name = rest_name;
         newRestaurant.ordersCount.push(parseInt(order.getAttribute('data-item-count'), 10));
         newRestaurant.totalPrice.push(parseFloat(order.getAttribute('data-item-price')));
+        newRestaurant.arrayMonth.push(order.getAttribute('data-item-date'));
         restaurants.push(newRestaurant);
         index++;
     } else {
         restaurants[index-1].ordersCount.push(parseInt(order.getAttribute('data-item-count'), 10));
         restaurants[index-1].totalPrice.push(parseFloat(order.getAttribute('data-item-price')));
+        restaurants[index-1].arrayMonth.push(order.getAttribute('data-item-date'));
     }
 });
 
+// For to Pie Chart total orders in a Year
+for (let i = 0; i < restaurants.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < restaurants[i].ordersCount.length; j++) {
+        sum += restaurants[i].ordersCount[j];
+    }
+    totalOrdersCount.push(sum);
+    restaurantNames.push(restaurants[i].name);
+}
 
 
 if (chartOrders) {
-    for (let i = 0; i < 12; i++){
-        arrayData.push(orders[i].getAttribute('data-item-date'))
-    }
-    // Utilizza i dati ottenuti come valori per il grafico
     new Chart(chartOrders, {
         type: 'bar',
         data: {
-            labels: arrayData,
+            labels: restaurants[0].arrayMonth,
             datasets: restaurants.map((restaurant) => ({
                 label: restaurant.name,
                 data: restaurant.ordersCount,
@@ -61,7 +72,7 @@ if (chartEarns) {
     new Chart(chartEarns, {
         type: 'line',
         data: {
-            labels: arrayData,
+            labels: restaurants[0].arrayMonth,
             datasets: restaurants.map((restaurant) => ({
                 label: restaurant.name,
                 data: restaurant.totalPrice,
@@ -76,18 +87,6 @@ if (chartEarns) {
             }
         }
     });
-}
-
-const totalOrdersCount = [];
-const restaurantNames = [];
-
-for (let i = 0; i < restaurants.length; i++) {
-    let sum = 0;
-    for (let j = 0; j < restaurants[i].ordersCount.length; j++) {
-        sum += restaurants[i].ordersCount[j];
-    }
-    totalOrdersCount.push(sum);
-    restaurantNames.push(restaurants[i].name);
 }
 
 if (chartRestaurants) {
