@@ -115,9 +115,9 @@
                             <label class="form-check-label" for="imageSwitch">Carica / Seleziona</label>
                         </div>
                     </div>
-                    <div class="row justify-content-center g-5">
+                    <div class="row row-cols-3 row-cols-md-5 justify-content-center ">
                         <!-- Upload File -->
-                        <div class="col-12 upload-col">
+                        <div class="col-12 upload-col w-100">
                             <div class="form-floating mb-3">
                                 <input id="image" type="file"
                                     class="form-control @error('image') is-invalid @enderror" name="image"
@@ -125,12 +125,12 @@
                             </div>
                         </div>
                         <!-- Select Image -->
-                        @foreach ($types as $type)
-                            <div class="mt-5 d-none col-6 col-md-2 radio-col">
+                        @foreach ($images as $image)
+                            <div class="mt-5 d-none col p-1 radio-col">
                                 <label class="image-radio mt-5">
-                                    <input type="radio" value="{{ $type->image }}" class="radio-btn" name="image"
-                                        id="image-{{ $type->id }}" autocomplete="off">
-                                    <img src="{{ $type->image }}" alt="{{ $type->name }}">
+                                    <input type="radio" value="{{ $image['rest_image'] }}" class="radio-btn"
+                                        name="image" id="image-{{ $image['name'] }}">
+                                    <img src="{{ $image['thumbnail'] }}" alt="{{ $image['name'] }}">
                                 </label>
                             </div>
                         @endforeach
@@ -139,16 +139,17 @@
                     <div class="text-center mb-3 mt-4">
                         Categorie: *
                     </div>
-                    <div class="d-flex container-fluid justify-content-start align-items-center flex-wrap">
+                    <div
+                        class="row row-cols-2 row-cols-sm-3 row-cols-md-5 justify-content-start align-items-center flex-wrap">
                         @foreach ($types as $type)
                             <div class="form-check col-6 col-md-4 col-lg-3">
                                 @if ($errors->any())
                                     <input type="checkbox" name="types[]" value="{{ $type->id }}"
-                                        class="form-check-input"
+                                        class="form-check-input type-check"
                                         {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
                                 @else
                                     <input type="checkbox" name="types[]" value="{{ $type->id }}"
-                                        class="form-check-input"
+                                        class="form-check-input type-check"
                                         {{ $restaurant->types->contains($type) ? 'checked' : '' }}>
                                 @endif
                                 <label for="" class="form-check-label">{{ $type->name }}</label>

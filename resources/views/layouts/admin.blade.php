@@ -101,41 +101,19 @@
                             </div>
 
                             <a class="nav-link text-white hover-scale" href="{{ route('admin.products.create') }}">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-drumstick-bite"></i></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
                                 Crea Prodotto
                             </a>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#collapseItem" aria-expanded="false" aria-controls="collapseItem">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-store"></i></div>
-                                Tipi
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseItem" aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.types.index') }}">Elenco Tipi</a>
-                                </nav>
-                            </div>
-
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOrder" aria-expanded="false" aria-controls="collapseOrder">
+                            <a class="nav-link text-white hover-scale" href="{{ route('admin.orders.statistics') }}">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-file-lines"></i></div>
+                                Statistiche
                                 Ordini
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseOrder" aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.orders') }}">Elenco Ordini</a>
-                                </nav>
-                            </div>
-                            <div class="collapse" id="collapseOrder" aria-labelledby="headingOne"
-                                data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('admin.orders.statistics') }}">Statistiche</a>
-                                </nav>
-                            </div>
+                            <a class="nav-link text-white hover-scale" href="{{ route('admin.types.index') }}">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-store"></i></div>
+                                Tipi di Ristoranti
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer bg-secondary">

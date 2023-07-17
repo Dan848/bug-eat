@@ -93,8 +93,9 @@ class RestaurantController extends Controller
             {
                 abort(code:403);
             }
+        $images = config("dataseeder.types");
         $types = Type::all();
-        return view('admin.restaurants.edit', compact('restaurant', 'types'));
+        return view('admin.restaurants.edit', compact('restaurant', 'types', 'images'));
     }
 
     /**

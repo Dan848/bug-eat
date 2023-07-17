@@ -18,14 +18,27 @@ class OrderController extends Controller
      *
      *
      */
-    public function index()
+    public function index($slug)
     {
-        $orders = Order::with('products.restaurant.user')
-            ->whereHas('products.restaurant.user', function ($query) {
-                $query->where('id', auth()->id());
-            })->paginate(15);
 
-        return view('admin.orders.index', compact('orders'));
+        $restaurant = Restaurant::where('slug', $slug)->firstOrFail();
+        if ($restaurant->user_id != Auth::id()) {
+            abort(code: 403);
+        }
+        $restaurants = Restaurant::where("user_id", Auth::id())->get();
+
+        $orders = Order::with(['products' => function ($query) use ($restaurant) {
+            $query->where('restaurant_id', $restaurant->id)->withTrashed();
+        }, 'products.restaurant.user'])
+            ->whereHas('products.restaurant', function ($subquery) use ($restaurant) {
+                $subquery->where('id', $restaurant->id);
+            })
+            ->whereHas('products.restaurant.user', function ($subquery) {
+                $subquery->where('id', auth()->id());
+            })
+            ->paginate(15);
+
+        return view('admin.orders.index', compact('orders', 'restaurants', 'restaurant'));
     }
 
     public function getChartData()

@@ -66,7 +66,8 @@
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input id="password" type="password"
                                                             class="form-control @error('password') is-invalid @enderror"
-                                                            name="password" required autocomplete="new-password">
+                                                            name="password" required autocomplete="new-password"
+                                                            minlength="8">
                                                         <label for="inputPassword">{{ __('Password') }} *</label>
 
                                                         @error('password')
@@ -79,7 +80,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                         <input id="password-confirm" type="password" class="form-control"
-                                                            name="password_confirmation" required
+                                                            name="password_confirmation" required minlength="8"
                                                             autocomplete="new-password">
                                                         <label for="inputPasswordConfirm">{{ __('Confirm Password') }}
                                                             *</label>

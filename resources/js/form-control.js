@@ -65,7 +65,7 @@ function checkNum() {
 
 //Check Types Checkbox
 function checkTypes() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('.type-check');
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
             return true;

@@ -3,7 +3,7 @@ const chartOrders = document.getElementById('myOrders');
 const chartRestaurants = document.getElementById('myRestaurants');
 const chartEarns = document.getElementById('myEarns');
 const orders = document.querySelectorAll('.orders');
-console.log(orders);
+
 // Get data from php
 // Get Data to Pie Chart
 const totalOrdersCount = [];
@@ -35,6 +35,40 @@ orders.forEach((order) => {
     }
 });
 
+let maxDateLength = 0;
+let labelDate = [];
+
+for (let i = 0; i < restaurants.length; i++) {
+  if (restaurants[i].arrayMonth.length > maxDateLength) {
+    maxDateLength = restaurants[i].arrayMonth.length;
+    labelDate = restaurants[i].arrayMonth;
+  }
+}
+
+/////////////////////////////////////////
+for (let i = 0; i < restaurants.length; i++) {
+    let missingDates = [];
+
+    // Trova le date mancanti nell'array "dates"
+    for (let j = 0; j < labelDate.length; j++) {
+      if (!restaurants[i].arrayMonth.includes(labelDate[j])) {
+        missingDates.push(labelDate[j]);
+      }
+    }
+
+    // Ordina le date mancanti in ordine crescente
+    missingDates.sort();
+
+    // Inserisci i valori zero corrispondenti nelle posizioni corrette degli array "ordersCount" e "totalPrice"
+    for (let k = 0; k < missingDates.length; k++) {
+      const index = labelDate.indexOf(missingDates[k]);
+      restaurants[i].arrayMonth.splice(index, 0, missingDates[k]);
+      restaurants[i].ordersCount.splice(index, 0, 0);
+      restaurants[i].totalPrice.splice(index, 0, 0);
+    }
+}
+console.log(restaurants);
+
 // For to Pie Chart total orders in a Year
 for (let i = 0; i < restaurants.length; i++) {
     let sum = 0;
@@ -50,7 +84,7 @@ if (chartOrders) {
     new Chart(chartOrders, {
         type: 'bar',
         data: {
-            labels: restaurants[0].arrayMonth,
+            labels: labelDate,
             datasets: restaurants.map((restaurant) => ({
                 label: restaurant.name,
                 data: restaurant.ordersCount,
@@ -72,7 +106,7 @@ if (chartEarns) {
     new Chart(chartEarns, {
         type: 'line',
         data: {
-            labels: restaurants[0].arrayMonth,
+            labels: labelDate,
             datasets: restaurants.map((restaurant) => ({
                 label: restaurant.name,
                 data: restaurant.totalPrice,
@@ -91,7 +125,7 @@ if (chartEarns) {
 
 if (chartRestaurants) {
     new Chart(chartRestaurants, {
-        type: 'doughnut',
+        type: 'pie',
         data: {
             labels: restaurantNames,
             datasets: [{

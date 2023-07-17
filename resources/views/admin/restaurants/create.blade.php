@@ -145,7 +145,8 @@
                         @foreach ($types as $type)
                             <div class="form-check col">
                                 <input type="checkbox" id="types[]" name="types[]" value="{{ $type->id }}"
-                                    class="form-check-input" {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
+                                    class="form-check-input type-check"
+                                    {{ in_array($type->id, old('type', [])) ? 'checked' : '' }}>
                                 <label for="" class="form-check-label">{{ $type->name }}</label>
                             </div>
                         @endforeach

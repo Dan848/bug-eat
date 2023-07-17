@@ -26,14 +26,17 @@ Route::get('/', function () {
 
 Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(function () {
     Route::get("/", [DashboardController::class, "index"])->name("dashboard");
+    //Restaurants
     Route::resource('restaurants', RestaurantController::class)->parameters(["restaurants" => "restaurant:slug"]);
+    //Types
     Route::resource('types', TypeController::class)->parameters(["types" => "type:slug"]);
-    //Index
+    //Products
     Route::get('/menu/{restaurant:slug}', [ProductController::class, "index"])->name("menu.index");
     Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
+    //Orders
 
-    Route::get('/orders', [OrderController::class, 'index'])->name('orders');
     Route::get('/orders/statistics', [OrderController::class, 'getChartData'])->name('orders.statistics');
+    Route::get('/orders/{restaurant:slug}', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order:id}', [OrderController::class, 'show'])->name('orders.show');
     //PRODUCTS ROUTE
 

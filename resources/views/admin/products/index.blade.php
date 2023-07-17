@@ -31,7 +31,7 @@
                 <div class="d-flex">
                     <div class="d-flex align-items-center text-nowrap me-3">
                         <i class="fa-solid fa-drumstick-bite me-2"></i></i>Prodotti di:
-                        {{ strCutter($restaurant->name, 30) }}
+                        {{ strCutter($products['0']->restaurant->name, 30) }}
                     </div>
                 </div>
                 <a class="btn btn-primary fw-medium d-flex align-items-center" href="{{ route('admin.products.create') }}">
