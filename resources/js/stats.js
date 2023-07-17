@@ -3,6 +3,20 @@ const chartOrders = document.getElementById('myOrders');
 const chartRestaurants = document.getElementById('myRestaurants');
 const chartEarns = document.getElementById('myEarns');
 const orders = document.querySelectorAll('.orders');
+Chart.defaults.color = '#ededed';
+function convertMonths(arrayDate) {
+    const months = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+    const arrayMonths = [];
+
+    for (let i = 0; i < arrayDate.length; i++) {
+      const [year, month] = arrayDate[i].split('-');
+      const numMonth = parseInt(month, 10);
+      const nameMonth = months[numMonth - 1];
+      arrayMonths.push(nameMonth);
+    }
+
+    return arrayMonths;
+  }
 
 // Get data from php
 // Get Data to Pie Chart
@@ -79,6 +93,7 @@ for (let i = 0; i < restaurants.length; i++) {
     restaurantNames.push(restaurants[i].name);
 }
 
+labelDate = convertMonths(labelDate);
 
 if (chartOrders) {
     new Chart(chartOrders, {
