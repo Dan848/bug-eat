@@ -449,8 +449,8 @@ return [
             'user_id' => 3,
             'address' => 'Corso Vittorio Emanuele 45',
             'types' => [
-                8,
                 13,
+                8,
             ],
         ],
         [
@@ -473,8 +473,8 @@ return [
             'user_id' => 5,
             'address' => 'Via Verdi 9',
             'types' => [
-                8,
                 3,
+                8,
             ],
         ],
         [
@@ -509,8 +509,8 @@ return [
             'user_id' => 8,
             'address' => 'Via Montello 78',
             'types' => [
-                8,
                 5,
+                8,
             ],
         ],
         [
@@ -521,8 +521,8 @@ return [
             'user_id' => 9,
             'address' => 'Via San Francesco 3',
             'types' => [
+                12,
                 8,
-                13,
             ],
         ],
         [
@@ -605,8 +605,8 @@ return [
             'user_id' => 16,
             'address' => 'Via Veneto 66',
             'types' => [
-                8,
                 12,
+                8,
             ],
         ],
         [
@@ -629,8 +629,8 @@ return [
             'user_id' => 18,
             'address' => 'Piazza del Popolo 10',
             'types' => [
+                4,
                 13,
-                12,
             ],
         ],
         [
@@ -1064,6 +1064,30 @@ return [
             'types' => [
                 6,
                 14,
+            ],
+        ],
+        [
+            'name' => 'Classe92',
+            'email' => 'classe92@mail.com',
+            'p_iva' => '92929292929',
+            'phone_num' => '3492929229',
+            'user_id' => 1,
+            'address' => 'Via Roma 92',
+            'types' => [
+                3,
+                8,
+            ],
+        ],
+        [
+            'name' => 'Bijum',
+            'email' => 'bijum@mail.com',
+            'p_iva' => '18981395474',
+            'phone_num' => '34848951',
+            'user_id' => 1,
+            'address' => 'Viale Tevere 92',
+            'types' => [
+                11,
+                7,
             ],
         ],
     ],
