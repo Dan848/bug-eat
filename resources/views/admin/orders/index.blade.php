@@ -20,7 +20,7 @@
                     <ul class="dropdown-menu">
                         @foreach ($restaurants as $restaurant)
                             <li><a class="dropdown-item"
-                                    href="{{ route('admin.orders.index', $restaurant) }}">{{ strCutter($restaurant->name, 30) }}</a>
+                                    href="{{ route('admin.sales.index', $restaurant) }}">{{ strCutter($restaurant->name, 30) }}</a>
                             </li>
                         @endforeach
                     </ul>

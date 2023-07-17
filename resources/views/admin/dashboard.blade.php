@@ -43,7 +43,7 @@
                                             {{-- Orders --}}
                                             <td class="d-none d-sm-table-cell">
                                                 <a class="btn fw-medium btn-light"
-                                                    href="{{ route('admin.orders.index', $restaurant) }}">
+                                                    href="{{ route('admin.sales.index', $restaurant) }}">
                                                     Ordini <i class="ms-1 fa-solid fa-file-lines"></i>
                                                 </a>
                                             </td>

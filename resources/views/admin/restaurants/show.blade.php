@@ -14,7 +14,7 @@
                 <li class="breadcrumb-item active">{{ strCutter($restaurant->name, 40) }}</li>
             </ol>
             <div>
-                <a class="btn fw-medium btn-light" href="{{ route('admin.orders.index', $restaurant) }}">
+                <a class="btn fw-medium btn-light" href="{{ route('admin.sales.index', $restaurant) }}">
                     Ordini <i class="ms-1 fa-solid fa-file-lines"></i>
                 </a>
                 <a class="btn fw-medium btn-secondary" href="{{ route('admin.menu.index', $restaurant) }}">

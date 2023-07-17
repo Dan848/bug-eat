@@ -34,10 +34,11 @@ Route::middleware(["auth", "verified"])->name("admin.")->prefix("admin")->group(
     Route::get('/menu/{restaurant:slug}', [ProductController::class, "index"])->name("menu.index");
     Route::resource('products', ProductController::class)->parameters(["products" => "product:slug"]);
     //Orders
-
+    Route::get('/sales/{restaurant:slug}', [OrderController::class, 'index'])->name('sales.index');
     Route::get('/orders/statistics', [OrderController::class, 'getChartData'])->name('orders.statistics');
+
     Route::get('/orders/{order:id}', [OrderController::class, 'show'])->name('orders.show');
-    Route::get('/orders/{restaurant:slug}', [OrderController::class, 'index'])->name('orders.index');
+
 
     //PRODUCTS ROUTE
 

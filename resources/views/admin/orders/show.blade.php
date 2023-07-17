@@ -10,7 +10,7 @@
             <ol class="breadcrumb mt-2 mb-0">
                 <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item"><a
-                        href="{{ route('admin.orders.index', $order->products->first()->restaurant) }}">Ordini</a></li>
+                        href="{{ route('admin.sales.index', $order->products->first()->restaurant) }}">Ordini</a></li>
                 <li class="breadcrumb-item active">N° {{ $order->id }}</li>
             </ol>
         </div>
